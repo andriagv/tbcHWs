@@ -110,7 +110,6 @@ for product in 0..<products.count {
 var count: Double = 0
 for product in 0..<products.count {
     if products[product].ProductStatus == .available {
-        
         count += products[product].price * products[product].mass
     }
 }
