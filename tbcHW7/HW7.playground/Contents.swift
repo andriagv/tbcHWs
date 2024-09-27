@@ -92,6 +92,19 @@ var sortedArray = products.sorted{ $0.price < $1.price }
 
 // MARK: - task7
 /* რენდომ (1)კატეგორიის ყველა პროდუქტის სტატუსი შეცვალეთ ხელმისაწვდომიდან გაყიდულზე.*/
+
+
+let randomCategory = Bool.random() ? FoodGroup.fruit : FoodGroup.vegetable
+
+
+for product in 0..<products.count {
+    if products[product].category == randomCategory {
+        if products[product].ProductStatus == .available {
+            products[product].ProductStatus = .sale
+        }
+    }
+}
+
 // MARK: - task8
 /* გაიგეთ ყველა იმ პროდუქტის ერთეულის ჯამური ღირებულება რომელიც ხელმისაწვდომია.*/
 
