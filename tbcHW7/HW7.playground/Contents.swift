@@ -107,7 +107,14 @@ for product in 0..<products.count {
 
 // MARK: - task8
 /* გაიგეთ ყველა იმ პროდუქტის ერთეულის ჯამური ღირებულება რომელიც ხელმისაწვდომია.*/
-
+var count: Double = 0
+for product in 0..<products.count {
+    if products[product].ProductStatus == .available {
+        count += products[product].price
+    }
+}
+    
+print(count)
 
 
 // MARK: - BOUNS
