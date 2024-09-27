@@ -87,6 +87,9 @@ var nameArray = products.map { $0.name }
 
 // MARK: - task6
 /*თავდაპირველი მასივის ელემენტები დაალაგეთ ფასის ზრდადობის მიხედვით. */
+
+var sortedArray = products.sorted{ $0.price < $1.price }
+
 // MARK: - task7
 /* რენდომ (1)კატეგორიის ყველა პროდუქტის სტატუსი შეცვალეთ ხელმისაწვდომიდან გაყიდულზე.*/
 // MARK: - task8
