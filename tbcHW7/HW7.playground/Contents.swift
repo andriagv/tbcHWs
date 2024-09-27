@@ -55,18 +55,30 @@ struct Product {
     }
 }
 
-var apple = Product(name: "Apple", category: .fruit, price: 4, discount: 25.0, mass: 0.2, calories100g: 50.0, ProductStatus: .available)
-
-apple.info
-apple.discountPrice()
-apple.category
-apple.ProductStatus
-apple.countCalories()
-apple.buy()
-apple.buy()
-
 // MARK: - task4
 /*შექმენით მასივი პროდუქტებით სადაც მინიმუმ 15 პროდუქტი გექნებათ.*/
+
+
+//პომიდორი ხილია
+
+var products: [Product] = [
+    Product(name: "ვაშლი", category: .fruit, price: 2.0, discount: 10, mass: 150, calories100g: 52, ProductStatus: .available),
+    Product(name: "ფორთოხალი", category: .fruit, price: 3.0, discount: 5, mass: 200, calories100g: 47, ProductStatus: .available),
+    Product(name: "ბანანი", category: .fruit, price: 4.0, discount: 0, mass: 120, calories100g: 89, ProductStatus: .sale),
+    Product(name: "სტაფილო", category: .vegetable, price: 1.0, discount: 20, mass: 100, calories100g: 41, ProductStatus: .available),
+    Product(name: "კიტრი", category: .vegetable, price: 1.5, discount: 15, mass: 250, calories100g: 16, ProductStatus: .available),
+    Product(name: "პომიდორი", category: .fruit, price: 2.0, discount: 5, mass: 180, calories100g: 18, ProductStatus: .sale),
+    Product(name: "ყურძენი", category: .fruit, price: 4.5, discount: 10, mass: 300, calories100g: 67, ProductStatus: .available),
+    Product(name: "საზამთრო", category: .fruit, price: 7.0, discount: 0, mass: 5000, calories100g: 30, ProductStatus: .available),
+    Product(name: "წიწაკა", category: .vegetable, price: 3.2, discount: 25, mass: 350, calories100g: 17, ProductStatus: .available),
+    Product(name: "კარტოფილი", category: .vegetable, price: 2.1, discount: 10, mass: 220, calories100g: 77, ProductStatus: .available),
+    Product(name: "მარწყვი", category: .fruit, price: 5.0, discount: 15, mass: 200, calories100g: 32, ProductStatus: .available),
+    Product(name: "ატამი", category: .fruit, price: 3.5, discount: 20, mass: 150, calories100g: 39, ProductStatus: .sale),
+    Product(name: "ბროკოლი", category: .vegetable, price: 4.0, discount: 0, mass: 300, calories100g: 34, ProductStatus: .available),
+    Product(name: "ქინძი", category: .vegetable, price: 3.8, discount: 5, mass: 180, calories100g: 20, ProductStatus: .available),
+    Product(name: "მანგო", category: .fruit, price: 6.0, discount: 10, mass: 250, calories100g: 60, ProductStatus: .sale)
+]
+
 
 // MARK: - task5
 /*მიღებული მასივისგან შექმენით ახალი მასივი სადაც მხოლოდ პროდუქტის name იქნება ჩამოწერილი */
