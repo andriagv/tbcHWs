@@ -14,6 +14,12 @@ enum FoodGroup {
 
 // MARK: - task2
 /*შექმენით enum ProductStatus (გაყიდულია, ხელმისაწვდლომია ქეისებით) */
+
+enum ProductStatus: String {
+    case sold = "გაყიდულია"
+    case available = "ხელმისაწვდლომია"
+}
+
 // MARK: - task3
 /* შექმენით სტრუქტურა Product რომელიც შეიცავს
  ცვლადებს: name, category(FoodGroup), price, info(რომელიც ფასის და სახელის ინფოს მოგვაწვდის), ფასდაკლება, მასა, კალორია100გრამზე, ProductStatus ცვლადი
