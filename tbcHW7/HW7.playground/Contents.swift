@@ -3,6 +3,15 @@ import Foundation
 
 // MARK: - task1
 /*შექმენით FoodGroup Enum, რომელიც მოიცავს: fruit, vegetable, protein, dairy, grain ჩამონათვალს. */
+
+enum FoodGroup {
+    case fruit
+    case vegetable
+    case protein
+    case dairy
+    case grain
+}
+
 // MARK: - task2
 /*შექმენით enum ProductStatus (გაყიდულია, ხელმისაწვდლომია ქეისებით) */
 // MARK: - task3
