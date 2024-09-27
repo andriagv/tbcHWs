@@ -110,7 +110,8 @@ for product in 0..<products.count {
 var count: Double = 0
 for product in 0..<products.count {
     if products[product].ProductStatus == .available {
-        count += products[product].price
+        
+        count += products[product].price * products[product].mass
     }
 }
     
@@ -119,5 +120,25 @@ print(count)
 
 // MARK: - BOUNS
 // MARK: - task9
+
+
+//FIXME: -key არი გასასწორებელი
 /* შექმენით ფუნქცია რომელიც მიიღებს პროდუქტების მასივს და დააბრუნებს dictionary-ს სადაც key იქნება კატეგორიის სახელწოდება და value იქნება იმ პროდუქტების მასივი რომლებიც შეესაბამება მოცემულ კატეგორიას.*/
+
+var dictionary: [FoodGroup: [String] ] = [:]
+
+func productDictionary(prosucts: [Product]) -> [FoodGroup: [String] ] {
+    
+    for product in prosucts {
+        if dictionary[product.category] != nil {
+            dictionary[product.category]?.append(product.name)
+        }
+        else {
+            dictionary[product.category] = [product.name]
+        }
+    }
+    return dictionary
+}
+
+
 
