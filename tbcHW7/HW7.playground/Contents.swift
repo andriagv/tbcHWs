@@ -4,21 +4,18 @@ import Foundation
 // MARK: - task1
 /*შექმენით FoodGroup Enum, რომელიც მოიცავს: fruit, vegetable, protein, dairy, grain ჩამონათვალს. */
 
-//enum FoodGroup {
-//    case fruit
-//    case vegetable
-//    case protein
-//    case dairy
-//    case grain
-//}
+enum FoodGroup {
+    case fruit
+    case vegetable
+}
 
 // MARK: - task2
 /*შექმენით enum ProductStatus (გაყიდულია, ხელმისაწვდლომია ქეისებით) */
 
-//enum ProductStatus: String {
-//    case sold = "გაყიდულია"
-//    case available = "ხელმისაწვდლომია"
-//}
+enum ProductStatus {
+    case sale
+    case available
+}
 
 // MARK: - task3
 /* შექმენით სტრუქტურა Product რომელიც შეიცავს
@@ -29,15 +26,6 @@ import Foundation
 // ჩავთვალოთ რო ცალცალი პროდუქტი გვაქ ყიდვის შემთხვაში რო არარ იყიოს
 // ჩავთვალოთ რო წონა ითვლება კილოგრამებში
 
-enum FoodGroup {
-    case fruit
-    case vegetable
-}
-enum Status {
-    case sale
-    case available
-}
- 
 struct Product {
     var name: String
     var category: FoodGroup
@@ -48,7 +36,7 @@ struct Product {
     var discount: Double
     var mass: Double
     var calories100g: Double
-    var ProductStatus: Status
+    var ProductStatus: ProductStatus
     
     func discountPrice() -> Double{
          price - price * discount / 100
@@ -77,10 +65,9 @@ apple.countCalories()
 apple.buy()
 apple.buy()
 
-
-
 // MARK: - task4
 /*შექმენით მასივი პროდუქტებით სადაც მინიმუმ 15 პროდუქტი გექნებათ.*/
+
 // MARK: - task5
 /*მიღებული მასივისგან შექმენით ახალი მასივი სადაც მხოლოდ პროდუქტის name იქნება ჩამოწერილი */
 // MARK: - task6
