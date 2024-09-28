@@ -2,13 +2,41 @@ import Foundation
 
 
 // MARK: - task1
-/*შექმენით Genre ტიპის enum, რომელიც შეიცავს ფილმის ჟანრებს, მაგალითად: action, drama, comedy, thriller და სხვა. შექმენით ძირითადი კლასი Film, რომელსაც ექნება შემდეგი თვისებები:
+/*შექმენით Genre ტიპის enum, რომელიც შეიცავს ფილმის ჟანრებს, მაგალითად: action, drama, comedy, thriller და სხვა. შექმენით ძირითადი კლასი Film, რომელსაც ექნება თვისებები:
  title - ფილმის სახელი,
  releaseYear— გამოშვების წელი,
  genre — ფილმის ჟანრი,
 
  revenue - შემოსავალი
- მეთოდი description(), რომელიც დაბეჭდავს ინფორმაციას ფილმზე.*/
+ მეთოდი description(), რომელიც დაბეჭდავს ინფორმაციას ფილმზე. */
+
+
+enum Genre {
+    case action
+    case drama
+    case comedy
+    case thriller
+    case fantasy
+    
+}
+
+final class Film {
+    var title: String
+    var releaseYear: UInt
+    var genre: Genre
+    var revenue: Double
+    
+    init(title: String, releaseYear: UInt, genre: Genre, revenue: Double) {
+        self.title = title
+        self.releaseYear = releaseYear
+        self.genre = genre
+        self.revenue = revenue
+    }
+    
+    func description() {
+        print("ფილმის სახელია \(title), რომელიც ეკუთვნის \(genre)ის ჟანრს, იგი გამოვიდა \(releaseYear) წელს და გამოიმუშავა \(revenue) ლარი ")
+    }
+}
 
 
 // MARK: - task2
