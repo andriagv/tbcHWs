@@ -17,7 +17,6 @@ enum Genre {
     case comedy
     case thriller
     case fantasy
-    
 }
 
 final class Film {
@@ -47,6 +46,19 @@ final class Film {
 
  მეთოდი getAge რომელიც დაიანგარიშებს და დააბრუნებს ამ პიროვნების ასაკს მოცემულ წელს. */
 
+final class Person {
+    var name: String
+    var birthYear: UInt
+    
+    init(name: String, birthYear: UInt) {
+        self.name = name
+        self.birthYear = birthYear
+    }
+    
+    func getAge() -> Int {
+        Calendar.current.component(.year, from: Date()) - Int(birthYear)
+    }
+}
 
 
 // MARK: - task3
