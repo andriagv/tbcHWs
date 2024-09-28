@@ -35,7 +35,16 @@ final class Film {
     func description() {
         print("ფილმის სახელია \(title), რომელიც ეკუთვნის \(genre)ის ჟანრს, იგი გამოვიდა \(releaseYear) წელს და გამოიმუშავა \(revenue) ლარი ")
     }
+    
+    static func removeFilm(from films: [Film], title: String) -> [Film] {
+        return films.reduce(into: [Film]()) { result, film in
+            if film.title != title {
+                result.append(film)
+            }
+        }
+    }
 }
+
 
 
 // MARK: - task2
@@ -63,6 +72,21 @@ final class Person {
 
 // MARK: - task3
 /* Film კლასში შექმენით ფუნქცია removeFilm რომელიც პარამეტრად მიიღებს ფილმების მასივს და დასახელებას, ფუნქციამ უნდა წაშალოს მასივში თუ მოიძებნა მსგავსი დასახელების ფილმი.*/
+
+//ჩემი საყვარელი ფილმები (თავისუფალ დროს საყურებელი)
+var filmsArray: [Film] = [
+    Film(title: "მწვანე წიგნი", releaseYear: 2018, genre: .drama, revenue: 36900483),
+    Film(title: "ყველაფერი ხვალ იწყება", releaseYear: 2016, genre: .comedy, revenue: 2005632),
+    Film(title: "ველურ გარემოში", releaseYear: 2007, genre: .action, revenue: 56255142),
+    Film(title: "შუა ღამე პარიზში", releaseYear: 2011, genre: .comedy, revenue: 151119219),
+    Film(title: "იქ სადაც კიბორჩხალები მღერიან", releaseYear: 2022, genre: .drama, revenue: 1),
+    Film(title: "ღმერტის ქალაქი", releaseYear: 2002, genre: .thriller, revenue: 30641770),
+    Film(title: "საწყისი კოდი", releaseYear: 2011, genre: .thriller, revenue: 147332697),
+    Film(title: "მეფუტკრე", releaseYear: 2024, genre: .thriller, revenue: 1),
+]
+
+
+Film.removeFilm(from: filmsArray, title: "მეფუტკრე")
 
 
 
