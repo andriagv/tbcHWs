@@ -35,17 +35,17 @@ final class Film {
     func description() {
         print("ფილმის სახელია \(title), რომელიც ეკუთვნის \(genre)ის ჟანრს, იგი გამოვიდა \(releaseYear) წელს და გამოიმუშავა \(revenue) ლარი ")
     }
-//    static func removeFilm(from films: [Film], title: String) -> [Film] {
-//        return films.reduce(into: [Film]()) { result, film in
-//            if film.title != title {
-//                result.append(film)
-//            }
-//        }
-//    }
+    //    static func removeFilm(from films: [Film], title: String) -> [Film] {
+    //        return films.reduce(into: [Film]()) { result, film in
+    //            if film.title != title {
+    //                result.append(film)
+    //            }
+    //        }
+    //    }
     
-// MARK: - task3
-/* Film კლასში შექმენით ფუნქცია removeFilm რომელიც პარამეტრად მიიღებს ფილმების მასივს და დასახელებას, ფუნქციამ უნდა წაშალოს მასივში თუ მოიძებნა მსგავსი დასახელების ფილმი.*/
-
+    // MARK: - task3
+    /* Film კლასში შექმენით ფუნქცია removeFilm რომელიც პარამეტრად მიიღებს ფილმების მასივს და დასახელებას, ფუნქციამ უნდა წაშალოს მასივში თუ მოიძებნა მსგავსი დასახელების ფილმი.*/
+    
     static func removeFilm(films: inout [Film], title: String) {
         films.removeAll { $0.title == title }
     }
@@ -101,10 +101,10 @@ class Person {
 
 final class Actor: Person {
     var actedFilms: [Film] = []
-        
-        func addFilm(_ film: Film) {
-            actedFilms.append(film)
-        }
+    
+    func addFilm(_ film: Film) {
+        actedFilms.append(film)
+    }
 }
 
 
@@ -150,7 +150,7 @@ print(filmsArray.map{ $0.title })
 // MARK: - task8
 /* reduce ფუნქციის გამოყენებით დაიანგარიშეთ ამ ყველა ფილმების გამოშვების საშუალო წელი.*/
 
-(filmsArray.reduce(0){ $0 + $1.releaseYear }) / UInt(filmsArray.count)
+filmsArray.reduce(0){ $0 + $1.releaseYear } / UInt(filmsArray.count)
 
 
 
@@ -165,31 +165,66 @@ print(filmsArray.map{ $0.title })
  და allies ამავე ტიპის მოკავშირეების ჩამონათვალი,
  დაამატეთ ინიციალიზაციის და დეინიციალიზაციის მეთოდები.*/
 
-//enum PowerLevel {
-//    case level
-//    case allies
-//}
-//
-//class SuperHero {
-//    var name: String
-//    var superPower:
-//    var level: PowerLevel
-//    var allies: PowerLevel
-//    
-//    init(name: String, superPower: <#type#>, level: PowerLevel, allies: PowerLevel) {
-//        self.name = name
-//        self.superPower = superPower
-//        self.level = level
-//        self.allies = allies
-//    }
-//    
-//}
+
+//იდკ, ამოცანის პირობა ვერ გავიგე რას მთხოვს და რეალურ ცხოვრებაში როგორ შეიზლება დაიწეროს მასე დავწერ
+
+enum PowerLevel {
+    case strong
+    case average
+}
+
+class SuperHero {
+    var name: String
+    var superPower: String
+    var level: PowerLevel
+    var allies: [SuperHero]?
+    
+    init(name: String, superPower: String, level: PowerLevel, allies: [SuperHero]) {
+        self.name = name
+        self.superPower = superPower
+        self.level = level
+        self.allies = allies
+    }
+    init(name: String, superPower: String, level: PowerLevel) {
+        self.name = name
+        self.superPower = superPower
+        self.level = level
+    }
+    deinit{
+        print("clrar ram")
+    }
+}
+
 
 // MARK: - task10
 /* შექმენით Enum PowerLevel, რომელიც მოიცავს შემდეგ დონეებს: weak, average, strong, super და დაამატეთ აღწერის მეთოდი რომელიც დააბრუნებს level-ს ტექსტური ფორმით.*/
 
+enum PowerLevell {
+    case weak
+    case average
+    case strong
+    case `super`
+    
+    func description() -> String {
+        switch self {
+        case .weak:
+            return "weak"
+        case .average:
+            return "average"
+        case .strong:
+            return "strong"
+        case .super:
+            return "super"
+        }
+    }
+}
+
+print(PowerLevell.average.description())
+
+
 // MARK: - task11
 /* uniquePowers ყველა გმირისათვის და დააბრუნებს  უნიკალური ძალების სიას */
 
-// MARK: - task12
-/* მეთოდი addAlly დაამატებს მოკავშირეების სიას, შექმენით 2 SuperHero ობიექტი და გახადეთ ისინი მოკავშირეები.*/
+func uniquePowers(heroes: [SuperHero]) -> [String] {
+    Array(Set(heroes.map { $0.superPower }))
+}
