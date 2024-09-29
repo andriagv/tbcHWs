@@ -36,13 +36,17 @@ final class Film {
         print("ფილმის სახელია \(title), რომელიც ეკუთვნის \(genre)ის ჟანრს, იგი გამოვიდა \(releaseYear) წელს და გამოიმუშავა \(revenue) ლარი ")
     }
     
-    static func removeFilm(from films: [Film], title: String) -> [Film] {
-        return films.reduce(into: [Film]()) { result, film in
-            if film.title != title {
-                result.append(film)
-            }
+//    static func removeFilm(from films: [Film], title: String) -> [Film] {
+//        return films.reduce(into: [Film]()) { result, film in
+//            if film.title != title {
+//                result.append(film)
+//            }
+//        }
+//    }
+    static func removeFilm(films: inout [Film], title: String) {
+            films.removeAll { $0.title == title }
         }
-    }
+    
 }
 
 
@@ -55,7 +59,7 @@ final class Film {
 
  მეთოდი getAge რომელიც დაიანგარიშებს და დააბრუნებს ამ პიროვნების ასაკს მოცემულ წელს. */
 
-final class Person {
+class Person {
     var name: String
     var birthYear: UInt
     
@@ -86,7 +90,6 @@ var filmsArray: [Film] = [
 ]
 
 
-Film.removeFilm(from: filmsArray, title: "მეფუტკრე")
 
 
 
@@ -94,6 +97,15 @@ Film.removeFilm(from: filmsArray, title: "მეფუტკრე")
 /*შექმენით კლასი Actor, რომელიც არიას Person კლასის მემკვიდრე კლასი
  
  Actor-ს უნდა ჰქონდეს actedFilms  მსახიობის მიერ ნათამაშები ფილმების სია და მეთოდი რომელიც მსახიობის მიერ ნათამაშებ ფილმებს დაამატებს სიაში.*/
+
+
+class Actor: Person {
+    var actedFilms: [Film] = []
+        
+        func addFilm(_ film: Film) {
+            actedFilms.append(film)
+        }
+}
 
 
 
