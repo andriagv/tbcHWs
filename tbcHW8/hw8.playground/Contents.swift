@@ -140,7 +140,7 @@ let actorFilms: [String: [Film]] = [
     "me": [film1, film2],
     "shen": [film3]
 ]
-var filmsArray: [Film] = [ film1, film2, film3, film4, film5]
+var filmsArray: [Film] = [film1, film2, film3, film4, film5]
 // MARK: - task7
 /* გამოიყენეთ map, იმისთვის რომ დაბეჭდოთ ყველა ფილმის სათაურების სია ამავე ფილმების მასივიდან */
 
@@ -150,7 +150,7 @@ print(filmsArray.map{ $0.title })
 // MARK: - task8
 /* reduce ფუნქციის გამოყენებით დაიანგარიშეთ ამ ყველა ფილმების გამოშვების საშუალო წელი.*/
 
-(filmsArray.reduce(0){$0 + $1.releaseYear}) / UInt(filmsArray.count)
+(filmsArray.reduce(0){ $0 + $1.releaseYear }) / UInt(filmsArray.count)
 
 
 
@@ -164,6 +164,27 @@ print(filmsArray.map{ $0.title })
  level - PowerLevel enum-ის ტიპის,
  და allies ამავე ტიპის მოკავშირეების ჩამონათვალი,
  დაამატეთ ინიციალიზაციის და დეინიციალიზაციის მეთოდები.*/
+
+//enum PowerLevel {
+//    case level
+//    case allies
+//}
+//
+//class SuperHero {
+//    var name: String
+//    var superPower:
+//    var level: PowerLevel
+//    var allies: PowerLevel
+//    
+//    init(name: String, superPower: <#type#>, level: PowerLevel, allies: PowerLevel) {
+//        self.name = name
+//        self.superPower = superPower
+//        self.level = level
+//        self.allies = allies
+//    }
+//    
+//}
+
 // MARK: - task10
 /* შექმენით Enum PowerLevel, რომელიც მოიცავს შემდეგ დონეებს: weak, average, strong, super და დაამატეთ აღწერის მეთოდი რომელიც დააბრუნებს level-ს ტექსტური ფორმით.*/
 
