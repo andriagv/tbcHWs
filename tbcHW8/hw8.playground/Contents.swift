@@ -109,7 +109,7 @@ class Person {
 /*შექმენით კლასი Actor, რომელიც არიას Person კლასის მემკვიდრე კლასი
  
  Actor-ს უნდა ჰქონდეს actedFilms  მსახიობის მიერ ნათამაშები ფილმების სია და მეთოდი რომელიც მსახიობის მიერ ნათამაშებ ფილმებს დაამატებს სიაში.*/
-<<<<<<< HEAD
+
 
 
 final class Actor: Person {
@@ -278,6 +278,3 @@ func uniquePowers(heroes: [SuperHero]) -> [String] {
 
 
 
-
-
->>>>>>> ad3de42073d9d51591ada9434290545bf56f60b2
