@@ -47,10 +47,10 @@ enum ReadingLevel {
     case advanced
 }
 protocol Readable {
-    var title: String { get }
-    var author: String { get }
-    var publicationYear: Int { get }
-    var readingLevel: ReadingLevel { get }
+    var title: String { get set }
+    var author: String { get set }
+    var publicationYear: Int { get set }
+    var readingLevel: ReadingLevel { get set }
     
     func read()
 }
@@ -281,6 +281,16 @@ member2.borrowedBooks.forEach { $0.description() }
 
  - "oldestBook() -> Readable?" - აბრუნებს ყველაზე ძველ წიგნს */
 
+extension Array where Element: Readable {
+    func findByAuthor(_ author: String) -> [Readable] {
+        self.filter{ $0.author == author }
+    }
+    func oldestBook() -> Readable? {
+        self.min { $0.publicationYear < $1.publicationYear }
+    }
+    
+}
+
 // MARK: - task10
 /* შექმენით "EBook" სტრუქტურა, რომელიც დააკმაყოფილებს "Readable" პროტოკოლს და დაამატეთ "fileSize: Double" ფროფერთი.
  
@@ -288,8 +298,44 @@ member2.borrowedBooks.forEach { $0.description() }
 
    შექმენით მინიმუმ 2 "EBook" ობიექტი და გამოიძახეთ "printDetails()" მეთოდი თითოეულისთვის. */
 
+struct EBook: Readable {
+    var fileSize: Double
+    var title: String
+    var author: String
+    var publicationYear: Int
+    var readingLevel: ReadingLevel
+    
+    init(title: String, author: String) {
+        self.fileSize = 1
+        self.title = title
+        self.author = author
+        self.publicationYear = 2024
+        self.readingLevel = .beginner
+    }
+    
+}
+extension EBook {
+    func printDetails() {
+        print("title: \(title), author: \(author), publicationYear: \(publicationYear)")
+    }
+}
+
+let EBook1 = EBook(title: "გენიოსი სახელად ანდრია", author: "self")
+let EBook2 = EBook(title: "ჰაუ თუ მეიქ მისთეიქ", author: "self.lead")
+EBook1.printDetails()
+EBook2.printDetails()
+
 // MARK: - task11
 /* შექმენით ჯენერიკ ფუნქცია "findMostFrequent<T: Hashable>(_ array: [T]) -> T?", რომელიც იპოვის და დააბრუნებს მასივში ყველაზე ხშირად გამეორებულ ელემენტს. თუ რამდენიმე ელემენტი თანაბრად ხშირად მეორდება, დააბრუნეთ პირველი მათგანი. */
+
+//FIXME: - idk
+//func findMostFrequent<T: Hashable>(_ array: [T]) -> T? {
+//    array.reduce(into: [Int: [T]]()){result, element in
+//        result[element,]
+//    }
+//}
+
+
 
 // MARK: - task12
 /* შექმენით მასივი, რომელიც შეიცავს ყველა წიგნის ავტორს მე-7 დავალებაში შექმნილი ბიბლიოთეკიდან.
@@ -297,5 +343,8 @@ member2.borrowedBooks.forEach { $0.description() }
  გამოიძახეთ "findMostFrequent" ფუნქცია ამ მასივზე, რათა იპოვოთ ყველაზე პოპულარული ავტორი.
  დაბეჭდეთ შედეგი: "ბიბლიოთეკაში ყველაზე პოპულარული ავტორი არის: [ავტორის სახელი]". */
 
+let autorsArray = library.books.map{ $0.author }
+
+//findMostFrequent(autorsArray)
 
 
