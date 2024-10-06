@@ -1,24 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Module Division-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ModuleDivision" customModule="moduloDivision" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ARa-s9-v15">
+                                <rect key="frame" x="294" y="261" width="51" height="31"/>
+                                <connections>
+                                    <action selector="changeTitleLabel:" destination="BYZ-38-t0r" eventType="valueChanged" id="zOV-2Z-WK0"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ნაშთიანი გაყოფა" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SsG-tm-KPQ">
+                                <rect key="frame" x="50" y="261" width="142" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="3Pz-t1-pBh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="შეიყვანეთ მნიშვნელობა" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t3H-b6-pQ1">
+                                <rect key="frame" x="50" y="351" width="293" height="34"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="შეიყვანეთ მნიშვნელობა" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V8n-ny-c1E">
+                                <rect key="frame" x="50" y="409" width="293" height="34"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="პასუხი:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEy-zP-0Gi">
+                                <rect key="frame" x="157" y="604" width="186" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Rb-Hx-2Fk">
+                                <rect key="frame" x="50" y="523" width="293" height="43"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="გამოთვლა"/>
+                                <connections>
+                                    <action selector="counterButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kLv-4P-fkT"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="swich background :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1K-FI-yoq">
+                                <rect key="frame" x="157" y="74" width="148" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hxE-ud-QNT">
+                                <rect key="frame" x="313" y="69" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="backgroundColorSwicher:" destination="BYZ-38-t0r" eventType="valueChanged" id="yD5-k5-fRm"/>
+                                </connections>
+                            </switch>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="t3H-b6-pQ1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="3Pl-i4-WxE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="t3H-b6-pQ1" secondAttribute="trailing" constant="50" id="3cy-yF-TNr"/>
+                            <constraint firstItem="SsG-tm-KPQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="9Jv-6X-aFa"/>
+                            <constraint firstItem="7Rb-Hx-2Fk" firstAttribute="top" secondItem="V8n-ny-c1E" secondAttribute="bottom" constant="80" id="A6R-JF-yrx"/>
+                            <constraint firstItem="V8n-ny-c1E" firstAttribute="top" secondItem="t3H-b6-pQ1" secondAttribute="bottom" constant="24" id="C26-pt-0nl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IEy-zP-0Gi" secondAttribute="trailing" constant="143" id="FoQ-Hi-qxY"/>
+                            <constraint firstItem="V8n-ny-c1E" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="GMy-5i-Ca1"/>
+                            <constraint firstItem="V8n-ny-c1E" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="MIp-bm-FLg"/>
+                            <constraint firstItem="SsG-tm-KPQ" firstAttribute="top" secondItem="ARa-s9-v15" secondAttribute="top" id="O3M-WL-aej"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IEy-zP-0Gi" secondAttribute="trailing" constant="50" id="O6T-UD-9Lj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="V8n-ny-c1E" secondAttribute="trailing" constant="50" id="OC5-Go-1cJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ARa-s9-v15" secondAttribute="trailing" constant="50" id="P55-t3-cOE"/>
+                            <constraint firstItem="7Rb-Hx-2Fk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="WSb-ji-y0C"/>
+                            <constraint firstItem="IEy-zP-0Gi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="ZSe-E4-hBN"/>
+                            <constraint firstItem="ARa-s9-v15" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="SsG-tm-KPQ" secondAttribute="trailing" constant="8" symbolic="YES" id="fXs-6o-1vK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7Rb-Hx-2Fk" secondAttribute="trailing" constant="50" id="qOn-IL-hS6"/>
+                            <constraint firstItem="SsG-tm-KPQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="202" id="vb6-bC-A7w"/>
+                            <constraint firstItem="IEy-zP-0Gi" firstAttribute="top" secondItem="7Rb-Hx-2Fk" secondAttribute="bottom" constant="46.666666666666629" id="y1r-Uz-0g7"/>
+                            <constraint firstItem="IEy-zP-0Gi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="157" id="ys3-aa-X3N"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="BackgroundColor" destination="B1K-FI-yoq" id="9wI-vq-scs"/>
+                        <outlet property="resultLabel" destination="IEy-zP-0Gi" id="kSm-fs-Iji"/>
+                        <outlet property="switchCounter" destination="ARa-s9-v15" id="OQx-dU-zvJ"/>
+                        <outlet property="textField1" destination="t3H-b6-pQ1" id="g5m-aw-GbC"/>
+                        <outlet property="textField2" destination="V8n-ny-c1E" id="bzS-yA-AXt"/>
+                        <outlet property="titleLabel" destination="SsG-tm-KPQ" id="ahD-oi-22n"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="135.1145038167939" y="2.8169014084507045"/>
         </scene>
     </scenes>
 </document>
