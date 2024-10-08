@@ -18,7 +18,12 @@ final class ModuleDivision: UIViewController {
         resultLabel?.textColor = .white
     }
     
-    @IBAction func backgroundColorSwicher(_ sender: UISwitch) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+
+    
+    @IBAction private func backgroundColorSwicher(_ sender: UISwitch) {
         if sender.isOn {
             titleLabel?.textColor = .white
             resultLabel?.textColor = .white
@@ -32,7 +37,7 @@ final class ModuleDivision: UIViewController {
         }
     }
     
-    @IBAction func changeTitleLabel(_ sender: UISwitch) {
+    @IBAction private func changeTitleLabel(_ sender: UISwitch) {
         if sender.isOn {
             titleLabel?.text = "ნაშთიანი გაყოფა"
         } else {
@@ -40,7 +45,7 @@ final class ModuleDivision: UIViewController {
         }
     }
     
-    @IBAction func counterButton(_ sender: UIButton) {
+    @IBAction private func counterButton(_ sender: UIButton) {
         if isZero() {
             resultLabel?.text = "ნულზე გაყოფა არ შეიძლება"
         } else {
