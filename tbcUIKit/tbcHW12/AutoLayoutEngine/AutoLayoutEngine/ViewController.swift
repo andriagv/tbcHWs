@@ -9,10 +9,8 @@ import UIKit
 
 final class ViewController: UIViewController {
     
-    @IBOutlet weak var xButton: UIButton!
-    
+    @IBOutlet weak var xButton: UIButton?
     @IBOutlet weak var walpaper: UIView?
-    
     @IBOutlet weak var moonOrSun: UIButton?
     @IBOutlet weak var procButton: UIButton?
     @IBOutlet weak var divButton: UIButton?
@@ -41,16 +39,16 @@ final class ViewController: UIViewController {
         divButton?.tintColor = .tertiaryLabel
         procButton?.tintColor = .tertiaryLabel
         xButton?.tintColor = .tertiaryLabel
-        
         mainusButon?.tintColor = .tertiaryLabel
         walpaper?.backgroundColor = UIColor(hex: "#F5F5F7")
+        moonOrSun?.setImage(UIImage(named: "moonSvg"), for: .normal)
     }
     
     
     @IBAction private func darkMode(_ sender: UIButton) {
         if x == 5 {
-            view.backgroundColor = UIColor(named: "#161616")
-            walpaper?.backgroundColor = UIColor(named: "#FFFFFF")
+            view.backgroundColor = UIColor(named: "#2C2C2C")
+            walpaper?.backgroundColor = UIColor(named: "#393939")
             a?.tintColor = .white
             a0?.tintColor = .white
             a1?.tintColor = .white
@@ -64,6 +62,7 @@ final class ViewController: UIViewController {
             a9?.tintColor = .white
             label1?.textColor = .white
             label2?.textColor = .white
+            moonOrSun?.setImage(UIImage(named: "sunlcon"), for: .normal)
             x = 4
             
         } else {
@@ -82,6 +81,7 @@ final class ViewController: UIViewController {
             a9?.tintColor = .black
             label1?.textColor = .black
             label2?.textColor = .black
+            moonOrSun?.setImage(UIImage(named: "moonSvg"), for: .normal)
             x = 5
         }
     }
