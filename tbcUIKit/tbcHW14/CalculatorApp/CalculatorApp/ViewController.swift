@@ -1,7 +1,5 @@
 import UIKit
 
-
-
 final class ViewController: UIViewController {
     
     private var x = 5
