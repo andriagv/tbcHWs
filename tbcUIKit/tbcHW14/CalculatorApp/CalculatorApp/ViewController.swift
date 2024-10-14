@@ -349,6 +349,12 @@ final class ViewController: UIViewController {
             }
         }
         button.addAction(action, for: .touchUpInside)
+
+        buttonSun.layer.borderColor = UIColor.lightGray.cgColor
+        buttonSun.layer.borderWidth = 2.0
+        buttonSun.backgroundColor = .clear
+        buttonSun.clipsToBounds = true
+        
     }
     
     private func darkMode() {
@@ -359,23 +365,26 @@ final class ViewController: UIViewController {
         numberConting.textColor = .white
         numberCounted.textColor = .white
         buttonSun.setImage(UIImage(named: "sunIcon"), for: .normal)
+        //buttonSun.backgroundColor = UIColor(hex: "#27292E")
         buttonsBackgroundColorInDarkmode()
     }
     
     private func lightMode() {
         view.backgroundColor = .white
+        buttonEcuals.tintColor = .white
         keyboardStakView.tintColor = .black
         keyboardView.backgroundColor = .systemGray4
         numberConting.textColor = .systemGray
         numberCounted.textColor = .black
         buttonSun.setImage(UIImage(named: "moonSvg"), for: .normal)
+
         buttonsBackgroundColorInLightmode()
     }
     
     private func buttonsBackgroundColorInDarkmode() {
         buttonDivide.backgroundColor = .systemGray
         buttonPercent.backgroundColor = .systemGray
-        buttonSun.backgroundColor = .systemGray
+        //buttonSun.backgroundColor = .systemGray
         buttonDecrement.backgroundColor = .systemGray
         buttonIncrement.backgroundColor = .systemGray
         buttonMultiple.backgroundColor = .systemGray
@@ -384,7 +393,7 @@ final class ViewController: UIViewController {
     private func buttonsBackgroundColorInLightmode() {
         buttonDivide.backgroundColor = .systemGray3
         buttonPercent.backgroundColor = .systemGray3
-        buttonSun.backgroundColor = .systemGray3
+        //buttonSun.backgroundColor = .systemGray3
         buttonDecrement.backgroundColor = .systemGray3
         buttonIncrement.backgroundColor = .systemGray3
         buttonMultiple.backgroundColor = .systemGray3
