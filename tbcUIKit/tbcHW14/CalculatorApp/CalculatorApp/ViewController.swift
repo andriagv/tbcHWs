@@ -4,15 +4,17 @@ import UIKit
 
 final class ViewController: UIViewController {
     
+    private var x = 5
+    
     private let resultView = UIView()
     private let keyboardView = UIView()
-
+    
     private var numberConting = UILabel()
     private var numberCounted = UILabel()
-  
+    
     private var resultStakView = UIStackView()
     private var keyboardStakView = UIStackView()
-  
+    
     private var firstVerticalStakViewInKeyboardViewe = UIStackView()
     private var secondVerticalStakViewInKeyboardViewe = UIStackView()
     private var thirdVerticalStakViewInKeyboardViewe = UIStackView()
@@ -20,153 +22,133 @@ final class ViewController: UIViewController {
     
     private let gradient = CAGradientLayer()
     
-    var button0: UIButton = {
+    lazy var button0: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("0", for: .normal)
-        button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 25.0)
         return button
     }()
-    var button1: UIButton = {
+    lazy var button1: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("1", for: .normal)
-        button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 25.0)
         return button
     }()
-    var button2: UIButton = {
+    lazy var button2: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("2", for: .normal)
-        button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 25.0)
         return button
     }()
-    var button3: UIButton = {
+    lazy var button3: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("3", for: .normal)
-        button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 25.0)
         return button
     }()
-
-    var button4: UIButton = {
+    lazy var button4: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("4", for: .normal)
-        button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 25.0)
         return button
     }()
-    var button5: UIButton = {
+    lazy var button5: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("5", for: .normal)
-        button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 25.0)
         return button
     }()
-    var button6: UIButton = {
+    lazy var button6: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("6", for: .normal)
-        button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 25.0)
         return button
     }()
-    var button7: UIButton = {
+    lazy var button7: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("7", for: .normal)
-        button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 25.0)
         return button
     }()
-    var button8: UIButton = {
+    lazy var button8: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("8", for: .normal)
-        button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 25.0)
         return button
     }()
-    var button9: UIButton = {
+    lazy var button9: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("9", for: .normal)
-        button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 25.0)
         return button
     }()
-    var buttonAC: UIButton = {
-        let button = UIButton(type: .system) 
+    lazy var buttonAC: UIButton = {
+        let button = UIButton(type: .system)
         button.setTitle("AC", for: .normal)
-        button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 25.0)
         return button
     }()
-
-    var buttonSun: UIButton = {
+    lazy var buttonSun: UIButton = {
         let button = UIButton(type: .system)
         let image = UIImage(named: "moonSvg")
         button.setImage(image, for: .normal)
         button.layer.cornerRadius = 35
         button.clipsToBounds = true
-        button.backgroundColor = .systemGray3
         return button
     }()
-    var buttonPercent: UIButton = {
+    lazy var buttonPercent: UIButton = {
         let button = UIButton(type: .system)
         let image = UIImage(named: "percentLight")
         button.setImage(image, for: .normal)
         button.layer.cornerRadius = 35
         button.clipsToBounds = true
-        button.backgroundColor = .systemGray3
         return button
     }()
-    var buttonDivide: UIButton = {
+    lazy var buttonDivide: UIButton = {
         let button = UIButton(type: .system)
         let image = UIImage(named: "divideLight")
         button.setImage(image, for: .normal)
         button.layer.cornerRadius = 35
         button.clipsToBounds = true
-        button.backgroundColor = .systemGray3
         return button
     }()
-    var buttonMultiple: UIButton = {
+    lazy var buttonMultiple: UIButton = {
         let button = UIButton(type: .system)
         let image = UIImage(named: "multipleLight")
         button.setImage(image, for: .normal)
         button.layer.cornerRadius = 35
         button.clipsToBounds = true
-        button.backgroundColor = .systemGray3
         return button
     }()
-    var buttonIncrement: UIButton = {
+    lazy var buttonIncrement: UIButton = {
         let button = UIButton(type: .system)
         let image = UIImage(named: "incrementLight")
         button.setImage(image, for: .normal)
         button.layer.cornerRadius = 35
         button.clipsToBounds = true
-        button.backgroundColor = .systemGray3
         return button
     }()
-    var buttonDecrement: UIButton = {
+    lazy var buttonDecrement: UIButton = {
         let button = UIButton(type: .system)
         let image = UIImage(named: "decrementLight")
         button.setImage(image, for: .normal)
         button.layer.cornerRadius = 35
         button.clipsToBounds = true
-        button.backgroundColor = .systemGray3
         return button
     }()
-    var buttonEcuals: UIButton = {
+    lazy var buttonEcuals: UIButton = {
         let button = UIButton(type: .system)
+        button.setTitle("7", for: .normal)
         let image = UIImage(named: "equals")
         button.setImage(image, for: .normal)
         button.layer.cornerRadius = 35
         button.clipsToBounds = true
-        button.backgroundColor = .systemGray3
+        button.tintColor = .systemGray3
         return button
     }()
-    
-    var buttonPoint: UIButton = {
+    lazy var buttonPoint: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle(".", for: .normal)
-        button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 25.0)
         return button
     }()
@@ -174,19 +156,16 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        view.backgroundColor = .white
+        lightMode()
+        
     }
-    
-
     
     private func setupUI() {
-        setupView()
-    }
-    
-    private func setupView() {
         setupResultView()
         setupKeyboardView()
         setipVerticalViewsInHorizontalViev()
+        activeUiButton()
+        applyGradientToButtonEcuals()
     }
     
     //ზედა ნაწილი
@@ -222,9 +201,7 @@ final class ViewController: UIViewController {
     //ზედა რეზალტ ვიუში ჩამატებული სტეკ ვიუს დამაგრება
     private func setResultStackViewConstraints() {
         resultStakView.translatesAutoresizingMaskIntoConstraints = false
-        resultStakView.topAnchor.constraint(equalTo: resultView.topAnchor, constant: 150).isActive = true
-        //resultStakView.bottomAnchor.constraint(equalTo: resultView.bottomAnchor, constant: -30).isActive = true
-        //resultStakView.leftAnchor.constraint(equalTo: resultView.leftAnchor, constant: 30).isActive = true
+        resultStakView.topAnchor.constraint(equalTo: resultView.topAnchor, constant: 100).isActive = true
         resultStakView.rightAnchor.constraint(equalTo: resultView.rightAnchor, constant: -30).isActive = true
     }
     // საანგარიშო რიცხვები სტეიკ ვიუში ჩამატება და ვიზუალიზაცია
@@ -260,23 +237,22 @@ final class ViewController: UIViewController {
         keyboardView.translatesAutoresizingMaskIntoConstraints = false
         keyboardView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         keyboardView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        keyboardView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true  //
+        keyboardView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         keyboardView.topAnchor.constraint(equalTo: resultView.bottomAnchor).isActive = true
         keyboardView.heightAnchor.constraint(equalTo: resultView.heightAnchor, multiplier: 1.5).isActive = true
         configureKeyboardStakView()
     }
     //ქვედა  ვიუში ჩამატებული სტეკ ვიუსი parametrebi
     private func configureKeyboardStakView() {
-        keyboardStakView.translatesAutoresizingMaskIntoConstraints = false //
+        keyboardStakView.translatesAutoresizingMaskIntoConstraints = false
         keyboardView.addSubview(keyboardStakView)
         keyboardStakView.axis = .horizontal
         keyboardStakView.alignment = .fill
         keyboardStakView.distribution = .fillEqually
         keyboardStakView.spacing = 15
-        //keyboardStakView.backgroundColor = .gray
-        //keyboardStakView.tintColor = .black
-        
+        keyboardStakView.tintColor = .black
         keyboardStakViewConstraints()
+        buttonsBackgroundColorInLightmode()
     }
     //ქვედა  ვიუში ჩამატებული სტეკ ვიუს დამაგრება
     private func keyboardStakViewConstraints() {
@@ -285,9 +261,8 @@ final class ViewController: UIViewController {
         keyboardStakView.bottomAnchor.constraint(equalTo: keyboardView.bottomAnchor, constant: -20).isActive = true
         keyboardStakView.leftAnchor.constraint(equalTo: keyboardView.leftAnchor, constant: 35).isActive = true
         keyboardStakView.rightAnchor.constraint(equalTo: keyboardView.rightAnchor, constant: -35).isActive = true
-        
     }
-    
+    //gamoaxeba
     private func setipVerticalViewsInHorizontalViev() {
         configureAllVerticalStakView()
         setupFirstVerticalStakViewInKeyboardViewe()
@@ -295,7 +270,7 @@ final class ViewController: UIViewController {
         setupThirdVerticalStakViewInKeyboardView()
         setupFourthVerticalStakViewInKeyboardViewe()
     }
-    
+    //konfiguacia
     private func configureAllVerticalStakView() {
         firstVerticalStakViewInKeyboardViewe.translatesAutoresizingMaskIntoConstraints = false
         secondVerticalStakViewInKeyboardViewe.translatesAutoresizingMaskIntoConstraints = false
@@ -326,11 +301,6 @@ final class ViewController: UIViewController {
         secondVerticalStakViewInKeyboardViewe.spacing = 15
         thirdVerticalStakViewInKeyboardViewe.spacing = 15
         fourthVerticalStakViewInKeyboardViewe.spacing = 15
-        
-
-//        secondVerticalStakViewInKeyboardViewe.backgroundColor = .red
-//        thirdVerticalStakViewInKeyboardViewe.backgroundColor = .orange
-//        fourthVerticalStakViewInKeyboardViewe.backgroundColor = .yellow
     }
     
     private func setupFirstVerticalStakViewInKeyboardViewe() {
@@ -365,20 +335,80 @@ final class ViewController: UIViewController {
         equalButtonConstraints()
     }
     
-
+    //bolo vertikalshi ganlageba gilakebis
     private func equalButtonConstraints() {
         let buttonHeightConstraint = buttonMultiple.heightAnchor.constraint(equalTo: buttonEcuals.heightAnchor, multiplier: 0.4)
-           buttonHeightConstraint.isActive = true
-           
-           buttonDecrement.heightAnchor.constraint(equalTo: buttonMultiple.heightAnchor).isActive = true
-           buttonIncrement.heightAnchor.constraint(equalTo: buttonMultiple.heightAnchor).isActive = true
-           
-           buttonEcuals.heightAnchor.constraint(equalTo: fourthVerticalStakViewInKeyboardViewe.heightAnchor, multiplier: 0.4).isActive = true
-       }
+        buttonHeightConstraint.isActive = true
+        
+        buttonDecrement.heightAnchor.constraint(equalTo: buttonMultiple.heightAnchor).isActive = true
+        buttonIncrement.heightAnchor.constraint(equalTo: buttonMultiple.heightAnchor).isActive = true
+        
+        buttonEcuals.heightAnchor.constraint(equalTo: fourthVerticalStakViewInKeyboardViewe.heightAnchor, multiplier: 0.4).isActive = true
+    }
     
+    private func activeUiButton() {
+        let button = buttonSun
+        let action = UIAction(title: "oka") { (action) in
+            if self.x == 5 {
+                self.darkMode()
+                self.x = 4
+            } else {
+                self.lightMode()
+                self.x = 5
+            }
+        }
+        button.addAction(action, for: .touchUpInside)
+    }
     
+    private func darkMode() {
+        view.backgroundColor = .black
+        keyboardStakView.tintColor = .white
+        keyboardView.backgroundColor = UIColor(hex: "#27292E")
+        view.backgroundColor = UIColor(hex: "#1E1E1E")
+        numberConting.textColor = .white
+        numberCounted.textColor = .white
+        buttonsBackgroundColorInDarkmode()
+    }
+    private func lightMode() {
+        view.backgroundColor = .white
+        keyboardStakView.tintColor = .black
+        keyboardView.backgroundColor = .systemGray4
+        numberConting.textColor = .black
+        numberCounted.textColor = .black
+        buttonsBackgroundColorInLightmode()
+    }
+    private func buttonsBackgroundColorInDarkmode() {
+        buttonEcuals.backgroundColor = .systemGray
+        buttonDivide.backgroundColor = .systemGray
+        buttonPercent.backgroundColor = .systemGray
+        buttonSun.backgroundColor = .systemGray
+        buttonDecrement.backgroundColor = .systemGray
+        buttonIncrement.backgroundColor = .systemGray
+        buttonMultiple.backgroundColor = .systemGray
+    }
     
+    private func buttonsBackgroundColorInLightmode() {
+        buttonEcuals.backgroundColor = .systemGray3
+        buttonDivide.backgroundColor = .systemGray3
+        buttonPercent.backgroundColor = .systemGray3
+        buttonSun.backgroundColor = .systemGray3
+        buttonDecrement.backgroundColor = .systemGray3
+        buttonIncrement.backgroundColor = .systemGray3
+        buttonMultiple.backgroundColor = .systemGray3
+    }
     
+    private func applyGradientToButtonEcuals() {
+        let gradient = CAGradientLayer()
+        gradient.colors = [UIColor(hex: "#ED0E98")!.cgColor, UIColor(hex: "#FE5A2D")!.cgColor]
+        gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
+        gradient.frame = buttonEcuals.bounds
+        gradient.cornerRadius = buttonEcuals.layer.cornerRadius
+
+        //buttonEcuals.layer.insertSublayer(gradient, at: 0)
+        buttonEcuals.backgroundColor = .red
+        
+    }
 }
 
 extension UIColor {
@@ -393,7 +423,7 @@ extension UIColor {
         let blue = CGFloat(rgb & 0x0000FF) / 255.0
         self.init(red: red, green: green, blue: blue, alpha: 1.0)
     }
- 
+    
 }
 
 
