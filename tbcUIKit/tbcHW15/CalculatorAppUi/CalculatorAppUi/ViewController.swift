@@ -129,14 +129,14 @@ final class ViewController: UIViewController {
     private func configureResulrTitleLable() {
         numberConting.translatesAutoresizingMaskIntoConstraints = false
         resultStakView.addArrangedSubview(numberConting)
-        numberConting.text = "120 x 3 + 608 + 1080"
+        //numberConting.text = "120 x 3 + 608 + 1080"
         numberConting.font = UIFont.boldSystemFont(ofSize: 16)
         numberConting.numberOfLines = 0
         numberConting.adjustsFontSizeToFitWidth = true
         
         numberCounted.translatesAutoresizingMaskIntoConstraints = false
         resultStakView.addArrangedSubview(numberCounted)
-        numberCounted.text = "2,048"
+        //numberCounted.text = "2,048"
         numberCounted.font = UIFont.boldSystemFont(ofSize: 36)
         numberCounted.numberOfLines = 0
         numberCounted.adjustsFontSizeToFitWidth = true
@@ -278,7 +278,14 @@ final class ViewController: UIViewController {
             numberContingLable = ""
             numberConting.text = ""
             historyPageResult += "AC" + "\n"
-        } else {
+        }// else if value == "%" {
+//                    if let currentNumber = Double(numberContingLable) {
+//                        let percentValue = currentNumber / 100
+//                numberContingLable = String(percentValue)
+//                numberConting.text = numberContingLable
+//                historyPageResult += "\(currentNumber)% = \(percentValue)" + "\n"
+//            }
+        else {
             numberContingLable.append(value)
             numberConting.text = numberContingLable
         }
@@ -289,7 +296,8 @@ final class ViewController: UIViewController {
     //FIXME: -გასასწორებელიმაქ გაყოფა
     
     private func calculateResult() {
-        let expression = NSExpression(format: numberContingLable)
+        let correctedExpression = numberContingLable.replacingOccurrences(of: "/", with: "÷")
+        let expression = NSExpression(format: correctedExpression)
         if let result = expression.expressionValue(with: nil, context: nil) as? Double {
             numberCounted.text = String(result)
             historyPageResult += "\(numberContingLable) = \(result)" + "\n"
@@ -318,7 +326,6 @@ final class ViewController: UIViewController {
         numberCounted.textColor = .black
         buttonSunOrMoon.setImage(UIImage(named: "moonSvg"), for: .normal)
         historyButton.tintColor = .black //new
-        
         buttonsBackgroundColorInLightmode()
     }
     
@@ -373,7 +380,7 @@ extension UIColor {
     
 }
 
-
-#Preview {
-    ViewController()
-}
+//
+//#Preview {
+//    ViewController()
+//}
