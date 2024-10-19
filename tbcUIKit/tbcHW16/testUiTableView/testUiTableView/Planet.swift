@@ -11,4 +11,6 @@ struct Planet {
     let image: UIImage
     let name: String
     let size: String
+    let temperature: String
+    let mass: String
 }

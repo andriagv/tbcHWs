@@ -16,10 +16,10 @@ class PlanetList: UIViewController {
     }()
     
     var planets: [Planet] = [
-        Planet(image: UIImage(named: "mars") ?? UIImage(), name: "Mars", size: "6,142E10 km2"),
-        Planet(image: UIImage(named: "jupiter") ?? UIImage(), name: "Jupiter", size: "6,378,137 km2"),
-        Planet(image: UIImage(named: "earth") ?? UIImage(), name: "Earth", size: "6,378,137 km2"),
-        Planet(image: UIImage(named: "saturn") ?? UIImage(), name: "Saturn", size: "6,378,137 km2")
+        Planet(image: UIImage(named: "mars") ?? UIImage(), name: "Mars", size: "1,258,250 km2", temperature: "10", mass: "3333"),
+        Planet(image: UIImage(named: "jupiter") ?? UIImage(), name: "Jupiter", size: "6,142E10 km2", temperature: "20", mass: "332433"),
+        Planet(image: UIImage(named: "earth") ?? UIImage(), name: "Earth", size: "500,100,100 km2", temperature: "40", mass: "31324253"),
+        Planet(image: UIImage(named: "saturn") ?? UIImage(), name: "Saturn", size: "2,608,250 km2", temperature: "60", mass: "13453333")
     ]
     
     struct Cells {
@@ -62,7 +62,7 @@ class PlanetList: UIViewController {
 }
 
 
-extension PlanetList: UITableViewDataSource, UITableViewDelegate {
+extension PlanetList: UITableViewDataSource  {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return planets.count
@@ -76,14 +76,19 @@ extension PlanetList: UITableViewDataSource, UITableViewDelegate {
         
         cell.set(planet: planet)
         cell.backgroundColor = UIColor(red: 33/255.0, green: 13/255.0, blue: 4/255.0, alpha: 1.0)
-
+        
         return cell
     }
+}
+
+extension PlanetList: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let currentPlanet = planets[indexPath.row]
         let nextVC = PlanetDetals()
         nextVC.planet = currentPlanet
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
-    
 }
+
+
