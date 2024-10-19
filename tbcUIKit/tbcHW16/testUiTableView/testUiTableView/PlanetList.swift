@@ -70,14 +70,14 @@ extension PlanetList: UITableViewDataSource  {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: Cells.planetCell, for: indexPath) as! PlanetCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Cells.planetCell, for: indexPath) as? PlanetCell
         
         let planet = planets[indexPath.row]
         
-        cell.set(planet: planet)
-        cell.backgroundColor = UIColor(red: 33/255.0, green: 13/255.0, blue: 4/255.0, alpha: 1.0)
+        cell?.set(planet: planet)
+        cell?.backgroundColor = UIColor(red: 33/255.0, green: 13/255.0, blue: 4/255.0, alpha: 1.0)
         
-        return cell
+        return cell ?? UITableViewCell()
     }
 }
 
