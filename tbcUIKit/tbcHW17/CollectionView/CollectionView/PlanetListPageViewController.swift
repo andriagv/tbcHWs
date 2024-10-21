@@ -113,7 +113,8 @@ extension PlanetListPageViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let nextVC = PlanetDetailsPageViewController()
-        nextVC.planet = sortedPlanets[indexPath.row] 
+        nextVC.planet = sortedPlanets[indexPath.row]
+        
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }

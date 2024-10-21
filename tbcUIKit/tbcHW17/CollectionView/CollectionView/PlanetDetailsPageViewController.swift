@@ -40,6 +40,16 @@ final class PlanetDetailsPageViewController: UIViewController {
         return label
     }()
     
+    
+    let isFavoriteBurron: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .clear
+        button.setImage(UIImage(systemName: "star"), for: .normal)
+        button.tintColor = .yellow
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -65,14 +75,26 @@ final class PlanetDetailsPageViewController: UIViewController {
         view.addSubview(planetImageView)
         view.addSubview(planetName)
         view.addSubview(infoStackView)
+        view.addSubview(isFavoriteBurron)
         
         planetImageView.translatesAutoresizingMaskIntoConstraints = false
         planetName.translatesAutoresizingMaskIntoConstraints = false
     
+        if planet?.isFavorite ?? true {
+            isFavoriteBurron.setImage(UIImage(systemName: "star.fill"), for: .normal)
+        } else {
+            isFavoriteBurron.setImage(UIImage(systemName: "star"), for: .normal)
+        }
+        
         NSLayoutConstraint.activate([
             
             planetName.bottomAnchor.constraint(equalTo: planetImageView.topAnchor, constant: -50),
             planetName.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            isFavoriteBurron.centerYAnchor.constraint(equalTo: planetName.centerYAnchor),
+            isFavoriteBurron.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30),
+            isFavoriteBurron.widthAnchor.constraint(equalToConstant: 30),
+            isFavoriteBurron.heightAnchor.constraint(equalToConstant: 30),
             
             planetImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             planetImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 158),
@@ -93,6 +115,8 @@ final class PlanetDetailsPageViewController: UIViewController {
         stringSize.textColor = .white
         stringTemperature.textColor = .white
         stringMass.textColor = .white
+        
+        
         
         infoStackView.addArrangedSubview(areaStackView)
         infoStackView.addArrangedSubview(temperatureStackView)
@@ -144,5 +168,11 @@ extension UIColor {
         let blue = CGFloat(rgb & 0x0000FF) / 255.0
         self.init(red: red, green: green, blue: blue, alpha: 1.0)
     }
+}
+
+
+
+#Preview() {
+    PlanetDetailsPageViewController()
 }
 
