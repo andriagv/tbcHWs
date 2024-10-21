@@ -41,7 +41,7 @@ final class PlanetDetailsPageViewController: UIViewController {
     }()
     
     
-    let isFavoriteBurron: UIButton = {
+    private let isFavoriteBurron: UIButton = {
         let button = UIButton()
         button.backgroundColor = .clear
         button.setImage(UIImage(systemName: "star"), for: .normal)
@@ -50,12 +50,23 @@ final class PlanetDetailsPageViewController: UIViewController {
         return button
     }()
     
+    private let navigateBackButton: UIButton = {
+            let button = UIButton(type: .custom)
+            button.translatesAutoresizingMaskIntoConstraints = false
+            button.contentMode = .scaleAspectFit
+            button.isEnabled = true
+            button.setImage(UIImage(named: "left"), for: .normal)
+            
+            return button
+        }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor(hex: "#210D04")
         setupUI()
         infoPlanet()
+        setupBackButton()
     }
     
     private func setupUI() {
@@ -70,6 +81,16 @@ final class PlanetDetailsPageViewController: UIViewController {
         planetMass.text = "\(planet?.mass ??  "")    "
         planetTemperature.text = "\(planet?.temperature ??  "")    "
     }
+    
+    private func setupBackButton() {
+            navigateBackButton.addAction(UIAction(handler: { [weak self] _ in
+                self?.navigateBack()
+            }), for: .touchUpInside)
+            navigationItem.leftBarButtonItem = UIBarButtonItem(customView: navigateBackButton)
+        }
+    private func navigateBack() {
+            navigationController?.popViewController(animated: true)
+        }
     
     private func setupLayout(){
         view.addSubview(planetImageView)
@@ -115,8 +136,6 @@ final class PlanetDetailsPageViewController: UIViewController {
         stringSize.textColor = .white
         stringTemperature.textColor = .white
         stringMass.textColor = .white
-        
-        
         
         infoStackView.addArrangedSubview(areaStackView)
         infoStackView.addArrangedSubview(temperatureStackView)
