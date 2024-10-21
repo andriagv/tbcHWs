@@ -7,9 +7,9 @@
 
 import UIKit
 
-class PlanetListPageViewController: UIViewController {
+final class PlanetListPageViewController: UIViewController {
     
-    let lable: UILabel = {
+    private let lable: UILabel = {
         let lable = UILabel()
         lable.text = "planets"
         lable.textAlignment = .center
@@ -17,7 +17,6 @@ class PlanetListPageViewController: UIViewController {
         lable.font = UIFont.boldSystemFont(ofSize: 40)
         lable.textColor = .white
         lable.translatesAutoresizingMaskIntoConstraints = false
-
         return lable
     }()
     
@@ -35,10 +34,9 @@ class PlanetListPageViewController: UIViewController {
         planets.sorted { $0.isFavorite && !$1.isFavorite }
     }
     
-    let uiView = UIView()
- 
-
-    let planetsCollectionView: UICollectionView = {
+    private let uiView = UIView()
+    
+    private let planetsCollectionView: UICollectionView = {
         let collectionLayout = UICollectionViewFlowLayout()
         collectionLayout.scrollDirection = .vertical
         collectionLayout.itemSize = CGSize(width: 180, height: 220)
@@ -49,8 +47,7 @@ class PlanetListPageViewController: UIViewController {
         collection.register(PlanetListPageCell.self, forCellWithReuseIdentifier: "PlanetListPageCell")
         collection.backgroundColor = .clear
         collection.translatesAutoresizingMaskIntoConstraints = false
-        collectionLayout.headerReferenceSize = CGSize(width: UIScreen.main.bounds.width, height: 50) 
-                
+        collectionLayout.headerReferenceSize = CGSize(width: UIScreen.main.bounds.width, height: 50)
         return collection
     }()
     
@@ -68,7 +65,7 @@ class PlanetListPageViewController: UIViewController {
         uiView.translatesAutoresizingMaskIntoConstraints = false
         planetsCollectionView.dataSource = self
         planetsCollectionView.delegate = self
-    
+        
         NSLayoutConstraint.activate([
             uiView.topAnchor.constraint(equalTo: view.topAnchor),
             uiView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
@@ -82,12 +79,12 @@ class PlanetListPageViewController: UIViewController {
             
             lable.centerXAnchor.constraint(equalTo: uiView.centerXAnchor),
             lable.bottomAnchor.constraint(equalTo: uiView.bottomAnchor)
-            
         ])
     }
 }
 
 extension PlanetListPageViewController: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         planets.count
     }
@@ -103,7 +100,6 @@ extension PlanetListPageViewController: UICollectionViewDataSource {
             }
             collectionView.reloadData()
         }
-        
         cell?.updateUI(with: planet)
         
         return cell ?? UICollectionViewCell()
@@ -114,12 +110,7 @@ extension PlanetListPageViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let nextVC = PlanetDetailsPageViewController()
         nextVC.planet = sortedPlanets[indexPath.row]
-        
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }
 
-
-#Preview() {
-    PlanetListPageViewController()
-}

@@ -8,9 +8,9 @@
 import UIKit
 
 final class PlanetDetailsPageViewController: UIViewController {
-
+    
     var planet: Planet?
-
+    
     private lazy var infoStackView: UIStackView = createStackView(axis: .vertical, distribution: .fillEqually, spacing: 30, borderWidth: 0)
     private lazy var areaStackView: UIStackView = createStackView()
     private lazy var temperatureStackView: UIStackView = createStackView()
@@ -40,7 +40,6 @@ final class PlanetDetailsPageViewController: UIViewController {
         return label
     }()
     
-    
     private let isFavoriteBurron: UIButton = {
         let button = UIButton()
         button.backgroundColor = .clear
@@ -51,14 +50,14 @@ final class PlanetDetailsPageViewController: UIViewController {
     }()
     
     private let navigateBackButton: UIButton = {
-            let button = UIButton(type: .custom)
-            button.translatesAutoresizingMaskIntoConstraints = false
-            button.contentMode = .scaleAspectFit
-            button.isEnabled = true
-            button.setImage(UIImage(named: "left"), for: .normal)
-            
-            return button
-        }()
+        let button = UIButton(type: .custom)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.contentMode = .scaleAspectFit
+        button.isEnabled = true
+        button.setImage(UIImage(named: "left"), for: .normal)
+        
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,14 +82,14 @@ final class PlanetDetailsPageViewController: UIViewController {
     }
     
     private func setupBackButton() {
-            navigateBackButton.addAction(UIAction(handler: { [weak self] _ in
-                self?.navigateBack()
-            }), for: .touchUpInside)
-            navigationItem.leftBarButtonItem = UIBarButtonItem(customView: navigateBackButton)
-        }
+        navigateBackButton.addAction(UIAction(handler: { [weak self] _ in
+            self?.navigateBack()
+        }), for: .touchUpInside)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: navigateBackButton)
+    }
     private func navigateBack() {
-            navigationController?.popViewController(animated: true)
-        }
+        navigationController?.popViewController(animated: true)
+    }
     
     private func setupLayout(){
         view.addSubview(planetImageView)
@@ -100,7 +99,7 @@ final class PlanetDetailsPageViewController: UIViewController {
         
         planetImageView.translatesAutoresizingMaskIntoConstraints = false
         planetName.translatesAutoresizingMaskIntoConstraints = false
-    
+        
         if planet?.isFavorite ?? true {
             isFavoriteBurron.setImage(UIImage(systemName: "star.fill"), for: .normal)
         } else {
@@ -108,14 +107,13 @@ final class PlanetDetailsPageViewController: UIViewController {
         }
         
         NSLayoutConstraint.activate([
-            
             planetName.bottomAnchor.constraint(equalTo: planetImageView.topAnchor, constant: -50),
             planetName.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             isFavoriteBurron.centerYAnchor.constraint(equalTo: planetName.centerYAnchor),
             isFavoriteBurron.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30),
-            isFavoriteBurron.widthAnchor.constraint(equalToConstant: 30),
-            isFavoriteBurron.heightAnchor.constraint(equalToConstant: 30),
+            isFavoriteBurron.widthAnchor.constraint(equalToConstant: 50),
+            isFavoriteBurron.heightAnchor.constraint(equalToConstant: 50),
             
             planetImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             planetImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 158),
@@ -179,7 +177,6 @@ extension UIColor {
     convenience init?(hex: String) {
         var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines)
         hexSanitized = hexSanitized.replacingOccurrences(of: "#", with: "")
-        
         var rgb: UInt64 = 0
         guard Scanner(string: hexSanitized).scanHexInt64(&rgb) else { return nil }
         let red = CGFloat((rgb & 0xFF0000) >> 16) / 255.0
@@ -187,11 +184,5 @@ extension UIColor {
         let blue = CGFloat(rgb & 0x0000FF) / 255.0
         self.init(red: red, green: green, blue: blue, alpha: 1.0)
     }
-}
-
-
-
-#Preview() {
-    PlanetDetailsPageViewController()
 }
 

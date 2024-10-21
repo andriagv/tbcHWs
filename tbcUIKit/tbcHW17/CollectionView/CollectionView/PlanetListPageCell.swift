@@ -44,7 +44,7 @@ final class PlanetListPageCell: UICollectionViewCell {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupCell()
@@ -97,6 +97,3 @@ final class PlanetListPageCell: UICollectionViewCell {
     }
 }
 
-#Preview() {
-    PlanetListPageViewController()
-}
