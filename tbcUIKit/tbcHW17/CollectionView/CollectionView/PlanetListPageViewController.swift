@@ -53,7 +53,7 @@ final class PlanetListPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.barTintColor = UIColor(hex: "#210D04")
+        navigationController?.navigationBar.backgroundColor = .clear
         view.backgroundColor = UIColor(hex: "#210D04")
         setupCollectionView()
     }
@@ -110,6 +110,7 @@ extension PlanetListPageViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let nextVC = PlanetDetailsPageViewController()
         nextVC.planet = sortedPlanets[indexPath.row]
+//        nextVC.planetIndex = indexPath.row
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }

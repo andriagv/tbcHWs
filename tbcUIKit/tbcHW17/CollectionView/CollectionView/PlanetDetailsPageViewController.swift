@@ -11,6 +11,8 @@ final class PlanetDetailsPageViewController: UIViewController {
     
     var planet: Planet?
     
+//    var planetIndex: Int = 0
+    
     private lazy var infoStackView: UIStackView = createStackView(axis: .vertical, distribution: .fillEqually, spacing: 30, borderWidth: 0)
     private lazy var areaStackView: UIStackView = createStackView()
     private lazy var temperatureStackView: UIStackView = createStackView()
@@ -55,7 +57,6 @@ final class PlanetDetailsPageViewController: UIViewController {
         button.contentMode = .scaleAspectFit
         button.isEnabled = true
         button.setImage(UIImage(named: "left"), for: .normal)
-        
         return button
     }()
     
@@ -68,10 +69,34 @@ final class PlanetDetailsPageViewController: UIViewController {
         setupBackButton()
     }
     
+  
+    
     private func setupUI() {
         setupLayout()
         setupInfoStackView()
+        action()
     }
+  
+//    func action() {
+//        isFavoriteBurron.addAction(UIAction(handler: { action in
+//            self.removeAction()
+//        }), for: .touchUpInside)
+//    }
+//    
+//    func removeAction() {
+//        guard var unwrappedPlanet = planet else { return }
+//        if unwrappedPlanet.isFavorite == true {
+//            unwrappedPlanet.isFavorite = false
+//        } else {
+//            unwrappedPlanet.isFavorite = true
+//        }
+//        let nextVC = PlanetListPageViewController()
+//        nextVC.planets[planetIndex] = unwrappedPlanet
+//        
+//        let dd = PlanetListPageCell()
+//        dd.updateUI(with: unwrappedPlanet)
+//
+//    }
     
     private func infoPlanet() {
         planetName.text = planet?.name
@@ -95,23 +120,20 @@ final class PlanetDetailsPageViewController: UIViewController {
         view.addSubview(planetImageView)
         view.addSubview(planetName)
         view.addSubview(infoStackView)
-        view.addSubview(isFavoriteBurron)
+        //view.addSubview(isFavoriteBurron)
+        
+//        let favoriteBarButtonItem = UIBarButtonItem(customView: isFavoriteBurron)
+//        navigationItem.rightBarButtonItem = favoriteBarButtonItem
         
         planetImageView.translatesAutoresizingMaskIntoConstraints = false
         planetName.translatesAutoresizingMaskIntoConstraints = false
         
-        if planet?.isFavorite ?? true {
-            isFavoriteBurron.setImage(UIImage(systemName: "star.fill"), for: .normal)
-        } else {
-            isFavoriteBurron.setImage(UIImage(systemName: "star"), for: .normal)
-        }
-        
         NSLayoutConstraint.activate([
             planetName.bottomAnchor.constraint(equalTo: planetImageView.topAnchor, constant: -50),
             planetName.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            isFavoriteBurron.centerYAnchor.constraint(equalTo: planetName.centerYAnchor),
-            isFavoriteBurron.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30),
+//            
+//            isFavoriteBurron.centerYAnchor.constraint(equalTo: planetName.centerYAnchor),
+//            isFavoriteBurron.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30),
             isFavoriteBurron.widthAnchor.constraint(equalToConstant: 50),
             isFavoriteBurron.heightAnchor.constraint(equalToConstant: 50),
             
