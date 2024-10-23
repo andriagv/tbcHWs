@@ -74,7 +74,7 @@ final class PlanetDetailsPageViewController: UIViewController {
     private func setupUI() {
         setupLayout()
         setupInfoStackView()
-        action()
+       // action()
     }
   
 //    func action() {
