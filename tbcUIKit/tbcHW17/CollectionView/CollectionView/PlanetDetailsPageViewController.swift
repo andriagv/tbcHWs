@@ -11,7 +11,9 @@ final class PlanetDetailsPageViewController: UIViewController {
     
     var planet: Planet?
     
-//    var planetIndex: Int = 0
+    var planetIndex: Int?
+    
+    var favotiteAction: (() -> Void)?
     
     private lazy var infoStackView: UIStackView = createStackView(axis: .vertical, distribution: .fillEqually, spacing: 30, borderWidth: 0)
     private lazy var areaStackView: UIStackView = createStackView()
@@ -42,7 +44,7 @@ final class PlanetDetailsPageViewController: UIViewController {
         return label
     }()
     
-    private let isFavoriteBurron: UIButton = {
+    let isFavoriteBurron: UIButton = {
         let button = UIButton()
         button.backgroundColor = .clear
         button.setImage(UIImage(systemName: "star"), for: .normal)
@@ -60,45 +62,30 @@ final class PlanetDetailsPageViewController: UIViewController {
         return button
     }()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = UIColor(hex: "#210D04")
         setupUI()
-        infoPlanet()
+        infoDetalPagePlanet()
         setupBackButton()
+        let favoriteIcon = self.planet!.isFavorite ? "star.fill" : "star"
+        isFavoriteBurron.setImage(UIImage(systemName: favoriteIcon), for: .normal)
     }
-    
-  
     
     private func setupUI() {
         setupLayout()
         setupInfoStackView()
-       // action()
+        action()
     }
-  
-//    func action() {
-//        isFavoriteBurron.addAction(UIAction(handler: { action in
-//            self.removeAction()
-//        }), for: .touchUpInside)
-//    }
-//    
-//    func removeAction() {
-//        guard var unwrappedPlanet = planet else { return }
-//        if unwrappedPlanet.isFavorite == true {
-//            unwrappedPlanet.isFavorite = false
-//        } else {
-//            unwrappedPlanet.isFavorite = true
-//        }
-//        let nextVC = PlanetListPageViewController()
-//        nextVC.planets[planetIndex] = unwrappedPlanet
-//        
-//        let dd = PlanetListPageCell()
-//        dd.updateUI(with: unwrappedPlanet)
-//
-//    }
     
-    private func infoPlanet() {
+    func action() {
+        isFavoriteBurron.addAction(UIAction(handler: { [weak self] action in
+            self?.favotiteAction?()
+        }), for: .touchUpInside)
+    }
+    
+    private func infoDetalPagePlanet() {
         planetName.text = planet?.name
         planetImageView.image = planet?.image
         planetSizeLabel.text = "\(planet?.size ??  "")    "
@@ -116,24 +103,21 @@ final class PlanetDetailsPageViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    private func setupLayout(){
+    private func setupLayout() {
         view.addSubview(planetImageView)
         view.addSubview(planetName)
         view.addSubview(infoStackView)
-        //view.addSubview(isFavoriteBurron)
-        
-//        let favoriteBarButtonItem = UIBarButtonItem(customView: isFavoriteBurron)
-//        navigationItem.rightBarButtonItem = favoriteBarButtonItem
+        view.addSubview(isFavoriteBurron)
         
         planetImageView.translatesAutoresizingMaskIntoConstraints = false
         planetName.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            planetName.bottomAnchor.constraint(equalTo: planetImageView.topAnchor, constant: -50),
+            planetName.bottomAnchor.constraint(equalTo: planetImageView.topAnchor),
             planetName.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            
-//            isFavoriteBurron.centerYAnchor.constraint(equalTo: planetName.centerYAnchor),
-//            isFavoriteBurron.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30),
+            
+            isFavoriteBurron.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            isFavoriteBurron.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30),
             isFavoriteBurron.widthAnchor.constraint(equalToConstant: 50),
             isFavoriteBurron.heightAnchor.constraint(equalToConstant: 50),
             
@@ -208,3 +192,7 @@ extension UIColor {
     }
 }
 
+
+#Preview() {
+    UINavigationController(rootViewController: PlanetListPageViewController())
+}

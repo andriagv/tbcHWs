@@ -30,10 +30,6 @@ final class PlanetListPageViewController: UIViewController {
         Planet(image: UIImage(named: "saturn") ?? UIImage(), name: "Saturn", size: "427,200,000 km2", temperature: "-139°C", mass: "568,0E0 kg", isFavorite: false)
     ]
     
-    var sortedPlanets: [Planet] {
-        planets.sorted { $0.isFavorite && !$1.isFavorite }
-    }
-    
     private let uiView = UIView()
     
     private let planetsCollectionView: UICollectionView = {
@@ -56,6 +52,10 @@ final class PlanetListPageViewController: UIViewController {
         navigationController?.navigationBar.backgroundColor = .clear
         view.backgroundColor = UIColor(hex: "#210D04")
         setupCollectionView()
+    }
+    
+    private func sortedPlanets() {
+        self.planets = self.planets.sorted { $0.isFavorite && !$1.isFavorite }
     }
     
     private func setupCollectionView() {
@@ -91,9 +91,11 @@ extension PlanetListPageViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlanetListPageCell", for: indexPath) as? PlanetListPageCell
-        var planet = sortedPlanets[indexPath.row]
+        sortedPlanets()
+        var planet = planets[indexPath.row]
         
-        cell?.removeAction = {
+        cell?.removeAction = { [weak self] in
+            guard let self = self else { return }
             planet.isFavorite.toggle()
             if let index = self.planets.firstIndex(where: { $0.name == planet.name }) {
                 self.planets[index] = planet
@@ -101,17 +103,33 @@ extension PlanetListPageViewController: UICollectionViewDataSource {
             collectionView.reloadData()
         }
         cell?.updateUI(with: planet)
-        
         return cell ?? UICollectionViewCell()
     }
 }
+
 extension PlanetListPageViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let nextVC = PlanetDetailsPageViewController()
-        nextVC.planet = sortedPlanets[indexPath.row]
-//        nextVC.planetIndex = indexPath.row
+        sortedPlanets()
+        nextVC.planet = planets[indexPath.row]
         self.navigationController?.pushViewController(nextVC, animated: true)
+        print("main \(planets[indexPath.row].isFavorite)")
+        
+        nextVC.favotiteAction = { [weak self] in
+            guard let self = self else { return }
+            let vc = PlanetListPageCell()
+            self.planets[indexPath.row].isFavorite.toggle()
+            let icon = self.planets[indexPath.row].isFavorite ? "star.fill" : "star"
+            self.sortedPlanets()
+            vc.updateUI(with: self.planets[indexPath.row])
+            nextVC.isFavoriteBurron.setImage(UIImage(systemName: icon), for: .normal)
+            collectionView.reloadData()
+        }
+        collectionView.reloadData()
     }
 }
 
+#Preview() {
+    UINavigationController(rootViewController: PlanetListPageViewController())
+}
