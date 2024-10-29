@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         
-        let VC = latestNewsVC()
+        let VC = LatestNewsVC()
         let navigationVC = UINavigationController(rootViewController: VC)
         
         window?.rootViewController = navigationVC
