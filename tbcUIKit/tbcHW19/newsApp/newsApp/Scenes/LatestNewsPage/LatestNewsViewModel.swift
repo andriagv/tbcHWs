@@ -34,4 +34,6 @@ final class LatestNewsViewModel {
     func article(at index: Int) -> NewsArticle {
         return articles[index]
     }
+    
+    
 }

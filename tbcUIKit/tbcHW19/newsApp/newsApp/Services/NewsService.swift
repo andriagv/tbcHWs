@@ -13,7 +13,7 @@ class NewsService {
     
     func fetchNews(completion: @escaping ([NewsArticle]) -> Void) {
         guard let url = URL(string: baseURL) else { return }
-        
+//https://stackoverflow.com/questions/71166468/how-to-pass-data-into-header-while-using-urlsession-in-swift
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue(apiKey, forHTTPHeaderField: "x-api-key")

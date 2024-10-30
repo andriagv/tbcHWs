@@ -69,25 +69,25 @@ final class HotUpdatesVCTableViewCell: UITableViewCell {
             newsImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             newsImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             newsImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
-
+            
             titleLabel.leadingAnchor.constraint(equalTo: newsImageView.leadingAnchor, constant: 10),
-                titleLabel.trailingAnchor.constraint(equalTo: newsImageView.trailingAnchor, constant: -10),
-                titleLabel.topAnchor.constraint(equalTo: newsImageView.topAnchor, constant: 10),
-
+            titleLabel.trailingAnchor.constraint(equalTo: newsImageView.trailingAnchor, constant: -10),
+            titleLabel.topAnchor.constraint(equalTo: newsImageView.topAnchor, constant: 10),
+            
             authorLabel.leadingAnchor.constraint(equalTo: newsImageView.leadingAnchor, constant: 10),
             authorLabel.bottomAnchor.constraint(equalTo: newsImageView.bottomAnchor, constant: -10),
-
-
+            
             dateLabel.trailingAnchor.constraint(equalTo: newsImageView.trailingAnchor, constant: -10),
             dateLabel.bottomAnchor.constraint(equalTo: newsImageView.bottomAnchor, constant: -10)
         ])
     }
     
+//https://forums.swift.org/t/datatask-in-a-loop/64807
     func configure(with article: NewsArticle) {
         titleLabel.text = article.title
         authorLabel.text = "\(article.author)"
         dateLabel.text = "\(formatDate(article.publishedAt))"
-        
+//https://stackoverflow.com/questions/58903141/trying-to-create-an-image-from-datatask-using-urlsession-not-working
         if let url = URL(string: article.imageUrl) {
             URLSession.shared.dataTask(with: url) { data, _, _ in
                 if let data = data {

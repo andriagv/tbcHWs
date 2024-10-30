@@ -74,7 +74,6 @@ extension LatestNewsVC: UITableViewDataSource  {
         }
         let article = viewModel.article(at: indexPath.row)
         cell.configure(with: article)
-       
         cell.clipsToBounds = true
         return cell
     }
@@ -93,5 +92,3 @@ extension LatestNewsVC: UITableViewDelegate {
             navigationController?.pushViewController(nextVC, animated: true)
         }
 }
-
-
