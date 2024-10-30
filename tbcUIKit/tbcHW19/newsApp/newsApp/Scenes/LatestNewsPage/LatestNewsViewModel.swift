@@ -8,28 +8,30 @@
 import Foundation
 import UIKit
 
-struct News {
-    var autorName: String
-    var newsData: String
-    var newsTitle: String
-    var meore: String
-    var newsImage: UIImage?
-}
 
 final class LatestNewsViewModel {
     
-    var newsList = [
-        News(autorName: "e", newsData: "e", newsTitle: "r", meore: "t"),
-        News(autorName: "e", newsData: "e", newsTitle: "r", meore: "t"),
-        News(autorName: "e", newsData: "e", newsTitle: "r", meore: "t"),
-    ]
-
-
-       var newsListcount: Int {
-           newsList.count
-       }
-       
-    func selectNews(at index: Int) -> News {
-        newsList[index]
-       }
+    private let newsService = NewsService()
+    var articles: [NewsArticle] = []
+    
+    var onDataUpdated: (() -> Void)?
+    
+    var configure1: (() -> Void)?
+    
+    func fetchNews() {
+        newsService.fetchNews { [weak self] articles in
+            self?.articles = articles
+            DispatchQueue.main.async {
+                self?.onDataUpdated?()
+            }
+        }
+    }
+    
+    func numberOfArticles() -> Int {
+        return articles.count
+    }
+    
+    func article(at index: Int) -> NewsArticle {
+        return articles[index]
+    }
 }

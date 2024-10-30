@@ -9,27 +9,41 @@ import UIKit
 
 final class LatestNewsVC: UIViewController {
     
+    let viewModel = LatestNewsViewModel()
+    // MARK: - UI Elements
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Latest News"
+        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        label.textColor = .black
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = .orange
-        
-        //tableView.frame = CGRect(x: 50, y: 50, width: 100, height: 100)
         return tableView
     }()
-    
-    let viewModel = LatestNewsViewModel()
-    
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        view.backgroundColor = .purple
         configureTableView()
+        fetchNews()
+        view.backgroundColor = .white
+    }
+    
+    // MARK: - Setup Methods
+    private func fetchNews() {
+        viewModel.onDataUpdated = { [weak self] in
+            self?.tableView.reloadData()
+        }
+        viewModel.fetchNews()
     }
     
     private func configureTableView() {
         view.addSubview(tableView)
+        view.addSubview(titleLabel)
         
         tableView.register(HotUpdatesVCTableViewCell.self, forCellReuseIdentifier: "HotUpdatesVCTableViewCell")
         
@@ -37,41 +51,47 @@ final class LatestNewsVC: UIViewController {
         tableView.delegate = self
         
         NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: view.topAnchor,constant: 60),
+            titleLabel.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 20),
+            
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-    
 }
 
 extension LatestNewsVC: UITableViewDataSource  {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.newsListcount
+        return viewModel.numberOfArticles()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "HotUpdatesVCTableViewCell", for: indexPath) as? HotUpdatesVCTableViewCell {
-            let news = viewModel.selectNews(at: indexPath.row)
-            
-            cell.backgroundColor = .red
-            cell.configure(news: news)
-            return cell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "HotUpdatesVCTableViewCell", for: indexPath) as? HotUpdatesVCTableViewCell else {
+            return UITableViewCell()
         }
-        return  UITableViewCell()
+        let article = viewModel.article(at: indexPath.row)
+        cell.configure(with: article)
+       
+        cell.clipsToBounds = true
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150 // სელის სასურველი სიმაღლე
     }
 }
 
 extension LatestNewsVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-         let currentNews = viewModel.selectNews(at: indexPath.row)
-        let nextVC = HotUpdatesVC()
-        nextVC.news = currentNews
-        self.navigationController?.pushViewController(nextVC, animated: true)
-    }
+            let article = viewModel.article(at: indexPath.row)
+            let articleViewModel = HotUpdatesViewModel(article: article)
+            let nextVC = HotUpdatesVC(viewModel: articleViewModel)
+            navigationController?.pushViewController(nextVC, animated: true)
+        }
 }
+
 
