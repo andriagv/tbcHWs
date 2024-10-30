@@ -9,7 +9,7 @@ import Foundation
 
 class NewsService {
     private let apiKey = "2e41c513815843378fa95bace03e6dff"
-    private let baseURL = "https://newsapi.org/v2/top-headlines?country=us"
+    private let baseURL = "https://newsapi.org/v2/everything?q=bitcoin"
     
     func fetchNews(completion: @escaping ([NewsArticle]) -> Void) {
         guard let url = URL(string: baseURL) else { return }
