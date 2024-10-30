@@ -8,9 +8,6 @@
 import Foundation
 import UIKit
 
-
-import Foundation
-
 final class HotUpdatesViewModel {
     private let article: NewsArticle
     

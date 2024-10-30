@@ -32,7 +32,6 @@ final class LatestNewsVC: UIViewController {
         fetchNews()
         view.backgroundColor = .white
     }
-    
     // MARK: - Setup Methods
     private func fetchNews() {
         viewModel.onDataUpdated = { [weak self] in
@@ -86,9 +85,9 @@ extension LatestNewsVC: UITableViewDataSource  {
 extension LatestNewsVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            let article = viewModel.article(at: indexPath.row)
-            let articleViewModel = HotUpdatesViewModel(article: article)
-            let nextVC = HotUpdatesVC(viewModel: articleViewModel)
-            navigationController?.pushViewController(nextVC, animated: true)
-        }
+        let article = viewModel.article(at: indexPath.row)
+        let articleViewModel = HotUpdatesViewModel(article: article)
+        let nextVC = HotUpdatesVC(viewModel: articleViewModel)
+        navigationController?.pushViewController(nextVC, animated: true)
+    }
 }

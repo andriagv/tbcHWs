@@ -82,12 +82,12 @@ final class HotUpdatesVCTableViewCell: UITableViewCell {
         ])
     }
     
-//https://forums.swift.org/t/datatask-in-a-loop/64807
+    //https://forums.swift.org/t/datatask-in-a-loop/64807
     func configure(with article: NewsArticle) {
         titleLabel.text = article.title
         authorLabel.text = "\(article.author)"
         dateLabel.text = "\(formatDate(article.publishedAt))"
-//https://stackoverflow.com/questions/58903141/trying-to-create-an-image-from-datatask-using-urlsession-not-working
+        //https://stackoverflow.com/questions/58903141/trying-to-create-an-image-from-datatask-using-urlsession-not-working
         if let url = URL(string: article.imageUrl) {
             URLSession.shared.dataTask(with: url) { data, _, _ in
                 if let data = data {
@@ -100,15 +100,15 @@ final class HotUpdatesVCTableViewCell: UITableViewCell {
     }
     
     func formatDate(_ dateString: String) -> String {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-            
-            if let date = dateFormatter.date(from: dateString) {
-                dateFormatter.dateFormat = "EEEE, d MMM yyyy"
-                return dateFormatter.string(from: date)
-            } else {
-                return dateString
-            }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        
+        if let date = dateFormatter.date(from: dateString) {
+            dateFormatter.dateFormat = "EEEE, d MMM yyyy"
+            return dateFormatter.string(from: date)
+        } else {
+            return dateString
         }
+    }
 }
 

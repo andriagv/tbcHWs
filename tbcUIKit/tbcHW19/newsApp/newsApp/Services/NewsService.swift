@@ -13,14 +13,14 @@ class NewsService {
     
     func fetchNews(completion: @escaping ([NewsArticle]) -> Void) {
         guard let url = URL(string: baseURL) else { return }
-//https://stackoverflow.com/questions/71166468/how-to-pass-data-into-header-while-using-urlsession-in-swift
+        //https://stackoverflow.com/questions/71166468/how-to-pass-data-into-header-while-using-urlsession-in-swift
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue(apiKey, forHTTPHeaderField: "x-api-key")
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
-            print("Error fetching news: \(error?.localizedDescription ?? "Unknown error")")
+                print("Error fetching news: \(error?.localizedDescription ?? "Unknown error")")
                 return
             }
             //https://www.hackingwithswift.com/example-code/system/how-to-parse-json-using-jsonserialization
