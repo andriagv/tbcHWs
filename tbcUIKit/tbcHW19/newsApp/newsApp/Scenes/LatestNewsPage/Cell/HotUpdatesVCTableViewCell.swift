@@ -7,53 +7,108 @@
 
 import UIKit
 
-class HotUpdatesVCTableViewCell: UITableViewCell {
+final class HotUpdatesVCTableViewCell: UITableViewCell {
     
-    private var autorName = UILabel()
-    private var newsData = UILabel()
-    private var newsTitle = UILabel()
-    private var meore = UILabel()
-    private var newsImage = UIImageView()
+    let viewModel = LatestNewsViewModel()
     
-    func configure(news: News) {
-        newsData.text = news.newsData
-        newsTitle.text = news.newsTitle
-        meore.text = news.meore
-        //newsImage
-        }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        setupUi()
-    }
+    // MARK: - UI Elements
+    private let newsImageView: UIImageView = {
+        let image = UIImageView()
+        image.contentMode = .scaleAspectFill
+        image.clipsToBounds = true
+        image.layer.cornerRadius = 8
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
     
-    private func setupUi() {
-        contentView.addSubview(autorName)
-        contentView.addSubview(newsData)
-        contentView.addSubview(newsTitle)
-        contentView.addSubview(meore)
-        contentView.addSubview(newsImage)
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "Nunito", size: 12)
+        label.textColor = .white
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let authorLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.font = UIFont(name: "Nunito", size: 12)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let dateLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "Nunito", size: 12)
+        label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    // MARK: - Initializer
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        autorName.translatesAutoresizingMaskIntoConstraints = false
-        newsData.translatesAutoresizingMaskIntoConstraints = false
-        newsTitle.translatesAutoresizingMaskIntoConstraints = false
-        meore.translatesAutoresizingMaskIntoConstraints = false
-        newsImage.translatesAutoresizingMaskIntoConstraints = false
-        
-        newsData.backgroundColor = .black
+        setupUI()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    // MARK: - Setup Methods
+    private func setupUI() {
+        contentView.addSubview(newsImageView)
+        newsImageView.addSubview(titleLabel)
+        newsImageView.addSubview(authorLabel)
+        newsImageView.addSubview(dateLabel)
         
         NSLayoutConstraint.activate([
-//            newsTitle.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-//            newsTitle.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 5),
             
-            newsData.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            newsData.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+            newsImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            newsImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            newsImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            newsImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+
+            titleLabel.leadingAnchor.constraint(equalTo: newsImageView.leadingAnchor, constant: 10),
+                titleLabel.trailingAnchor.constraint(equalTo: newsImageView.trailingAnchor, constant: -10),
+                titleLabel.topAnchor.constraint(equalTo: newsImageView.topAnchor, constant: 10),
+
+            authorLabel.leadingAnchor.constraint(equalTo: newsImageView.leadingAnchor, constant: 10),
+            authorLabel.bottomAnchor.constraint(equalTo: newsImageView.bottomAnchor, constant: -10),
+
+
+            dateLabel.trailingAnchor.constraint(equalTo: newsImageView.trailingAnchor, constant: -10),
+            dateLabel.bottomAnchor.constraint(equalTo: newsImageView.bottomAnchor, constant: -10)
         ])
     }
-
+    
+    func configure(with article: NewsArticle) {
+        titleLabel.text = article.title
+        authorLabel.text = "\(article.author)"
+        dateLabel.text = "\(formatDate(article.publishedAt))"
+        
+        if let url = URL(string: article.imageUrl) {
+            URLSession.shared.dataTask(with: url) { data, _, _ in
+                if let data = data {
+                    DispatchQueue.main.async {
+                        self.newsImageView.image = UIImage(data: data)
+                    }
+                }
+            }.resume()
+        }
+    }
+    
+    func formatDate(_ dateString: String) -> String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+            
+            if let date = dateFormatter.date(from: dateString) {
+                dateFormatter.dateFormat = "EEEE, d MMM yyyy"
+                return dateFormatter.string(from: date)
+            } else {
+                return dateString
+            }
+        }
 }
+
