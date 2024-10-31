@@ -46,6 +46,7 @@ final class HotUpdatesVCTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
     // MARK: - Initializer
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -57,6 +58,7 @@ final class HotUpdatesVCTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     // MARK: - Setup Methods
     
     private func setupUI() {
@@ -89,12 +91,11 @@ final class HotUpdatesVCTableViewCell: UITableViewCell {
         titleLabel.text = article.title
         authorLabel.text = "\(article.author)"
         dateLabel.text = "\(formatDate(article.publishedAt))"
-        //https://stackoverflow.com/questions/58903141/trying-to-create-an-image-from-datatask-using-urlsession-not-working
         if let url = URL(string: article.imageUrl) {
             URLSession.shared.dataTask(with: url) { data, _, _ in
                 if let data = data {
-                    DispatchQueue.main.async {
-                        self.newsImageView.image = UIImage(data: data)
+                    DispatchQueue.main.async { [weak self] in
+                        self?.newsImageView.image = UIImage(data: data)
                     }
                 }
             }.resume()

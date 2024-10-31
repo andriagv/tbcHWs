@@ -139,10 +139,10 @@ final class HotUpdatesVC: UIViewController {
         descriptionLabel.text = viewModel.description
         
         if let url = viewModel.imageUrl {
-            URLSession.shared.dataTask(with: url) { data, _, _ in
+            URLSession.shared.dataTask(with: url) { [weak self] data, _, _ in
                 if let data = data {
                     DispatchQueue.main.async {
-                        self.newsImageView.image = UIImage(data: data)
+                        self?.newsImageView.image = UIImage(data: data)
                     }
                 }
             }.resume()

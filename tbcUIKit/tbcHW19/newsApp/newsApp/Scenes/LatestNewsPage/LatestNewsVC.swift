@@ -10,6 +10,7 @@ import UIKit
 final class LatestNewsVC: UIViewController {
     
     let viewModel = LatestNewsViewModel()
+    
     // MARK: - UI Elements
     
     private let titleLabel: UILabel = {
@@ -26,6 +27,7 @@ final class LatestNewsVC: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -34,6 +36,7 @@ final class LatestNewsVC: UIViewController {
         fetchNews()
         view.backgroundColor = .white
     }
+    
     // MARK: - Setup Methods
     
     private func fetchNews() {

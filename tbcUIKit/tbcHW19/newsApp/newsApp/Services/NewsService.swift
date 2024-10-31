@@ -13,7 +13,6 @@ class NewsService {
     
     func fetchNews(completion: @escaping ([NewsArticle]) -> Void) {
         guard let url = URL(string: baseURL) else { return }
-        //https://stackoverflow.com/questions/71166468/how-to-pass-data-into-header-while-using-urlsession-in-swift
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue(apiKey, forHTTPHeaderField: "x-api-key")
@@ -23,8 +22,6 @@ class NewsService {
                 print("Error fetching news: \(error?.localizedDescription ?? "Unknown error")")
                 return
             }
-            //https://www.hackingwithswift.com/example-code/system/how-to-parse-json-using-jsonserialization
-            //https://developer.apple.com/documentation/foundation/jsonserialization/1415493-jsonobject
             do {
                 if let jsonResponse = try JSONSerialization.jsonObject(with: data) as? [String: Any],
                    let articlesArray = jsonResponse["articles"] as? [[String: Any]] {
