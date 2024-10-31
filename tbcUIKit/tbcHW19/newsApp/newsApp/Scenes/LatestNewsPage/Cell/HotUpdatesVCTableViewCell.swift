@@ -12,6 +12,7 @@ final class HotUpdatesVCTableViewCell: UITableViewCell {
     let viewModel = LatestNewsViewModel()
     
     // MARK: - UI Elements
+    
     private let newsImageView: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFill
@@ -57,6 +58,7 @@ final class HotUpdatesVCTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     // MARK: - Setup Methods
+    
     private func setupUI() {
         contentView.addSubview(newsImageView)
         newsImageView.addSubview(titleLabel)

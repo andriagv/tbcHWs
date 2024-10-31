@@ -11,6 +11,7 @@ final class LatestNewsVC: UIViewController {
     
     let viewModel = LatestNewsViewModel()
     // MARK: - UI Elements
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Latest News"
@@ -26,6 +27,7 @@ final class LatestNewsVC: UIViewController {
         return tableView
     }()
     // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
@@ -33,6 +35,7 @@ final class LatestNewsVC: UIViewController {
         view.backgroundColor = .white
     }
     // MARK: - Setup Methods
+    
     private func fetchNews() {
         viewModel.onDataUpdated = { [weak self] in
             self?.tableView.reloadData()

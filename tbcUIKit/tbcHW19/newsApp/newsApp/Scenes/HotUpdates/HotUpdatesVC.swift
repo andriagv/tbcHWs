@@ -5,6 +5,7 @@ final class HotUpdatesVC: UIViewController {
     private let viewModel: HotUpdatesViewModel
     
     // MARK: - Initializer
+    
     init(viewModel: HotUpdatesViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -78,6 +79,7 @@ final class HotUpdatesVC: UIViewController {
     }()
     
     // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
