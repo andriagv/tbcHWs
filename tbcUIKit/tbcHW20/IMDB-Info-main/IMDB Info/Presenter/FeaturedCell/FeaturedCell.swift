@@ -20,15 +20,15 @@ final class FeaturedCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        GenreManager.fetchGenreList(with: genreListUrl) { genreList in
-            self.genreList = genreList.genres
+        GenreManager.fetchGenreList(with: genreListUrl) { [weak self] genreList in
+            self?.genreList = genreList.genres
         }
         
         self.showAnimatedGradientSkeleton()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-            self.stopSkeletonAnimation()
-            self.hideSkeleton()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: { [weak self] in
+            self?.stopSkeletonAnimation()
+            self?.hideSkeleton()
         })
     }
     
@@ -45,6 +45,7 @@ final class FeaturedCell: UITableViewCell {
             genreCounter += 1
         }
         genresLabel.text = currentGenres.joined(separator: " | ")
+        genresLabel.textColor = .white
         if movie.score.truncatingRemainder(dividingBy: 2.0) == 0.0 {
             for i in 0..<Int(movie.score)/2 {
                 scoreStars[i].image = UIImage.init(systemName: "star.fill")
@@ -56,5 +57,6 @@ final class FeaturedCell: UITableViewCell {
             scoreStars[Int(movie.score/2)].image = UIImage.init(systemName: "star.leadinghalf.filled")
         }
         movieScore.text = "\(String(movie.score))"
+        movieScore.textColor = .white
     }
 }

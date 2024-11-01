@@ -16,7 +16,7 @@ final class GenreManager {
                 if let data = Data {
                     do {
                         let genreList = try JSONDecoder().decode(GenreList.self, from: data)
-                       // completion(genreList)
+                        completion(genreList)
                     } catch {
                         if let error = Error {
                             print (error.localizedDescription)
