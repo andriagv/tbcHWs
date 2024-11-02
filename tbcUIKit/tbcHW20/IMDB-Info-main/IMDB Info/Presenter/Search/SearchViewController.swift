@@ -38,13 +38,13 @@ extension SearchViewController: UISearchBarDelegate{
         }
         let spacesFilteredText = text.replacingOccurrences(of: " ", with: "+")
         let searchQuary = movieManager.constructSearch(with: spacesFilteredText)
-        movieManager.fetchMovieList(with: searchQuary) { movielist in
-            self.movies = movielist.results
+        movieManager.fetchMovieList(with: searchQuary) { [weak self] movielist in
+            self?.movies = movielist.results
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                self.searchCollectionView.stopSkeletonAnimation()
-                self.searchCollectionView.hideSkeleton()
-                self.searchCollectionView.reloadData()
+                self?.searchCollectionView.stopSkeletonAnimation()
+                self?.searchCollectionView.hideSkeleton()
+                self?.searchCollectionView.reloadData()
             })
         }
     }
@@ -61,13 +61,13 @@ extension SearchViewController: UISearchBarDelegate{
             }
             let spacesFilteredText = text.replacingOccurrences(of: " ", with: "+")
             let searchQuary = movieManager.constructSearch(with: spacesFilteredText)
-            movieManager.fetchMovieList(with: searchQuary) { movielist in
-                self.movies = movielist.results
+            movieManager.fetchMovieList(with: searchQuary) { [weak self] movielist in
+                self?.movies = movielist.results
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                    self.searchCollectionView.stopSkeletonAnimation()
-                    self.searchCollectionView.hideSkeleton()
-                    self.searchCollectionView.reloadData()
+                    self?.searchCollectionView.stopSkeletonAnimation()
+                    self?.searchCollectionView.hideSkeleton()
+                    self?.searchCollectionView.reloadData()
                 })
             }
         }
