@@ -218,6 +218,9 @@ final class AnswerVC: UIViewController {
     }
     
     private func optionSelected(_ sender: UIButton) {
+        for case let button as UIButton in stackView.arrangedSubviews {
+                button.isEnabled = false
+            }
         guard let selectedAnswer = sender.title(for: .normal) else { return }
         
         viewModel.saveAnswer(selectedAnswer)
