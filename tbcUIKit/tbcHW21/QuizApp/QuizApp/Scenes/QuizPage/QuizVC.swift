@@ -1,18 +1,18 @@
 //
-//  ViewController.swift
+//  QuizVC.swift
 //  QuizApp
 //
-//  Created by Apple on 02.11.24.
+//  Created by Apple on 03.11.24.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class QuizVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .orange
+        // Do any additional setup after loading the view.
     }
     
 
