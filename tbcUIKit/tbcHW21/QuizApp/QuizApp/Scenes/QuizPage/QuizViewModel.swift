@@ -28,6 +28,11 @@ final class QuizViewModel {
         for question in questions {
             let userDefaultsKey = "userAnswer_\(question.question)"
             UserDefaults.standard.removeObject(forKey: userDefaultsKey)
+            
+            let correctCountKey = "correctAnswersCount"
+            let incorrectCountKey = "incorrectAnswersCount"
+            UserDefaults.standard.removeObject(forKey: correctCountKey)
+            UserDefaults.standard.removeObject(forKey: incorrectCountKey)
         }
     }
 }
