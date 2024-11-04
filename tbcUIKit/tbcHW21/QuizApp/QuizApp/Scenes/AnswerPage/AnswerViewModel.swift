@@ -9,8 +9,26 @@ import Foundation
 final class AnswerViewModel {
     let question: QuestionModel
     private let userDefaultsKey: String
-    var correctAnswersCount: Int = 0
-    var incorrectAnswersCount: Int = 0
+    private let correctCountKey = "correctAnswersCount"
+    private let incorrectCountKey = "incorrectAnswersCount"
+    
+    var correctAnswersCount: Int {
+        get {
+            return UserDefaults.standard.integer(forKey: correctCountKey)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: correctCountKey)
+        }
+    }
+    
+    var incorrectAnswersCount: Int {
+        get {
+            return UserDefaults.standard.integer(forKey: incorrectCountKey)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: incorrectCountKey)
+        }
+    }
     
     init(question: QuestionModel) {
         self.question = question
@@ -19,7 +37,7 @@ final class AnswerViewModel {
     
     func saveAnswer(_ answer: String) {
         UserDefaults.standard.set(answer, forKey: userDefaultsKey)
-        
+
         if answer == question.answer {
             correctAnswersCount += 1
         } else {
@@ -28,6 +46,7 @@ final class AnswerViewModel {
     }
     
     func retrieveSavedAnswer() -> String? {
-        UserDefaults.standard.string(forKey: userDefaultsKey)
+        return UserDefaults.standard.string(forKey: userDefaultsKey)
     }
 }
+
