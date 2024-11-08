@@ -61,6 +61,7 @@ final class ImageViewModel {
         // არ დაგავიწყდეთ, გადმოწერილი იმიჯები საბოლოოდ უნდა მოხვდეს images მასივში.
         let operationQueue = OperationQueue()
         var downloadedImages: [UIImage] = []
+        let lock = NSLock()
         let completionOperation = BlockOperation {
             DispatchQueue.main.async { [weak self] in
                 self?.images = downloadedImages
@@ -72,7 +73,9 @@ final class ImageViewModel {
                 let semaphore = DispatchSemaphore(value: 0)
                 self?.fetchAndProcessImage(from: url) { image in
                     if let image = image {
+                        lock.lock()
                         downloadedImages.append(image)
+                        lock.unlock()
                     }
                     semaphore.signal()
                 }
@@ -102,7 +105,7 @@ final class ImageViewModel {
             }
             
             DispatchQueue.main.async {
-                self.images = downloadedImages  
+                self.images = downloadedImages
                 print("All images have been downloaded and processed with async/await.")
             }
         }
