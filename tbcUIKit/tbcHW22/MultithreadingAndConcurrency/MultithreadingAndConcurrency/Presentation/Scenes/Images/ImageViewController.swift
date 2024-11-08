@@ -77,9 +77,9 @@ final class ImageViewController: UIViewController {
         viewModel.updateNumberOfImages(to: 10)
         // გასატესტად uncomment გაუკეთეთ ქვემოთ მოცემულ მეთოდებს საჭიროებისამებრ
         
-        // viewModel.fetchImagesWithGCD()
-        // viewModel.fetchImagesWithOperationQueue()
-        // viewModel.fetchImagesWithAsyncAwait()
+//         viewModel.fetchImagesWithGCD()
+//         viewModel.fetchImagesWithOperationQueue()
+//         viewModel.fetchImagesWithAsyncAwait()
     }
 }
 

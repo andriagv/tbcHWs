@@ -88,25 +88,17 @@ final class ImageViewModel {
     }
     
     // დაასრულეთ მეთოდის იმპლემენტაცია async/await-ის გამოყენებით (შეგიძლიათ დაიხმაროთ fetchAndProcessImageAsync())
+    var downloadedImages: [UIImage] = []
     func fetchImagesWithAsyncAwait() {
-        // არ დაგავიწყდეთ, გადმოწერილი იმიჯები საბოლოოდ უნდა მოხვდეს images მასივში.
         Task { [weak self] in
             guard let self = self else { return }
-            
-            var downloadedImages: [UIImage] = []
-            let imagesAccessQueue = DispatchQueue(label: "com.app.imagesAccessQueue")
-            
             for url in imageUrls {
                 if let image = await self.fetchAndProcessImageAsync(from: url) {
-                    imagesAccessQueue.sync {
-                        downloadedImages.append(image)
-                    }
+                    downloadedImages.append(image)
                 }
             }
-            
-            DispatchQueue.main.async {
-                self.images = downloadedImages
-                print("All images have been downloaded and processed with async/await.")
+            DispatchQueue.main.async { [weak self] in
+                self?.images.append(contentsOf: self?.downloadedImages ?? [])
             }
         }
     }
