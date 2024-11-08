@@ -59,6 +59,29 @@ final class ImageViewModel {
     // დაასრულეთ მეთოდის იმპლემენტაცია NSOperationQueue-ის გამოყენებით
     func fetchImagesWithOperationQueue() {
         // არ დაგავიწყდეთ, გადმოწერილი იმიჯები საბოლოოდ უნდა მოხვდეს images მასივში.
+        let operationQueue = OperationQueue()
+        var downloadedImages: [UIImage] = []
+        let completionOperation = BlockOperation {
+            DispatchQueue.main.async { [weak self] in
+                self?.images = downloadedImages
+            }
+        }
+        
+        for url in imageUrls {
+            let downloadOperation = BlockOperation { [weak self] in
+                let semaphore = DispatchSemaphore(value: 0)
+                self?.fetchAndProcessImage(from: url) { image in
+                    if let image = image {
+                        downloadedImages.append(image)
+                    }
+                    semaphore.signal()
+                }
+                semaphore.wait()
+            }
+            completionOperation.addDependency(downloadOperation)
+            operationQueue.addOperation(downloadOperation)
+        }
+        operationQueue.addOperation(completionOperation)
     }
     
     // დაასრულეთ მეთოდის იმპლემენტაცია async/await-ის გამოყენებით (შეგიძლიათ დაიხმაროთ fetchAndProcessImageAsync())
