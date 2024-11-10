@@ -7,9 +7,11 @@
 
 import Foundation
 import UIKit
+import DateFormatterService
 
 final class HotUpdatesViewModel {
     private let article: NewsArticle
+    private let dateFormatterService = DateFormatterService()
     
     init(article: NewsArticle) {
         self.article = article
@@ -24,7 +26,7 @@ final class HotUpdatesViewModel {
     }
     
     var formattedDate: String {
-        formatDate(article.publishedAt)
+        dateFormatterService.formatDate(article.publishedAt)
     }
     
     var description: String {
@@ -33,18 +35,6 @@ final class HotUpdatesViewModel {
     
     var imageUrl: URL? {
         URL(string: article.imageUrl)
-    }
-    
-    private func formatDate(_ dateString: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        
-        if let date = dateFormatter.date(from: dateString) {
-            dateFormatter.dateFormat = "EEEE, d MMM yyyy"
-            return dateFormatter.string(from: date)
-        } else {
-            return dateString
-        }
     }
 }
 

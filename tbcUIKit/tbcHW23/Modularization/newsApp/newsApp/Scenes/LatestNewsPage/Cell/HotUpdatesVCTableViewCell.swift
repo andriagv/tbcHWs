@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import DateFormatterService
 
 final class HotUpdatesVCTableViewCell: UITableViewCell {
     
     let viewModel = LatestNewsViewModel()
+    let dateFormatterService = DateFormatterService()
     
     // MARK: - UI Elements
     
@@ -90,7 +92,7 @@ final class HotUpdatesVCTableViewCell: UITableViewCell {
     func configure(with article: NewsArticle) {
         titleLabel.text = article.title
         authorLabel.text = "\(article.author)"
-        dateLabel.text = "\(formatDate(article.publishedAt))"
+        dateLabel.text = "\(dateFormatterService.formatDate(article.publishedAt))"
         if let url = URL(string: article.imageUrl) {
             URLSession.shared.dataTask(with: url) { data, _, _ in
                 if let data = data {
@@ -99,18 +101,6 @@ final class HotUpdatesVCTableViewCell: UITableViewCell {
                     }
                 }
             }.resume()
-        }
-    }
-    
-    func formatDate(_ dateString: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        
-        if let date = dateFormatter.date(from: dateString) {
-            dateFormatter.dateFormat = "EEEE, d MMM yyyy"
-            return dateFormatter.string(from: date)
-        } else {
-            return dateString
         }
     }
 }
