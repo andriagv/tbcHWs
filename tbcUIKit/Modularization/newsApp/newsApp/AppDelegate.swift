@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  newsApp
 //
-//  Created by Apple on 29.10.24.
+//  Created by Apple on 11.11.24.
 //
 
 import UIKit
