@@ -78,7 +78,7 @@ final class HotUpdatesVC: UIViewController {
         return label
     }()
     
-    // MARK: - Lifecycle 
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
