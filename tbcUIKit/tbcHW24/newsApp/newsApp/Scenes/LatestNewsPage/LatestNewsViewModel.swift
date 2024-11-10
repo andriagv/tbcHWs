@@ -7,21 +7,30 @@
 
 import Foundation
 import UIKit
+import NetworkingModule
 
 
 final class LatestNewsViewModel {
     
-    private let newsService = NewsService()
+    private let networkManager = NetworkManager()
+    
     var articles: [NewsArticle] = []
     
     var onDataUpdated: (() -> Void)?
     
-    var configure1: (() -> Void)?
-    
     func fetchNews() {
-        newsService.fetchNews { [weak self] articles in
-            self?.articles = articles
-            DispatchQueue.main.async {
+        networkManager.fetchNews { [weak self] articles in
+            let newsDataModels = articles.map { article in
+                NewsArticle(
+                    title: article.title,
+                    author: article.author,
+                    publishedAt: article.publishedAt,
+                    imageUrl: article.imageUrl,
+                    description: article.description
+                )
+            }
+            self?.articles = newsDataModels
+            DispatchQueue.main.async { [weak self] in
                 self?.onDataUpdated?()
             }
         }
