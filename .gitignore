@@ -1,8 +1,6 @@
 # Created by https://www.toptal.com/developers/gitignore/api/swift,git,swiftpackagemanager
 # Edit at https://www.toptal.com/developers/gitignore?templates=swift,git,swiftpackagemanager
 
-# Ignore all contents.xcplayground files in the project
-*.xcplayground
 
 ### Git ###
 # Created by git for backups. To disable backups in Git:
