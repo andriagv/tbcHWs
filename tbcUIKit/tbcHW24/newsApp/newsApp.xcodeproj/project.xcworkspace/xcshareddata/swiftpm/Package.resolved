@@ -1,0 +1,24 @@
+{
+  "originHash" : "280dfea883f7d5a94d471eb75354e076f06a43d4d0fde9f9ade37344d506bc6b",
+  "pins" : [
+    {
+      "identity" : "dateformatterservice",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/andriagv/DateFormatterService.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "31bd2d498a88782d136e35267ac20f0f1a034f98"
+      }
+    },
+    {
+      "identity" : "networkingmodule",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/andriagv/NetworkingModule.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "28d3467413aea1aeda1e09ea5f0a888607a2ff43"
+      }
+    }
+  ],
+  "version" : 3
+}
