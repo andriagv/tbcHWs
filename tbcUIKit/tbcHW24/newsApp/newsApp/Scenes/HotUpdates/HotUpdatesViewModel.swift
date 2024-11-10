@@ -22,7 +22,7 @@ final class HotUpdatesViewModel {
     }
     
     var author: String {
-        "Published by        \(article.author)"
+        "Published by \(article.author)"
     }
     
     var formattedDate: String {
@@ -35,18 +35,6 @@ final class HotUpdatesViewModel {
     
     var imageUrl: URL? {
         URL(string: article.imageUrl)
-    }
-    
-    private func formatDate(_ dateString: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        
-        if let date = dateFormatter.date(from: dateString) {
-            dateFormatter.dateFormat = "EEEE, d MMM yyyy"
-            return dateFormatter.string(from: date)
-        } else {
-            return dateString
-        }
     }
 }
 

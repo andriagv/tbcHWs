@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 import NetworkingModule
 
-
 final class LatestNewsViewModel {
     
     private let networkManager = NetworkManager()
@@ -37,12 +36,10 @@ final class LatestNewsViewModel {
     }
     
     func numberOfArticles() -> Int {
-        return articles.count
+        articles.count
     }
     
     func article(at index: Int) -> NewsArticle {
-        return articles[index]
+        articles[index]
     }
-    
-    
 }

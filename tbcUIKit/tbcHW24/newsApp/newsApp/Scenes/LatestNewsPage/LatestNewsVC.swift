@@ -9,7 +9,7 @@ import UIKit
 
 final class LatestNewsVC: UIViewController {
     
-    let viewModel = LatestNewsViewModel()
+    private let viewModel = LatestNewsViewModel()
     
     // MARK: - UI Elements
     
@@ -98,20 +98,3 @@ extension LatestNewsVC: UITableViewDelegate {
     }
 }
 
-
-func getDataFromDisk() {
-    let paths = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)
-    if let firstPath = paths.first {
-        let newPath = firstPath.appendingPathComponent("MyImagesFolder")
-        if !FileManager.default.fileExists(atPath: newPath.path) {
-            do {
-                try FileManager.default.createDirectory(at: newPath, withIntermediateDirectories: true, attributes: nil)
-              
-            } catch {
-               
-            }
-        } else {
-            
-        }
-    }
-}
