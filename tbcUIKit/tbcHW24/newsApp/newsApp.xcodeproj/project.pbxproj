@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		185FB7602CE239F200F8B2BA /* NetworkingModule in Frameworks */ = {isa = PBXBuildFile; productRef = 185FB75F2CE239F200F8B2BA /* NetworkingModule */; };
+		185FB7652CE23B4000F8B2BA /* NetworkingModule in Frameworks */ = {isa = PBXBuildFile; productRef = 185FB7642CE23B4000F8B2BA /* NetworkingModule */; };
 		18D468DB2CE1671700F02928 /* DateFormatterService in Frameworks */ = {isa = PBXBuildFile; productRef = 18D468DA2CE1671700F02928 /* DateFormatterService */; };
-		18D468DE2CE1672100F02928 /* NetworkingModule in Frameworks */ = {isa = PBXBuildFile; productRef = 18D468DD2CE1672100F02928 /* NetworkingModule */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,8 +42,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18D468DE2CE1672100F02928 /* NetworkingModule in Frameworks */,
+				185FB7602CE239F200F8B2BA /* NetworkingModule in Frameworks */,
 				18D468DB2CE1671700F02928 /* DateFormatterService in Frameworks */,
+				185FB7652CE23B4000F8B2BA /* NetworkingModule in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +88,8 @@
 			name = newsApp;
 			packageProductDependencies = (
 				18D468DA2CE1671700F02928 /* DateFormatterService */,
-				18D468DD2CE1672100F02928 /* NetworkingModule */,
+				185FB75F2CE239F200F8B2BA /* NetworkingModule */,
+				185FB7642CE23B4000F8B2BA /* NetworkingModule */,
 			);
 			productName = newsApp;
 			productReference = 18558ABC2CD1756A0043F76C /* newsApp.app */;
@@ -118,7 +121,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				18D468D92CE1671700F02928 /* XCRemoteSwiftPackageReference "DateFormatterService" */,
-				18D468DC2CE1672100F02928 /* XCRemoteSwiftPackageReference "NetworkingModule" */,
+				185FB7632CE23B4000F8B2BA /* XCRemoteSwiftPackageReference "NetworkingModule" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 18558ABD2CD1756A0043F76C /* Products */;
@@ -348,6 +351,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		185FB7632CE23B4000F8B2BA /* XCRemoteSwiftPackageReference "NetworkingModule" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/andriagv/NetworkingModule.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		18D468D92CE1671700F02928 /* XCRemoteSwiftPackageReference "DateFormatterService" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/andriagv/DateFormatterService.git";
@@ -356,26 +367,22 @@
 				kind = branch;
 			};
 		};
-		18D468DC2CE1672100F02928 /* XCRemoteSwiftPackageReference "NetworkingModule" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/andriagv/NetworkingModule.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		185FB75F2CE239F200F8B2BA /* NetworkingModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NetworkingModule;
+		};
+		185FB7642CE23B4000F8B2BA /* NetworkingModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 185FB7632CE23B4000F8B2BA /* XCRemoteSwiftPackageReference "NetworkingModule" */;
+			productName = NetworkingModule;
+		};
 		18D468DA2CE1671700F02928 /* DateFormatterService */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 18D468D92CE1671700F02928 /* XCRemoteSwiftPackageReference "DateFormatterService" */;
 			productName = DateFormatterService;
-		};
-		18D468DD2CE1672100F02928 /* NetworkingModule */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 18D468DC2CE1672100F02928 /* XCRemoteSwiftPackageReference "NetworkingModule" */;
-			productName = NetworkingModule;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
