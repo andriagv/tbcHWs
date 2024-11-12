@@ -8,14 +8,21 @@
 import Foundation
 import UIKit
 import NetworkingModule
+import DateFormatterService
 
 final class LatestNewsViewModel {
     
-    private let networkManager = NetworkManager()
+    private let networkManager: NetworkProtocol
+    private let formatter: DateFormatting
     
     var articles: [NewsArticle] = []
     
     var onDataUpdated: (() -> Void)?
+    
+    init(networkManager: NetworkProtocol = NetworkManager(), formatter: DateFormatting = DateFormatterService()) {
+        self.networkManager = networkManager
+        self.formatter = formatter
+    }
     
     func fetchNews() {
         networkManager.fetchNews { [weak self] articles in

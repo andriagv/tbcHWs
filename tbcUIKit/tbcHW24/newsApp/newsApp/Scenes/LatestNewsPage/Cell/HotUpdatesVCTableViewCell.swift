@@ -6,16 +6,14 @@
 //
 
 import UIKit
-import DateFormatterService
 
 final class HotUpdatesVCTableViewCell: UITableViewCell {
     
     private let viewModel = LatestNewsViewModel()
-    private let dateFormatterService = DateFormatterService()
     
     // MARK: - UI Elements
     
-    private let newsImageView: UIImageView = {
+    let newsImageView: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
@@ -24,7 +22,7 @@ final class HotUpdatesVCTableViewCell: UITableViewCell {
         return image
     }()
     
-    private let titleLabel: UILabel = {
+    let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Nunito", size: 12)
         label.textColor = .white
@@ -33,7 +31,7 @@ final class HotUpdatesVCTableViewCell: UITableViewCell {
         return label
     }()
     
-    private let authorLabel: UILabel = {
+    let authorLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
         label.font = UIFont(name: "Nunito", size: 12)
@@ -41,7 +39,7 @@ final class HotUpdatesVCTableViewCell: UITableViewCell {
         return label
     }()
     
-    private let dateLabel: UILabel = {
+    let dateLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Nunito", size: 12)
         label.textColor = .white
@@ -86,22 +84,6 @@ final class HotUpdatesVCTableViewCell: UITableViewCell {
             dateLabel.trailingAnchor.constraint(equalTo: newsImageView.trailingAnchor, constant: -10),
             dateLabel.bottomAnchor.constraint(equalTo: newsImageView.bottomAnchor, constant: -10)
         ])
-    }
-    
-    //https://forums.swift.org/t/datatask-in-a-loop/64807
-    func configure(with article: NewsArticle) {
-        titleLabel.text = article.title
-        authorLabel.text = "\(article.author)"
-        dateLabel.text = "\(dateFormatterService.formatDate(article.publishedAt))"
-        if let url = URL(string: article.imageUrl) {
-            URLSession.shared.dataTask(with: url) { data, _, _ in
-                if let data = data {
-                    DispatchQueue.main.async { [weak self] in
-                        self?.newsImageView.image = UIImage(data: data)
-                    }
-                }
-            }.resume()
-        }
     }
 }
 

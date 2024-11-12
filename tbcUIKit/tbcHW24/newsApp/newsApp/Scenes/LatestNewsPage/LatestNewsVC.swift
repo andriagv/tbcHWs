@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import DateFormatterService
 
 final class LatestNewsVC: UIViewController {
     
     private let viewModel = LatestNewsViewModel()
     
     // MARK: - UI Elements
+    private let formatter: DateFormatting
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -29,6 +31,15 @@ final class LatestNewsVC: UIViewController {
     }()
     
     // MARK: - Lifecycle
+    
+    init( formatter: DateFormatting = DateFormatterService()) {
+        self.formatter = formatter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,10 +88,27 @@ extension LatestNewsVC: UITableViewDataSource  {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "HotUpdatesVCTableViewCell", for: indexPath) as? HotUpdatesVCTableViewCell else {
             return UITableViewCell()
         }
+        
         let article = viewModel.article(at: indexPath.row)
-        cell.configure(with: article)
+        configure(with: article)
         cell.clipsToBounds = true
+        
+        func configure(with article: NewsArticle) {
+            cell.titleLabel.text = article.title
+            cell.authorLabel.text = "\(article.author)"
+            cell.dateLabel.text = "\(formatter.formatDate(article.publishedAt))"
+            if let url = URL(string: article.imageUrl) {
+                URLSession.shared.dataTask(with: url) { data, _, _ in
+                    if let data = data {
+                        DispatchQueue.main.async {
+                            cell.newsImageView.image = UIImage(data: data)
+                        }
+                    }
+                }.resume()
+            }
+        }
         return cell
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

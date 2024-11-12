@@ -11,10 +11,11 @@ import DateFormatterService
 
 final class HotUpdatesViewModel {
     private let article: NewsArticle
-    private let dateFormatterService = DateFormatterService()
+    private let formatter: DateFormatting
     
-    init(article: NewsArticle) {
+    init(article: NewsArticle,formatter: DateFormatting = DateFormatterService()) {
         self.article = article
+        self.formatter = formatter
     }
     
     var title: String {
@@ -26,7 +27,7 @@ final class HotUpdatesViewModel {
     }
     
     var formattedDate: String {
-        dateFormatterService.formatDate(article.publishedAt)
+        formatter.formatDate(article.publishedAt)
     }
     
     var description: String {
