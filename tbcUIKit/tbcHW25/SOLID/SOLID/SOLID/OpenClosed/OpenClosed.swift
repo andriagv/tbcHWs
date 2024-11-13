@@ -7,6 +7,7 @@
 
 import Foundation
 
+//OCP გვეუბნება, რომ კლასი უნდა იყოს "ღია" გაფართოებისთვის, მაგრამ "დახურული" ცვლილებებისთვის. ანუ, არსებული ფუნქციების შეცვლის გარეშე შეგვეძლება ახალი ფუნქციების დამატება.
 
 /*
  შეგვიძლია კონკრეტული ქმედების პროტოკოლი შევქმნათ და მერე მას დავუქვემდებაროტ სხვები , ეს აგვარიდებს ტავიდან if let და case ების წერას.
@@ -39,7 +40,6 @@ class DiscountCalc {
     func calculateDiscount(for discountType: Discountable, amount: Double) -> Double {
         discountType.calculateDiscount(for: amount)
     }
-    
 }
 
 //აი ასე შეგვიძლია გამოძახება
