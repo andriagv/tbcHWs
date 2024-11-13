@@ -53,3 +53,20 @@ let discount = calculator.calculateDiscount(for: PremiumDiscount(), amount: 10)
 
 
 //ერტი სიტყვით გაფართოვება მოდიფიკაციის გარეშე
+
+
+//MARK: - მერე ვარიანთი
+
+class DiscountCalcul {
+    private let discount: Discountable
+        
+        init(discountStrategy: Discountable) {
+            self.discount = discountStrategy
+        }
+        
+        func calculateDiscount(for price: Double) -> Double {
+            return discount.calculateDiscount(for: price)
+        }
+}
+
+let price = DiscountCalcul(discountStrategy: RegularDiscount()).calculateDiscount(for: 10)
