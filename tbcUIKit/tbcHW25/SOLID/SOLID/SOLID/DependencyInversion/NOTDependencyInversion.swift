@@ -8,28 +8,6 @@
 import Foundation
 
 
-//ვასომაც ემაილ სენდერი გამოიყენა და მოდი ოდნავ გადავაკეთებ
-
-class SMService {
-    func sendEmail(to recipient: String, message: String) {
-        print("Sending email to \(recipient): \(message)")
-    }
-}
-
-class EmailNotification {
-    let smsService = SMService()
-    
-    func notifyUser() {
-        smsService.sendEmail(to: "user@example.com", message: "Hello, user!")
-    }
-}
-
-/*
- აქ მთავარი პრობლემა ისაა რო მეილეევს სმს ებთან ვაიგივებ
- */
-
-
-//MARK: - მეორე მაგალიტიც
 
 class DatabaseService {
     func fetchData() -> [String] {
