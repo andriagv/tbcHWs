@@ -7,7 +7,6 @@
 
 
 import UIKit
-import SpriteKit
 
 final class GameViewController: UIViewController {
     private var viewModel = GameViewModel()
