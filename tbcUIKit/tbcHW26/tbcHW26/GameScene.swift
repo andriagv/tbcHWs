@@ -8,34 +8,36 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
+final class GameScene: SKScene {
     private var viewModel: GameViewModel
     private var playerNode: SKSpriteNode?
-
+    
     init(size: CGSize, viewModel: GameViewModel) {
         self.viewModel = viewModel
         super.init(size: size)
         backgroundColor = .white
         setupPlayer()
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     private func setupPlayer() {
         let texture = SKTexture(imageNamed: "monkey")
         let spriteNode = SKSpriteNode(texture: texture)
-        spriteNode.size = CGSize(width: 100, height: 100)
-        spriteNode.position = viewModel.playerPosition
+        spriteNode.size = viewModel.playerManager.size
+        spriteNode.position = viewModel.playerManager.position
         addChild(spriteNode)
         playerNode = spriteNode
     }
-
+    
     func updateFoods() {
         removeAllChildren()
-        addChild(playerNode!)
-
+        if let playerNode = playerNode {
+            addChild(playerNode)
+        }
+        
         for food in viewModel.foods {
             if !food.isCaught {
                 let texture = SKTexture(imageNamed: "banana")
@@ -45,7 +47,7 @@ class GameScene: SKScene {
                 addChild(foodNode)
             }
         }
-
+        
         for maxBanana in viewModel.maxBananas {
             if !maxBanana.isCaught {
                 let texture = SKTexture(imageNamed: "MaxBanana")
@@ -56,14 +58,13 @@ class GameScene: SKScene {
                 addChild(bananaNode)
             }
         }
-
-        playerNode?.position = viewModel.playerPosition
+        playerNode?.position = viewModel.playerManager.position
     }
-
+    
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let touchLocation = touch.location(in: self)
-            viewModel.movePlayer(to: touchLocation)
+            viewModel.playerManager.movePlayer(to: touchLocation, screenWidth: size.width, screenHeight: size.height)
         }
     }
 }
