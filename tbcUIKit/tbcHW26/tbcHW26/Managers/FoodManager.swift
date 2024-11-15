@@ -1,5 +1,5 @@
 //
-//  GameViewModel.swift
+//  FoodManager.swift
 //  tbcHW26
 //
 //  Created by Apple on 15.11.24.
@@ -9,13 +9,9 @@
 import UIKit
 import CoreGraphics
 
-final class GameViewModel: ObservableObject {
-    var playerManager = PlayerManager()
-    private(set) var score: Int = 0
+final class FoodManager {
     private(set) var foods: [Food] = []
     private(set) var maxBananas: [MaxBanana] = []
-    private(set) var gameOver: Bool = false
-    private(set) var isPaused: Bool = false
     private(set) var fallSpeed: CGFloat = 5.0
     
     func dropFood(screenWidth: CGFloat, screenHeight: CGFloat) {
@@ -40,8 +36,8 @@ final class GameViewModel: ObservableObject {
         }
     }
     
-    func checkCollision() {
-        let playerFrame = playerManager.playerFrame()
+    func checkCollision(playerFrame: CGRect, onScoreUpdate: (Int) -> Void) -> Bool {
+        var gameOver = false
         
         for index in foods.indices {
             let foodFrame = CGRect(
@@ -53,7 +49,7 @@ final class GameViewModel: ObservableObject {
             
             if playerFrame.intersects(foodFrame) && !foods[index].isCaught {
                 foods[index].isCaught = true
-                score += 1
+                onScoreUpdate(1)
                 fallSpeed += 2
             }
         }
@@ -68,7 +64,7 @@ final class GameViewModel: ObservableObject {
             
             if playerFrame.intersects(bananaFrame) && !maxBananas[index].isCaught {
                 maxBananas[index].isCaught = true
-                score += 5
+                onScoreUpdate(5)
                 fallSpeed += 3
             }
         }
@@ -79,15 +75,13 @@ final class GameViewModel: ObservableObject {
         
         foods.removeAll { $0.isCaught || $0.position.y < 0 }
         maxBananas.removeAll { $0.isCaught || $0.position.y < 0 }
+        
+        return gameOver
     }
     
-    func resetGame() {
-        score = 0
-        gameOver = false
-        isPaused = false
-        fallSpeed = 5.0
+    func reset() {
         foods.removeAll()
         maxBananas.removeAll()
-        playerManager.position = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 4)
+        fallSpeed = 5.0
     }
 }

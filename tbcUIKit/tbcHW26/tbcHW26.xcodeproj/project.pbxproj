@@ -24,9 +24,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		18EDC5C52CE7ACB200180C13 /* tbcHW26.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tbcHW26.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		18EDC5DB2CE7ACB500180C13 /* tbcHW26Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tbcHW26Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		18EDC5E52CE7ACB500180C13 /* tbcHW26UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tbcHW26UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		18EDC5C52CE7ACB200180C13 /* tbcHW26.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = tbcHW26.app; path = "/Users/apple/Desktop/tbcHWs/tbcUIKit/tbcHW26/build/Debug-iphoneos/tbcHW26.app"; sourceTree = "<absolute>"; };
+		18EDC5DB2CE7ACB500180C13 /* tbcHW26Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = tbcHW26Tests.xctest; path = "/Users/apple/Desktop/tbcHWs/tbcUIKit/tbcHW26/build/Debug-iphoneos/tbcHW26.app/PlugIns/tbcHW26Tests.xctest"; sourceTree = "<absolute>"; };
+		18EDC5E52CE7ACB500180C13 /* tbcHW26UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = tbcHW26UITests.xctest; path = "/Users/apple/Desktop/tbcHWs/tbcUIKit/tbcHW26/build/Debug-iphoneos/tbcHW26UITests-Runner.app/PlugIns/tbcHW26UITests.xctest"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -79,18 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				18EDC5C72CE7ACB200180C13 /* tbcHW26 */,
-				18EDC5C62CE7ACB200180C13 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		18EDC5C62CE7ACB200180C13 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				18EDC5C52CE7ACB200180C13 /* tbcHW26.app */,
-				18EDC5DB2CE7ACB500180C13 /* tbcHW26Tests.xctest */,
-				18EDC5E52CE7ACB500180C13 /* tbcHW26UITests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,7 +180,7 @@
 			mainGroup = 18EDC5BC2CE7ACB200180C13;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 18EDC5C62CE7ACB200180C13 /* Products */;
+			productRefGroup = 18EDC5BC2CE7ACB200180C13;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (

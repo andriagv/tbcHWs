@@ -10,10 +10,12 @@ import SpriteKit
 
 final class GameScene: SKScene {
     private var viewModel: GameViewModel
+    private var foodManager: FoodManager
     private var playerNode: SKSpriteNode?
     
     init(size: CGSize, viewModel: GameViewModel) {
         self.viewModel = viewModel
+        self.foodManager = viewModel.foodManager
         super.init(size: size)
         backgroundColor = .white
         setupPlayer()
@@ -34,11 +36,12 @@ final class GameScene: SKScene {
     
     func updateFoods() {
         removeAllChildren()
+        
         if let playerNode = playerNode {
             addChild(playerNode)
         }
         
-        for food in viewModel.foods {
+        for food in foodManager.foods {
             if !food.isCaught {
                 let texture = SKTexture(imageNamed: "banana")
                 let foodNode = SKSpriteNode(texture: texture)
@@ -48,7 +51,7 @@ final class GameScene: SKScene {
             }
         }
         
-        for maxBanana in viewModel.maxBananas {
+        for maxBanana in foodManager.maxBananas {
             if !maxBanana.isCaught {
                 let texture = SKTexture(imageNamed: "MaxBanana")
                 let bananaNode = SKSpriteNode(texture: texture)
@@ -58,6 +61,7 @@ final class GameScene: SKScene {
                 addChild(bananaNode)
             }
         }
+        
         playerNode?.position = viewModel.playerManager.position
     }
     

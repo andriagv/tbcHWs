@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PlayerManager {
+final class PlayerManager {
     var position: CGPoint
     let size: CGSize
 
