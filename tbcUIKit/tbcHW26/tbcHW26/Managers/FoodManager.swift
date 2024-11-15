@@ -7,7 +7,6 @@
 
 
 import UIKit
-import CoreGraphics
 
 final class FoodManager {
     private(set) var foods: [Food] = []
