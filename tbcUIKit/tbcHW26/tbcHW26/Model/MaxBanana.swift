@@ -13,7 +13,7 @@ struct MaxBanana: GameElement {
     var velocity: CGVector
     var isCaught: Bool = false
     var rotationAngle: CGFloat = 0.0
-
+    
     mutating func updatePosition(fallSpeed: CGFloat) {
         position.x += velocity.dx
         position.y += velocity.dy - fallSpeed

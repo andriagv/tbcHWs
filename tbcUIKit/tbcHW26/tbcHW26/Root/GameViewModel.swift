@@ -15,7 +15,7 @@ final class GameViewModel: ObservableObject {
     private(set) var score: Int = 0
     private(set) var gameOver: Bool = false
     private(set) var isPaused: Bool = false
-
+    
     func updatePositions() {
         foodManager.updatePositions()
     }

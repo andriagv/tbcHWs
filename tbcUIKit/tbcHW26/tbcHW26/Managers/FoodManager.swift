@@ -40,12 +40,7 @@ final class FoodManager {
         var gameOver = false
         
         for index in foods.indices {
-            let foodFrame = CGRect(
-                x: foods[index].position.x - 25,
-                y: foods[index].position.y - 25,
-                width: 50,
-                height: 50
-            )
+            let foodFrame = CGRect(x: foods[index].position.x - 25, y: foods[index].position.y - 25, width: 50, height: 50)
             
             if playerFrame.intersects(foodFrame) && !foods[index].isCaught {
                 foods[index].isCaught = true
@@ -55,12 +50,7 @@ final class FoodManager {
         }
         
         for index in maxBananas.indices {
-            let bananaFrame = CGRect(
-                x: maxBananas[index].position.x - 25,
-                y: maxBananas[index].position.y - 25,
-                width: 50,
-                height: 50
-            )
+            let bananaFrame = CGRect(x: maxBananas[index].position.x - 25, y: maxBananas[index].position.y - 25, width: 50, height: 50)
             
             if playerFrame.intersects(bananaFrame) && !maxBananas[index].isCaught {
                 maxBananas[index].isCaught = true
@@ -69,7 +59,7 @@ final class FoodManager {
             }
         }
         
-        if foods.contains(where: { $0.position.y < 0 && !$0.isCaught }) {
+        if foods.contains(where: { $0.position.y < 0 && !$0.isCaught }) || maxBananas.contains(where: { $0.position.y < 0 && !$0.isCaught }) {
             gameOver = true
         }
         
