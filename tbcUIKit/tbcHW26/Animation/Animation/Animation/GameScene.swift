@@ -5,6 +5,7 @@
 //  Created by Apple on 15.11.24.
 //
 
+
 import SpriteKit
 
 class GameScene: SKScene {
@@ -48,17 +49,16 @@ class GameScene: SKScene {
         for maxBanana in viewModel.maxBananas {
             if !maxBanana.isCaught {
                 let texture = SKTexture(imageNamed: "MaxBanana")
-                let maxBananaNode = SKSpriteNode(texture: texture)
-                maxBananaNode.size = CGSize(width: 50, height: 50)
-                maxBananaNode.position = maxBanana.position
-                maxBananaNode.zRotation = maxBanana.rotationAngle // MaxBanana-ის ბრუნვა
-                addChild(maxBananaNode)
+                let bananaNode = SKSpriteNode(texture: texture)
+                bananaNode.size = CGSize(width: 50, height: 50)
+                bananaNode.position = maxBanana.position
+                bananaNode.zRotation = maxBanana.rotationAngle
+                addChild(bananaNode)
             }
         }
 
         playerNode?.position = viewModel.playerPosition
     }
-
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
