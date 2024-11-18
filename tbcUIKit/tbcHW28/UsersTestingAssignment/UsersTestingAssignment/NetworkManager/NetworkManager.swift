@@ -7,7 +7,11 @@
 
 import UIKit
 
-final class NetworkManager: NSObject {
+protocol NetworkingService {
+    func fetchUsers(withLimit limit: Int, completionHandler: @escaping ([User]) -> Void)
+}
+
+final class NetworkManager: NSObject, NetworkingService {
     static let sharedInstance = NetworkManager()
     
     var users: [User] = []

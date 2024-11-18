@@ -8,11 +8,6 @@
 import Foundation
 @testable import UsersTestingAssignment
 
-
-protocol NetworkingService {
-    func fetchUsers(withLimit limit: Int, completionHandler: @escaping ([User]) -> Void)
-}
-
 final class MockNetworkManager: NetworkingService {
     
     func fetchUsers(withLimit limit: Int, completionHandler: @escaping ([User]) -> Void) {
