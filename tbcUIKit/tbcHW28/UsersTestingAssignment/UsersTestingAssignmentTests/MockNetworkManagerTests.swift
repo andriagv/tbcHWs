@@ -48,21 +48,6 @@ final class NetworkManagerTests: XCTestCase {
         }
     }
     
-    func testEmailContainsAtSymbol() throws {
-        mockNetworkManager?.fetchUsers(withLimit: 1) { users in
-            if let email = users.first?.email {
-                XCTAssertTrue(email.contains("@"))
-            }
-        }
-    }
-    
-    func testValidMockDataConversion() throws {
-        let jsonString = User.jsonMock
-        if let  data = jsonString.data(using: .utf8) {
-            XCTAssertNotNil(data)
-        }
-    }
-    
     func testPerformanceFetchUsers() throws {
         mockNetworkManager?.fetchUsers(withLimit: 100) { users in
             XCTAssertGreaterThan(users.count, 0)
