@@ -18,11 +18,7 @@ final class UsersTestingAssignmentTests: XCTestCase {
             gender: "male",
             name: Name(title: "Mr", first: "Andria", last: "Gv"),
             email: "andriaGV@tbcacademy.edu.com",
-            picture: Picture(
-                large: "",
-                medium: "",
-                thumbnail: "https://thumbnail.jpg"
-            ),
+            picture: Picture(large: "", medium: "", thumbnail: "https://thumbnail.jpg"),
             nat: "",
             cell: "(123)-456-7890",
             phone: "(098)-765-4321"

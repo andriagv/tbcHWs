@@ -55,7 +55,7 @@ final class NetworkManagerTests: XCTestCase {
             }
         }
     }
-   
+    
     func testValidMockDataConversion() throws {
         let jsonString = User.jsonMock
         if let  data = jsonString.data(using: .utf8) {
