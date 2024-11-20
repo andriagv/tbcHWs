@@ -8,14 +8,58 @@
 
 import UIKit
 import SpriteKit
+import izziGradient
 
 final class GameViewController: UIViewController {
     private var viewModel = GameViewModel()
     private var gameScene: GameScene?
     private var scoreLabel: UILabel?
+    let gradientView = IzziLinearGradient()
+    
+    private let button: UIButton = {
+        let btn = UIButton()
+        btn.setTitle("დაწყება", for: .normal)
+        btn.layer.cornerRadius = 15
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.setTitleColor(.white, for: .normal)
+        btn.backgroundColor = UIColor.orange.withAlphaComponent(0.8)
+        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        return btn
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupGradientView()
+        setupStartGameButton()
+    }
+    
+    private func setupGradientView() {
+        gradientView.gradientColors = [UIColor.systemGreen, UIColor.systemOrange]
+        gradientView.colorLocations = [0.0, 1.0]
+        gradientView.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradientView.endPoint = CGPoint(x: 1.0, y: 1.0)
+        
+        gradientView.frame = view.bounds
+        gradientView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(gradientView)
+    }
+    
+    private func setupStartGameButton() {
+        gradientView.addSubview(button)
+
+        NSLayoutConstraint.activate([
+            button.centerXAnchor.constraint(equalTo: gradientView.centerXAnchor),
+            button.centerYAnchor.constraint(equalTo: gradientView.centerYAnchor),
+            button.widthAnchor.constraint(equalToConstant: 120),
+            button.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        
+        button.addAction(UIAction(handler: { [weak self] _ in
+            self?.startGame()
+        }), for: .touchUpInside)
+    }
+    
+    private func startGame() {
         setupGameScene()
         setupScoreLabel()
         startGameLoop()
@@ -32,13 +76,13 @@ final class GameViewController: UIViewController {
     
     private func setupScoreLabel() {
         scoreLabel = UILabel(frame: CGRect(x: 20, y: 50, width: 150, height: 30))
-        scoreLabel?.textColor = .black
+        scoreLabel?.textColor = .orange
         scoreLabel?.font = UIFont.boldSystemFont(ofSize: 24)
         view.addSubview(scoreLabel ?? UILabel())
     }
     
     private func startGameLoop() {
-        Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { [weak self] _ in
+        Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true) { [weak self] _ in
             guard let self = self else { return }
             self.viewModel.updatePositions()
             self.viewModel.checkCollision()

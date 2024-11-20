@@ -44,7 +44,7 @@ final class FoodManager {
             if playerFrame.intersects(foodFrame) && !foods[index].isCaught {
                 foods[index].isCaught = true
                 onScoreUpdate(1)
-                fallSpeed += 2
+                fallSpeed += 1
             }
         }
         
@@ -54,7 +54,7 @@ final class FoodManager {
             if playerFrame.intersects(bananaFrame) && !maxBananas[index].isCaught {
                 maxBananas[index].isCaught = true
                 onScoreUpdate(5)
-                fallSpeed += 3
+                fallSpeed += 2
             }
         }
         

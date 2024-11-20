@@ -2,8 +2,9 @@
 //  MockNetworkManager.swift
 //  UsersTestingAssignment
 //
-//  Created by Apple on 18.11.24.
+//  Created by Apple on 19.11.24.
 //
+
 
 import Foundation
 @testable import UsersTestingAssignment
@@ -27,5 +28,3 @@ final class MockNetworkManager: NetworkingService {
         }
     }
 }
-
-

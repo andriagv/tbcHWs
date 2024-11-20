@@ -12,7 +12,7 @@ final class PlayerManager {
     let size: CGSize
     
     init(position: CGPoint = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 4),
-         size: CGSize = CGSize(width: 100, height: 100)) {
+         size: CGSize = CGSize(width: 120, height: 120)) {
         self.position = position
         self.size = size
     }

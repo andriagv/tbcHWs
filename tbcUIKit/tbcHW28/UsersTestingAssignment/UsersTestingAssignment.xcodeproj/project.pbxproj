@@ -22,10 +22,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		1865CAB52CEC8A5E00A479ED /* Exceptions for "UsersTestingAssignment" folder in "UsersTestingAssignmentTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Model/test.swift,
+				NetworkManager/MockNetworkManager.swift,
+			);
+			target = 18673DA12CEA2244008C0C6A /* UsersTestingAssignmentTests */;
+		};
 		407AA6E32CE7617C004F23AB /* Exceptions for "UsersTestingAssignment" folder in "UsersTestingAssignment" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
+				Model/test.swift,
+				NetworkManager/MockNetworkManager.swift,
 			);
 			target = 407AA6D02CE7617A004F23AB /* UsersTestingAssignment */;
 		};
@@ -41,6 +51,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				407AA6E32CE7617C004F23AB /* Exceptions for "UsersTestingAssignment" folder in "UsersTestingAssignment" target */,
+				1865CAB52CEC8A5E00A479ED /* Exceptions for "UsersTestingAssignment" folder in "UsersTestingAssignmentTests" target */,
 			);
 			path = UsersTestingAssignment;
 			sourceTree = "<group>";

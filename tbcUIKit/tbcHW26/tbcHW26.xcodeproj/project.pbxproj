@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		1865CB0D2CEE6BA200A479ED /* izziGradient in Frameworks */ = {isa = PBXBuildFile; productRef = 1865CB0C2CEE6BA200A479ED /* izziGradient */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		18EDC5DC2CE7ACB500180C13 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,9 +28,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		18EDC5C52CE7ACB200180C13 /* tbcHW26.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = tbcHW26.app; path = "/Users/apple/Desktop/tbcHWs/tbcUIKit/tbcHW26/build/Debug-iphoneos/tbcHW26.app"; sourceTree = "<absolute>"; };
-		18EDC5DB2CE7ACB500180C13 /* tbcHW26Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = tbcHW26Tests.xctest; path = "/Users/apple/Desktop/tbcHWs/tbcUIKit/tbcHW26/build/Debug-iphoneos/tbcHW26.app/PlugIns/tbcHW26Tests.xctest"; sourceTree = "<absolute>"; };
-		18EDC5E52CE7ACB500180C13 /* tbcHW26UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = tbcHW26UITests.xctest; path = "/Users/apple/Desktop/tbcHWs/tbcUIKit/tbcHW26/build/Debug-iphoneos/tbcHW26UITests-Runner.app/PlugIns/tbcHW26UITests.xctest"; sourceTree = "<absolute>"; };
+		1865CAE72CEE5C0400A479ED /* tbcHW26.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tbcHW26.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1865CAE82CEE5C0400A479ED /* tbcHW26Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tbcHW26Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1865CAE92CEE5C0400A479ED /* tbcHW26UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tbcHW26UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -55,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1865CB0D2CEE6BA200A479ED /* izziGradient in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +84,9 @@
 			isa = PBXGroup;
 			children = (
 				18EDC5C72CE7ACB200180C13 /* tbcHW26 */,
+				1865CAE72CEE5C0400A479ED /* tbcHW26.app */,
+				1865CAE82CEE5C0400A479ED /* tbcHW26Tests.xctest */,
+				1865CAE92CEE5C0400A479ED /* tbcHW26UITests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,9 +110,10 @@
 			);
 			name = tbcHW26;
 			packageProductDependencies = (
+				1865CB0C2CEE6BA200A479ED /* izziGradient */,
 			);
 			productName = tbcHW26;
-			productReference = 18EDC5C52CE7ACB200180C13 /* tbcHW26.app */;
+			productReference = 1865CAE72CEE5C0400A479ED /* tbcHW26.app */;
 			productType = "com.apple.product-type.application";
 		};
 		18EDC5DA2CE7ACB500180C13 /* tbcHW26Tests */ = {
@@ -124,7 +133,7 @@
 			packageProductDependencies = (
 			);
 			productName = tbcHW26Tests;
-			productReference = 18EDC5DB2CE7ACB500180C13 /* tbcHW26Tests.xctest */;
+			productReference = 1865CAE82CEE5C0400A479ED /* tbcHW26Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		18EDC5E42CE7ACB500180C13 /* tbcHW26UITests */ = {
@@ -144,7 +153,7 @@
 			packageProductDependencies = (
 			);
 			productName = tbcHW26UITests;
-			productReference = 18EDC5E52CE7ACB500180C13 /* tbcHW26UITests.xctest */;
+			productReference = 1865CAE92CEE5C0400A479ED /* tbcHW26UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -179,6 +188,9 @@
 			);
 			mainGroup = 18EDC5BC2CE7ACB200180C13;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				1865CB0B2CEE6BA200A479ED /* XCRemoteSwiftPackageReference "izziGradient" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 18EDC5BC2CE7ACB200180C13;
 			projectDirPath = "";
@@ -538,6 +550,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1865CB0B2CEE6BA200A479ED /* XCRemoteSwiftPackageReference "izziGradient" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Desp0o/izziGradient.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1865CB0C2CEE6BA200A479ED /* izziGradient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1865CB0B2CEE6BA200A479ED /* XCRemoteSwiftPackageReference "izziGradient" */;
+			productName = izziGradient;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 18EDC5BD2CE7ACB200180C13 /* Project object */;
 }
