@@ -9,37 +9,29 @@ import SwiftUI
 
 
 struct ImageView: View {
-    @State var status = true
+    @Binding var status: Bool
 
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
             Image("image_1")
                 .resizable()
-                .frame(width: 120, height: 120)
-                .padding()
+                .frame(width: 102, height: 102)
+                .padding(.all, 9)
                 .background(Color.white)
                 .cornerRadius(80)
-                .padding()
-
-            if status {
-                Text("Online")
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 5)
-                    .background(Color.green)
-                    .foregroundColor(.white)
-                    .cornerRadius(20)
-            } else {
-                Text("Offline")
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 5)
-                    .background(Color.red)
-                    .foregroundColor(.white)
-                    .cornerRadius(20)
-            }
+                
+            Text(status ? "Online" : "Offline")
+                .font(.subheadline)
+                .bold()
+                .padding(.horizontal, 5)
+                .padding(.vertical, 1)
+                .background(status ? Color.green : Color.red)
+                .foregroundColor(.white)
+                .cornerRadius(20)
         }
     }
 }
 
 #Preview {
-    ImageView()
+    ContentView()
 }
