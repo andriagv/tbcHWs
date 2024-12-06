@@ -11,12 +11,12 @@ struct ContentView: View {
     var body: some View {
         
         Spacer()
-            .frame(height: 80)
+            .frame(height: 187)
         
         HStack {
             
             Spacer()
-                .frame(width: 40)
+                .frame(width: 49)
             
             VStack {
                 MainView()
@@ -24,11 +24,11 @@ struct ContentView: View {
             }
             
             Spacer()
-                .frame(width: 40)
+                .frame(width: 49)
         }
         
         Spacer()
-            .frame(height: 80)
+            .frame(height: 187)
     }
 }
 

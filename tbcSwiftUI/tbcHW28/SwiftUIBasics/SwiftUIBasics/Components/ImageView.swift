@@ -10,21 +10,23 @@ import SwiftUI
 
 struct ImageView: View {
     @Binding var status: Bool
-
+    
     var body: some View {
+        
         ZStack(alignment: .bottomTrailing) {
+            
             Image("image_1")
                 .resizable()
                 .frame(width: 102, height: 102)
-                .padding(.all, 9)
+                .padding(9)
                 .background(Color.white)
-                .cornerRadius(80)
-                
+                .clipShape(Circle())
+            
             Text(status ? "Online" : "Offline")
-                .font(.subheadline)
+                .font(.caption)
                 .bold()
-                .padding(.horizontal, 5)
-                .padding(.vertical, 1)
+                .padding(.horizontal, 8)
+                .padding(.vertical, 4)
                 .background(status ? Color.green : Color.red)
                 .foregroundColor(.white)
                 .cornerRadius(20)

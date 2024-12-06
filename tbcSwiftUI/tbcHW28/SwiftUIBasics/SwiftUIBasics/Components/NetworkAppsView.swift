@@ -9,8 +9,11 @@ import SwiftUI
 
 struct NetworkAppsView: View {
     var body: some View {
+        
         HStack(alignment: .top, spacing: 30) {
+            
             ForEach(["phone", "envelope", "globe"], id: \.self) { iconName in
+                
                 ZStack {
                     Circle()
                         .frame(height: 40)
