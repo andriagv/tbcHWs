@@ -12,6 +12,10 @@ struct ImageView: View {
     let titles = [
         ("iOS Developer"),
         ("Swift Enthusiast"),
+//        ("Swift Enthusiast"),
+//        ("Swift Enthusiast"),
+//        ("Swift Enthusiast"),
+//        ("Swift Enthusiast"),
         ("Tech Lover")
     ]
     
@@ -29,21 +33,22 @@ struct ImageView: View {
                 .frame(width: 107)
                 .frame(height: 22)
             
-            HStack(spacing: 10) {
-                ForEach(0..<titles.count, id: \.self) { index in
-                    let title = titles[index]
-                    Text(title)
-                    
-                    if index < titles.count - 1 {
-                        Divider()
-                            .frame(height: 20)
-                            .background(Color.black)
+            ScrollView(.horizontal) {
+                LazyHStack {
+                    ForEach(0..<titles.count, id: \.self) { index in
+                        let title = titles[index]
+                        Text(title)
+                        
+                        if index < titles.count - 1 {
+                            Divider()
+                                .background(Color.black)
+                        }
                     }
                 }
-                .frame(height: 20)
             }
             .makeTextStyle(color: Color(hex: "#6E6464"), size: 15, font: "Inter_bold")
-            .padding()
+            .frame(height: 20)
+            .padding(.leading, 43)
         }
     }
 }
