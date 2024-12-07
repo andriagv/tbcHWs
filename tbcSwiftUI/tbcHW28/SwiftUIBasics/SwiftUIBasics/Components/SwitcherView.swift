@@ -1,5 +1,5 @@
 //
-//  SetStatusView.swift
+//  SwitcherView.swift
 //  SwiftUIBasics
 //
 //  Created by Apple on 06.12.24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SetStatusView: View {
+struct SwitcherView: View {
     @Binding var status: Bool
     
     var body: some View {
@@ -34,6 +34,4 @@ struct SetStatusView: View {
     }
 }
 
-#Preview {
-    ContentView()
-}
+

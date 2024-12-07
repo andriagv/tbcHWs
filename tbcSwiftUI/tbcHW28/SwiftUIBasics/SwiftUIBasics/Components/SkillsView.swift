@@ -10,10 +10,10 @@ import SwiftUI
 struct SkillsView: View {
     
     let skills = [
-        skill(type: "SwiftUI"),
-        skill(type: "IOS Development"),
-        skill(type: "Problem Solving"),
-        skill(type: "UI/UX Design")
+        Skill(type: "SwiftUI"),
+        Skill(type: "IOS Development"),
+        Skill(type: "Problem Solving"),
+        Skill(type: "UI/UX Design")
     ]
     
     var body: some View {

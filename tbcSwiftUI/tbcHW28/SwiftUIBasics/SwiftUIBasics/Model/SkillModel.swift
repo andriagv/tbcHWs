@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct skill {
+struct Skill {
     var type: String
 }

@@ -28,7 +28,7 @@ struct MainView: View {
                     .font(.system(size: 16))
             }
             
-            NetworkAppsView()
+            AppsView()
                 .padding(.bottom, 10)
             
             HStack(spacing: 20) {
@@ -40,7 +40,7 @@ struct MainView: View {
             .padding(.horizontal, 20)
             .padding(.bottom, 40)
             
-            SetStatusView(status: self.$status)
+            SwitcherView(status: self.$status)
             
             Spacer(minLength: 10)
         }

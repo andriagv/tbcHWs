@@ -1,5 +1,5 @@
 //
-//  NetworkAppsView.swift
+//  AppsView.swift
 //  SwiftUIBasics
 //
 //  Created by Apple on 06.12.24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NetworkAppsView: View {
+struct AppsView: View {
     var body: some View {
         
         HStack(alignment: .top, spacing: 30) {
@@ -28,5 +28,5 @@ struct NetworkAppsView: View {
 }
 
 #Preview {
-    NetworkAppsView()
+    AppsView()
 }
