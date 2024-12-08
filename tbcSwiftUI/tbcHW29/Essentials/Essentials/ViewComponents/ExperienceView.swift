@@ -9,14 +9,14 @@ import SwiftUI
 
 struct ExperienceView: View {
     
-    @State var company: String = "HDR Solution Inc."
-    @State var role: String = "IOS developer"
-    @State var duration: String = "2021 - Present"
+    var company: String
+    var role: String
+    var duration: String
     
     var body: some View {
         HStack {
             
-            VStack (alignment: .leading, spacing: 20) {
+            VStack (alignment: .leading, spacing: 10) {
                 Text(company)
                     .makeTextStyle(color: .black, size: 17, font: "Inter_Bold")
                     .padding(.leading, 5)
@@ -27,8 +27,7 @@ struct ExperienceView: View {
                 Text(duration)
                     .makeTextStyle(color: Color(hex: "#6E6464"), size: 15, font: "Inter")
             }
-            .padding(.vertical, 10)
-            .padding(10)
+            .padding(28)
 
             Spacer()
         }
@@ -38,6 +37,6 @@ struct ExperienceView: View {
 }
 
 #Preview {
-    ExperienceView()
+    ExperienceView(company: "zz", role: "oo", duration: "ro")
 }
 

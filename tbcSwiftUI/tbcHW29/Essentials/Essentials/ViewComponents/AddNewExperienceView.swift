@@ -9,6 +9,9 @@ import SwiftUI
 
 struct AddNewExperienceView: View {
     
+    @Binding var experienceArray: [Experience]
+    @Binding var titles: [String]
+    
     @State var companyNameInput = ""
     @State var roleInput = ""
     @State var durationInput = ""
@@ -36,12 +39,22 @@ struct AddNewExperienceView: View {
                 makeInputField(label: "ROLE", placeholder: "Enter Role", text: $roleInput)
                 makeInputField(label: "DURATION", placeholder: "Enter Duration", text: $durationInput)
             }
-            .padding(.horizontal)
-            .padding(.bottom, 20)
-            
+            .padding(.horizontal, 1)
+            .padding(8)
             
             Button("Add Experience") {
-                print("tapped")
+                let newExperience = Experience(
+                    company: companyNameInput,
+                    role: roleInput,
+                    duration: durationInput
+                )
+                experienceArray.append(newExperience)
+                
+                titles.append(roleInput)
+                
+                companyNameInput = ""
+                roleInput = ""
+                durationInput = ""
             }
             .frame(maxWidth: .infinity)
             .frame(height: 40)
@@ -57,5 +70,15 @@ struct AddNewExperienceView: View {
 }
 
 #Preview {
-    AddNewExperienceView()
+    AddNewExperienceView(
+        experienceArray: .constant([
+            Experience(company: "HDR Solution Inc.", role: "iOS Developer", duration: "2021 - Present"),
+            Experience(company: "TechCorp", role: "Software Engineer", duration: "2018 - 2021")
+        ]),
+        titles: .constant([
+            "iOS Developer",
+            "Swift Enthusiast",
+            "Tech Lover"
+        ])
+    )
 }

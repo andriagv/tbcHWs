@@ -8,16 +8,12 @@
 import SwiftUI
 
 struct HeaderView: View {
-    
-    let titles = [
-        ("iOS Developer"),
-        ("Swift Enthusiast"),
-        ("Tech Lover")
-    ]
+    @Binding var titles: [String]
     
     var body: some View {
         
         VStack(alignment: .center) {
+            
             Image("image_1")
                 .frame(width: 102)
                 .padding(9)
@@ -29,15 +25,12 @@ struct HeaderView: View {
                 .makeTextStyle(color: Color(hex: "#000000"), size: 24, font: "Inter_bold")
                 .multilineTextAlignment(.center)
                 .frame(width: 107)
-                .frame(height: 22)
 
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack {
-                    ForEach(0..<titles.count, id: \.self) { index in
-                        let title = titles[index]
+                    ForEach(titles, id: \.self) { title in
                         Text(title)
-
-                        if index < titles.count - 1 {
+                        if title != titles.last {
                             Divider()
                                 .frame(height: 20)
                                 .background(Color.black)
@@ -53,5 +46,9 @@ struct HeaderView: View {
 }
 
 #Preview {
-    HeaderView()
+    HeaderView(titles: .constant([
+        "iOS Developer",
+        "Swift Enthusiast",
+        "Tech Lover"
+    ]))
 }
