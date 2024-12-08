@@ -20,12 +20,12 @@ struct HeaderView: View {
                 .background(Color(hex: "#FFFFFF"))
                 .clipShape(Circle())
                 .shadow(color: .black.opacity(0.1), radius: 5, x: 0, y: 5)
-
+            
             Text("John Doe")
                 .makeTextStyle(color: Color(hex: "#000000"), size: 24, font: "Inter_bold")
                 .multilineTextAlignment(.center)
                 .frame(width: 107)
-
+            
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack {
                     ForEach(titles, id: \.self) { title in

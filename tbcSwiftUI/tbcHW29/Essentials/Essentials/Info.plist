@@ -14,9 +14,9 @@
 	</array>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Roboto</string>
-		<string>Inter</string>
-		<string>Inter_Bold</string>
+		<string>Roboto.ttf</string>
+		<string>Inter.ttf</string>
+		<string>Inter_Bold.ttf</string>
 	</array>
 </dict>
 </plist>

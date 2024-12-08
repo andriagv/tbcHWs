@@ -23,6 +23,7 @@ struct AddNewExperienceView: View {
             
             TextField(placeholder, text: text)
                 .textFieldStyle(.roundedBorder)
+                .foregroundColor(Color.black)
                 .makeTextStyle(color: Color(hex: "#DBDBDB"), size: 12, font: "Roboto")
         }
     }

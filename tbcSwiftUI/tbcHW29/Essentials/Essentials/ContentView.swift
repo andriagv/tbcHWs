@@ -12,7 +12,7 @@ struct ContentView: View {
         VStack () {
             
             TabExperiencesView()
-        
+            
         }
         .padding(25)
         .background(Color(hex: "FFFFFF"))

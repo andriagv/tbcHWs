@@ -30,10 +30,9 @@ struct TabExperiencesView: View {
                     .makeTextStyle(color: .black, size: 20, font: "Inter")
                     .frame(maxWidth: .infinity , alignment: .leading)
                     .padding()
-                    
             }
             
-            VStack(alignment: .center, spacing: 23) {
+            VStack(alignment: .center, spacing: 20) {
                 TabView {
                     ForEach(experienceArray) { experience in
                         ExperienceView(
@@ -44,7 +43,7 @@ struct TabExperiencesView: View {
                     }
                 }
                 .tabViewStyle(.page)
-                
+                .frame(height: 150)
                 
                 AddNewExperienceView(experienceArray: $experienceArray, titles: $titles)
             }
