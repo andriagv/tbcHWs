@@ -9,17 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack (alignment: .center, spacing: 23){
+        VStack () {
             
-            HeaderView()
-            
-            Text("Work Experience")
-                .makeTextStyle(color: .black, size: 20, font: "Inter_Bold")
-                .frame(maxWidth: .infinity, alignment: .leading)
-            
-            ExperienceView()
-            
-            AddNewExperienceView()
+            TabExperiencesView()
         
         }
         .padding(25)

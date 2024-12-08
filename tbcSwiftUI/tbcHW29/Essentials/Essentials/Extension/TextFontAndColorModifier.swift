@@ -15,11 +15,9 @@ struct TextFontAndColorModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .padding(2)
             .font(Font.custom(font, size: textSize))
             .foregroundColor(textColor)
     }
-    
 }
 
 extension View {
