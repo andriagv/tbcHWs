@@ -19,12 +19,12 @@ struct AddNewExperienceView: View {
     func makeInputField(label: String, placeholder: String, text: Binding<String>) -> some View {
         VStack(alignment: .leading) {
             Text(label)
-                .makeTextStyle(color: Color(hex: "#6E6464"), size: 9, font: "Inter")
+                .makeTextStyle(color: .darkGray, size: 9, font: "Inter")
             
             TextField(placeholder, text: text)
                 .textFieldStyle(.roundedBorder)
                 .foregroundColor(Color.black)
-                .makeTextStyle(color: Color(hex: "#DBDBDB"), size: 12, font: "Roboto")
+                .makeTextStyle(color: .textFieldGray, size: 12, font: "Roboto")
         }
     }
     
@@ -59,13 +59,13 @@ struct AddNewExperienceView: View {
             }
             .frame(maxWidth: .infinity)
             .frame(height: 40)
-            .background(Color(hex: "#3B775B"))
+            .background(Color.forestGreen)
             .foregroundColor(.white)
             .cornerRadius(10)
             
         }
         .padding()
-        .background(Color(hex: "#13161F0D"))
+        .background(Color.overlayGray)
         .cornerRadius(24)
     }
 }

@@ -15,7 +15,7 @@ struct ContentView: View {
             
         }
         .padding(25)
-        .background(Color(hex: "FFFFFF"))
+        .background(.white)
     }
 }
 

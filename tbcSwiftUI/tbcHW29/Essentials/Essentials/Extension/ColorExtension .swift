@@ -19,4 +19,9 @@ extension Color {
         let a = hex.count > 7 ? Double((rgb >> 24) & 0xFF) / 255.0 : 1.0
         self.init(.sRGB, red: r, green: g, blue: b, opacity: a)
     }
+    
+    static let darkGray = Color(hex: "#6E6464")
+    static let textFieldGray = Color(hex: "#DBDBDB")
+    static let overlayGray = Color(hex: "#13161F0D")
+    static let forestGreen = Color(hex: "#3B775B")
 }

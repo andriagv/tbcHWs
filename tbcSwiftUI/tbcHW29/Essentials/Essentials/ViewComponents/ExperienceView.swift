@@ -22,16 +22,16 @@ struct ExperienceView: View {
                     .padding(.leading, 5)
                 
                 Text(role)
-                    .makeTextStyle(color: Color(hex: "#6E6464"), size: 15, font: "Inter")
+                    .makeTextStyle(color: .darkGray, size: 15, font: "Inter")
                 
                 Text(duration)
-                    .makeTextStyle(color: Color(hex: "#6E6464"), size: 15, font: "Inter")
+                    .makeTextStyle(color: .darkGray, size: 15, font: "Inter")
             }
             .padding(28)
             
             Spacer()
         }
-        .background(Color(hex: "#13161F0D"))
+        .background(Color.overlayGray)
         .cornerRadius(24)
     } 
 }

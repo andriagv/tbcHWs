@@ -17,12 +17,12 @@ struct HeaderView: View {
             Image("image_1")
                 .frame(width: 102)
                 .padding(9)
-                .background(Color(hex: "#FFFFFF"))
+                .background(.white)
                 .clipShape(Circle())
                 .shadow(color: .black.opacity(0.1), radius: 5, x: 0, y: 5)
             
             Text("John Doe")
-                .makeTextStyle(color: Color(hex: "#000000"), size: 24, font: "Inter_bold")
+                .makeTextStyle(color: .black, size: 24, font: "Inter_bold")
                 .multilineTextAlignment(.center)
                 .frame(width: 107)
             
@@ -39,7 +39,7 @@ struct HeaderView: View {
                     }
                 }
             }
-            .makeTextStyle(color: Color(hex: "#6E6464"), size: 15, font: "Inter_bold")
+            .makeTextStyle(color: .darkGray, size: 15, font: "Inter_bold")
             .frame(height: 20)
         }
     }
