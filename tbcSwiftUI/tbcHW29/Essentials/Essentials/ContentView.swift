@@ -10,9 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack () {
-            
             TabExperiencesView()
-            
         }
         .padding(25)
         .background(.white)
