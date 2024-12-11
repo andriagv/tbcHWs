@@ -20,15 +20,15 @@ struct AddTimerView: View {
     var body: some View {
         VStack(spacing: 10) {
             HStack {
-                TextField("ტაიმერის სახელი... სახელი", text: $timerName)
+                TextField("", text: $timerName, prompt: Text("ტაიმერის სახელი...").foregroundColor(.textFieldTintColor))
                     .multilineTextAlignment(.leading)
                     .padding(.leading, 20)
                     .makeTextFieldStyle()
             }
             HStack (alignment: .center, spacing: 10) {
-                TextField("სთ", text: $hours)
+                TextField("", text: $hours, prompt: Text("სთ").foregroundColor(.textFieldTintColor))
                     .makeTextFieldStyle()
-                TextField("წთ", text: $minutes)
+                TextField("", text: $minutes, prompt: Text("წთ").foregroundColor(.textFieldTintColor))
                     .makeTextFieldStyle()
                     .onChange(of: minutes) { newValue in
                         if let intValue = Int(newValue), intValue >= 60 {
@@ -37,7 +37,7 @@ struct AddTimerView: View {
                             showAlert = true
                         }
                     }
-                TextField("წმ", text: $seconds)
+                TextField("", text: $seconds, prompt: Text("წმ").foregroundColor(.textFieldTintColor))
                     .makeTextFieldStyle()
                     .onChange(of: seconds) { newValue in
                         if let intValue = Int(newValue), intValue >= 60 {
@@ -52,11 +52,13 @@ struct AddTimerView: View {
                       message: Text(alertMessage),
                       dismissButton: .default(Text("OK")))
             }
+            
             Button(action: addTimer) {
                 Text("დამატება")
                     .padding(EdgeInsets(top: 0, leading: 40, bottom: 0, trailing: 40))
                     .makeButtonStyle(tintColor: nil, backgroundColor: .addButtonColor)
             }
+            .padding(.top, 10)
         }
         .padding()
         .background(Color.cardBackgroundColor)

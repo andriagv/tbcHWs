@@ -12,7 +12,7 @@ struct TextFieldModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .padding(.vertical, 10)
-            .background(Color.gray)
+            .background(Color.textFieldBackgroundColor)
             .cornerRadius(8)
             .foregroundColor(.white)
             .font(.system(size: 16))

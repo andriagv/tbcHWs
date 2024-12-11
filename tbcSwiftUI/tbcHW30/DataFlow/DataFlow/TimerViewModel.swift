@@ -35,7 +35,6 @@ final class TimerViewModel: ObservableObject {
         loadTimers()
     }
     
-    
     func startTimer(id: UUID) {
         stopAllTimers()
         if let index = timers.firstIndex(where: { $0.id == id }) {
