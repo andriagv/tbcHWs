@@ -14,11 +14,13 @@ struct AddTimerView: View {
     @State private var hours: String = ""
     @State private var minutes: String = ""
     @State private var seconds: String = ""
+    @State private var showAlert = false
+    @State private var alertMessage = ""
     
     var body: some View {
         VStack(spacing: 10) {
             HStack {
-                TextField("ტაიმერის სახელი", text: $timerName)
+                TextField("ტაიმერის სახელი... სახელი", text: $timerName)
                     .padding(.leading, -UIScreen.main.bounds.width / 3)
                     .makeTextFieldStyle()
             }
@@ -28,8 +30,27 @@ struct AddTimerView: View {
                     .makeTextFieldStyle()
                 TextField("წთ", text: $minutes)
                     .makeTextFieldStyle()
+                    .onChange(of: minutes) { newValue in
+                        if let intValue = Int(newValue), intValue >= 60 {
+                            minutes = ""
+                            alertMessage = "წუთები ვერ იქნება 60-ზე მეტი."
+                            showAlert = true
+                        }
+                    }
                 TextField("წმ", text: $seconds)
                     .makeTextFieldStyle()
+                    .onChange(of: seconds) { newValue in
+                        if let intValue = Int(newValue), intValue >= 60 {
+                            seconds = ""
+                            alertMessage = "წამი ვერ იქნება 60-ზე მეტი."
+                            showAlert = true
+                        }
+                    }
+            }
+            .alert(isPresented: $showAlert) {
+                Alert(title: Text("არასწორი მნიშვნელობა"),
+                      message: Text(alertMessage),
+                      dismissButton: .default(Text("OK")))
             }
             
             Button(action: addTimer) {
