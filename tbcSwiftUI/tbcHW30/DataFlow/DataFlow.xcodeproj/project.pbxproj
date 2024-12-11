@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		18C87F2D2D08CFC100B7DE50 /* DataFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DataFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		18C87F2D2D08CFC100B7DE50 /* DataFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = DataFlow.app; path = "/Users/apple/Desktop/tbcHWs/tbcSwiftUI/tbcHW30/DataFlow/build/Debug-iphoneos/DataFlow.app"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -46,16 +46,7 @@
 			isa = PBXGroup;
 			children = (
 				18C87F2F2D08CFC100B7DE50 /* DataFlow */,
-				18C87F2E2D08CFC100B7DE50 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		18C87F2E2D08CFC100B7DE50 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				18C87F2D2D08CFC100B7DE50 /* DataFlow.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -108,7 +99,7 @@
 			mainGroup = 18C87F242D08CFC100B7DE50;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 18C87F2E2D08CFC100B7DE50 /* Products */;
+			productRefGroup = 18C87F242D08CFC100B7DE50;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (

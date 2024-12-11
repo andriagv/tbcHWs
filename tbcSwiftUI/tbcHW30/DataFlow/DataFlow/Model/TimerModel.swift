@@ -8,8 +8,6 @@
 
 import Foundation
 
-import Foundation
-
 struct TimerModel: Identifiable, Codable {
     let id: UUID
     var name: String
