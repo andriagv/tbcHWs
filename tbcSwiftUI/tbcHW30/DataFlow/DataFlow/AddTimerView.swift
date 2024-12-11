@@ -21,10 +21,10 @@ struct AddTimerView: View {
         VStack(spacing: 10) {
             HStack {
                 TextField("ტაიმერის სახელი... სახელი", text: $timerName)
-                    .padding(.leading, -UIScreen.main.bounds.width / 3)
+                    .multilineTextAlignment(.leading)
+                    .padding(.leading, 20)
                     .makeTextFieldStyle()
             }
-
             HStack (alignment: .center, spacing: 10) {
                 TextField("სთ", text: $hours)
                     .makeTextFieldStyle()
@@ -52,11 +52,10 @@ struct AddTimerView: View {
                       message: Text(alertMessage),
                       dismissButton: .default(Text("OK")))
             }
-            
             Button(action: addTimer) {
                 Text("დამატება")
+                    .padding(EdgeInsets(top: 0, leading: 40, bottom: 0, trailing: 40))
                     .makeButtonStyle(tintColor: nil, backgroundColor: .addButtonColor)
-                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
             }
         }
         .padding()

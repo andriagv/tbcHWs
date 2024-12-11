@@ -14,7 +14,8 @@ struct ButtonModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .padding()
+            .padding(.vertical, 10)
+            .padding(.horizontal, 20)
             .background(backgroundColor)
             .cornerRadius(8)
             .foregroundColor(.white)
@@ -25,4 +26,8 @@ extension View {
     func makeButtonStyle(tintColor: Color?, backgroundColor: Color) -> some View {
         self.modifier(ButtonModifier(tintColor: tintColor, backgroundColor: backgroundColor))
     }
+}
+
+#Preview {
+    ContentView()
 }

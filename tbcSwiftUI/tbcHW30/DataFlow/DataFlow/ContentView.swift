@@ -21,7 +21,6 @@ struct ContentView: View {
             }
             .padding()
             .background(Color.cardBackgroundColor)
-
             ScrollView {
                 VStack (spacing: 20) {
                     ForEach(viewModel.timers) { timer in
@@ -30,9 +29,7 @@ struct ContentView: View {
                     }
                 }
             }
-        
             AddTimerView(viewModel: viewModel)
-            
         }
         .background(.black)
     }

@@ -11,7 +11,7 @@ import SwiftUI
 struct TimerCardView: View {
     let timer: TimerModel
     @ObservedObject var viewModel: TimerViewModel
-
+    
     var body: some View {
         VStack(alignment: .center, spacing: 10) {
             HStack {
@@ -23,31 +23,31 @@ struct TimerCardView: View {
                     Image(systemName: "trash")
                         .foregroundColor(.red)
                 }
+                .padding(.top, -20)
             }
-
             Text(String(format: "%02d:%02d:%02d", timer.hours, timer.minutes, timer.seconds))
-                .font(.system(size: 36))
                 .foregroundColor(.blue)
-
-            HStack () {
-                Button(timer.isActive ? "შეჩერება" : "დაწყება") {
+                .font(.custom("Inter_28pt.ttf", size: 36))
+            HStack (spacing: 15) {
+                Spacer()
+                Button(timer.isActive ? "პაუზა" : "დაწყება") {
                     if timer.isActive {
                         viewModel.stopTimer(id: timer.id)
                     } else {
                         viewModel.startTimer(id: timer.id)
                     }
                 }
-                .frame(maxWidth: .infinity)
                 .makeButtonStyle(
                     tintColor: nil,
                     backgroundColor: timer.isActive ? .stopButtonColor : .startButtonColor
                 )
-
+                
                 Button("გადატვირთვა") {
                     viewModel.resetTimer(id: timer.id)
                 }
                 .frame(maxWidth: .infinity)
                 .makeButtonStyle(tintColor: nil, backgroundColor: .resetButtonColor)
+                Spacer()
             }
             .padding(.top)
         }
