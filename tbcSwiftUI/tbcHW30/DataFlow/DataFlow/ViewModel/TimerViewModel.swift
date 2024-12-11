@@ -15,10 +15,11 @@ class TimerViewModel: ObservableObject {
     }
     
     private let timerManager = TimerManager()
-    private let persistenceManager = PersistenceManager()
+    private let persistenceManager: PersistenceService
     private var cancellables: Set<AnyCancellable> = []
     
-    init() {
+    init(persistenceManager: PersistenceService = PersistenceManager()) {
+        self.persistenceManager = persistenceManager
         loadTimers()
         bindToManager()
     }

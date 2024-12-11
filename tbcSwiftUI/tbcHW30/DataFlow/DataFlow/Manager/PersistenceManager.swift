@@ -7,7 +7,12 @@
 
 import Foundation
 
-class PersistenceManager {
+protocol PersistenceService {
+    func saveTimers(_ timers: [TimerModel])
+    func loadTimers() -> [TimerModel]
+}
+
+class PersistenceManager: PersistenceService {
     private let userDefaultsKey = "savedTimers"
     
     func saveTimers(_ timers: [TimerModel]) {
