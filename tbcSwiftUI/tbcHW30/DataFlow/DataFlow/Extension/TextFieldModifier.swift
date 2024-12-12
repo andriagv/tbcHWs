@@ -21,7 +21,6 @@ struct TextFieldModifier: ViewModifier {
 }
 
 extension View {
-    
     func makeTextFieldStyle() -> some View {
         self.modifier(TextFieldModifier())
     }

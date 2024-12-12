@@ -20,7 +20,6 @@ struct TextFontAndColorModifier: ViewModifier {
 }
 
 extension View {
-    
     func makeTextStyle(color: Color, size: CGFloat, font: String?) -> some View {
         self.modifier(TextFontAndColorModifier(textColor: color, textSize: size, font: font))
     }
