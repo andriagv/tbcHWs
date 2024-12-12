@@ -76,7 +76,7 @@ struct AddNewExperienceView: View {
             Experience(company: "HDR Solution Inc.", role: "iOS Developer", duration: "2021 - Present"),
             Experience(company: "TechCorp", role: "Software Engineer", duration: "2018 - 2021")
         ]),
-        titles: .constant([
+        titlestitles: .constant([
             "iOS Developer",
             "Swift Enthusiast",
             "Tech Lover"
