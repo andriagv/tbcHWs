@@ -6,20 +6,56 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		18C87FF42D0A1B6300B7DE50 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18C87F252D08CFC100B7DE50 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 18C87F2C2D08CFC100B7DE50;
+			remoteInfo = DataFlow;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		18C87F2D2D08CFC100B7DE50 /* DataFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DataFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		18C87FF02D0A1B6200B7DE50 /* DataFlowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataFlowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		18C8800E2D0A24F400B7DE50 /* DataFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = DataFlow.app; path = "/Users/apple/Desktop/tbcHWs/tbcSwiftUI/tbcHW30/DataFlow/build/Debug-iphoneos/DataFlow.app"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		18C87FD22D09E40900B7DE50 /* Exceptions for "DataFlow" folder in "DataFlow" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 18C87F2C2D08CFC100B7DE50 /* DataFlow */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		18C87F2F2D08CFC100B7DE50 /* DataFlow */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				18C87FD22D09E40900B7DE50 /* Exceptions for "DataFlow" folder in "DataFlow" target */,
+			);
 			path = DataFlow;
+			sourceTree = "<group>";
+		};
+		18C87FF12D0A1B6300B7DE50 /* DataFlowTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = DataFlowTests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		18C87F2A2D08CFC100B7DE50 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18C87FED2D0A1B6200B7DE50 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -33,16 +69,9 @@
 			isa = PBXGroup;
 			children = (
 				18C87F2F2D08CFC100B7DE50 /* DataFlow */,
-				18C87F2E2D08CFC100B7DE50 /* Products */,
+				18C87FF02D0A1B6200B7DE50 /* DataFlowTests.xctest */,
+				18C87FF12D0A1B6300B7DE50 /* DataFlowTests */,
 			);
-			sourceTree = "<group>";
-		};
-		18C87F2E2D08CFC100B7DE50 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				18C87F2D2D08CFC100B7DE50 /* DataFlow.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -67,8 +96,31 @@
 			packageProductDependencies = (
 			);
 			productName = DataFlow;
-			productReference = 18C87F2D2D08CFC100B7DE50 /* DataFlow.app */;
+			productReference = 18C8800E2D0A24F400B7DE50 /* DataFlow.app */;
 			productType = "com.apple.product-type.application";
+		};
+		18C87FEF2D0A1B6200B7DE50 /* DataFlowTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18C87FF62D0A1B6300B7DE50 /* Build configuration list for PBXNativeTarget "DataFlowTests" */;
+			buildPhases = (
+				18C87FEC2D0A1B6200B7DE50 /* Sources */,
+				18C87FED2D0A1B6200B7DE50 /* Frameworks */,
+				18C87FEE2D0A1B6200B7DE50 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				18C87FF52D0A1B6300B7DE50 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				18C87FF12D0A1B6300B7DE50 /* DataFlowTests */,
+			);
+			name = DataFlowTests;
+			packageProductDependencies = (
+			);
+			productName = DataFlowTests;
+			productReference = 18C87FF02D0A1B6200B7DE50 /* DataFlowTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -83,6 +135,10 @@
 					18C87F2C2D08CFC100B7DE50 = {
 						CreatedOnToolsVersion = 16.0;
 					};
+					18C87FEF2D0A1B6200B7DE50 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 18C87F2C2D08CFC100B7DE50;
+					};
 				};
 			};
 			buildConfigurationList = 18C87F282D08CFC100B7DE50 /* Build configuration list for PBXProject "DataFlow" */;
@@ -95,17 +151,25 @@
 			mainGroup = 18C87F242D08CFC100B7DE50;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 18C87F2E2D08CFC100B7DE50 /* Products */;
+			productRefGroup = 18C87F242D08CFC100B7DE50;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				18C87F2C2D08CFC100B7DE50 /* DataFlow */,
+				18C87FEF2D0A1B6200B7DE50 /* DataFlowTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		18C87F2B2D08CFC100B7DE50 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18C87FEE2D0A1B6200B7DE50 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +186,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		18C87FEC2D0A1B6200B7DE50 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		18C87FF52D0A1B6300B7DE50 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 18C87F2C2D08CFC100B7DE50 /* DataFlow */;
+			targetProxy = 18C87FF42D0A1B6300B7DE50 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		18C87F392D08CFC300B7DE50 /* Debug */ = {
@@ -255,6 +334,7 @@
 				DEVELOPMENT_TEAM = QCGLP7ZKSQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DataFlow/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -284,6 +364,7 @@
 				DEVELOPMENT_TEAM = QCGLP7ZKSQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DataFlow/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -299,6 +380,42 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		18C87FF72D0A1B6300B7DE50 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QCGLP7ZKSQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tbcacademy.DataFlowTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DataFlow.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DataFlow";
+			};
+			name = Debug;
+		};
+		18C87FF82D0A1B6300B7DE50 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QCGLP7ZKSQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tbcacademy.DataFlowTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DataFlow.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DataFlow";
 			};
 			name = Release;
 		};
@@ -319,6 +436,15 @@
 			buildConfigurations = (
 				18C87F3C2D08CFC300B7DE50 /* Debug */,
 				18C87F3D2D08CFC300B7DE50 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18C87FF62D0A1B6300B7DE50 /* Build configuration list for PBXNativeTarget "DataFlowTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18C87FF72D0A1B6300B7DE50 /* Debug */,
+				18C87FF82D0A1B6300B7DE50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
