@@ -78,18 +78,11 @@ struct ActivityDetailsView: View {
                     LazyVStack {
                         HStack(alignment: .center) {
                             VStack(spacing: 10) {
-                                //                                ForEach(1..<10) {_ in
-                                //                                    Text("12 დეკ 2024")
-                                //                                }
-                                // Text("\(timer.createdDate)")
                                 Text("\(formattedDate(timer.date))")
                                 
                             }
                             Spacer()
                             VStack(spacing: 10) {
-                                //                                ForEach(1..<10) {_ in
-                                //                                    Text("01:01:00")
-                                //                                }
                                 Text("\(viewModel.formatDuration(timer.durationInSeconds))")
                             }
                         }
@@ -122,7 +115,7 @@ struct ActivityDetailsView: View {
         initialMinutes: 3,
         initialSeconds: 4,
         isActive: false,
-        durationInSeconds: 5,
+        durationInSeconds: 234452,
         date: Date()),
         viewModel: TimerViewModel())
 }

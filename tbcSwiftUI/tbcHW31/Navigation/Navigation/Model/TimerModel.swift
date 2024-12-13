@@ -20,7 +20,6 @@ struct TimerModel: Identifiable, Codable {
     var isActive: Bool
     var durationInSeconds: Int
     let date: Date
-    //var arr: [String : String]
     
     mutating func decrementTime() -> Bool {
         if seconds > 0 {
