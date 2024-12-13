@@ -9,7 +9,110 @@ import SwiftUI
 
 struct ActivityDetailsView: View {
     //@Binding var timer: TimerModel
-    var timer = TimerModel(
+    let timer: TimerModel
+    @ObservedObject var viewModel: TimerViewModel    
+    var body: some View {
+        VStack {
+            headerView()
+            
+            VStack(spacing: 20) {
+                timerSection()
+                activityHistorySection()
+            }
+            .padding()
+        }
+        .background(Color.black)
+    }
+    
+    private func headerView() -> some View {
+        HStack {
+            Text(timer.name)
+                .font(.largeTitle)
+                .frame(maxWidth: .infinity, alignment: .center)
+                .makeTextStyle(color: .white, size: 24, font: nil)
+            Spacer()
+        }
+        .padding()
+        .background(Color.cardBackgroundColor)
+    }
+    
+    private func timerSection() -> some View {
+        VStack(spacing: 20) {
+            Image("Illustration", bundle: .none)
+            Text("ხანგრძლივობა")
+                .makeTextStyle(color: .white, size: 18, font: nil)
+            Text(String(format: "%02d:%02d:%02d", timer.initialHours, timer.initialMinutes, timer.initialSeconds))
+                .foregroundColor(.blue)
+                .font(.custom("Inter_28pt.ttf", size: 36))
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+        .background(Color.cardBackgroundColor)
+        .cornerRadius(16)
+    }
+    
+    private func activityHistorySection() -> some View {
+        VStack {
+            VStack(spacing: 30) {
+                HStack {
+                    Text("აქტივობის ისტორია")
+                        .makeTextStyle(color: .white, size: 18, font: "Inter_28pt")
+                    Spacer()
+                }
+                .padding(.top)
+                Divider()
+                    .padding(.vertical, 1)
+                    .background(Color.white)
+                
+            }
+            .padding()
+            
+            VStack {
+                HStack {
+                    Text("თარიღი")
+                    Spacer()
+                    Text("დრო")
+                        .padding(.trailing, 20)
+                }
+                .makeTextStyle(color: .white, size: 14, font: nil)
+                ScrollView {
+                    LazyVStack {
+                        HStack(alignment: .center) {
+                            VStack(spacing: 10) {
+                                //                                ForEach(1..<10) {_ in
+                                //                                    Text("12 დეკ 2024")
+                                //                                }
+                                // Text("\(timer.createdDate)")
+                                Text("\(formattedDate(timer.date))")
+                                
+                            }
+                            Spacer()
+                            VStack(spacing: 10) {
+                                //                                ForEach(1..<10) {_ in
+                                //                                    Text("01:01:00")
+                                //                                }
+                                Text("\(viewModel.formatDuration(timer.durationInSeconds))")
+                            }
+                        }
+                        .makeTextStyle(color: .white, size: 14, font: nil)
+                    }
+                }
+            }
+            .padding(.horizontal)
+        }
+        .background(Color.cardBackgroundColor)
+        .cornerRadius(16)
+    }
+    
+    private func formattedDate(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MMM yyyy"
+        formatter.locale = Locale(identifier: "ka_GE")
+        return formatter.string(from: date)
+    }
+}
+
+#Preview {
+    ActivityDetailsView(timer: TimerModel(
         id: UUID(),
         name: "name",
         hours: 2,
@@ -18,81 +121,8 @@ struct ActivityDetailsView: View {
         initialHours: 2,
         initialMinutes: 3,
         initialSeconds: 4,
-        isActive: false
-    )
-    
-    var body: some View {
-            VStack {
-                headerView()
-                
-                VStack(spacing: 20) {
-                    timerSection()
-                    activityHistorySection()
-                }
-                .padding()
-            }
-            .background(Color.black)
-        }
-        
-        private func headerView() -> some View {
-            Text("ვარჯიში")
-                .font(.largeTitle)
-                .frame(maxWidth: .infinity, alignment: .center)
-                .makeTextStyle(color: .white, size: 24, font: nil)
-                .padding()
-                .background(Color.cardBackgroundColor)
-        }
-        
-        private func timerSection() -> some View {
-            VStack(spacing: 20) {
-                Image("Illustration", bundle: .none)
-                Text("ხანგრძლივობა")
-                Text(String(format: "%02d:%02d:%02d", timer.hours, timer.minutes, timer.seconds))
-                    .foregroundColor(.blue)
-                    .font(.custom("Inter_28pt.ttf", size: 36))
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-            .background(Color.cardBackgroundColor)
-            .cornerRadius(16)
-        }
-        
-        private func activityHistorySection() -> some View {
-            VStack {
-                VStack(spacing: 30) {
-                    HStack {
-                        Text("აქტივობის ისტორია")
-                            .makeTextStyle(color: .white, size: 18, font: "Inter_28pt")
-                        Spacer()
-                    }
-                    Divider()
-                        .background(Color.white)
-                }
-                .padding()
-                
-                VStack {
-                    HStack {
-                        Text("თარიღი")
-                        Spacer()
-                        Text("დრო")
-                    }
-                    ScrollView {
-                        LazyVStack {
-                            HStack(alignment: .center) {
-                                Text("oka")
-                                Spacer()
-                                Text("oka")
-                            }
-                            .background(Color.green)
-                        }
-                    }
-                }
-                .padding(.horizontal)
-            }
-            .background(Color.cardBackgroundColor)
-            .cornerRadius(16)
-        }
-}
-
-#Preview {
-    ActivityDetailsView()
+        isActive: false,
+        durationInSeconds: 5,
+        date: Date()),
+        viewModel: TimerViewModel())
 }

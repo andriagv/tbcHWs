@@ -7,7 +7,7 @@
 import Foundation
 import Combine
 
-class TimerViewModel: ObservableObject {
+final class TimerViewModel: ObservableObject {
     @Published var timers: [TimerModel] = [] {
         didSet {
             persistenceManager.saveTimers(timers)
@@ -34,7 +34,9 @@ class TimerViewModel: ObservableObject {
             initialHours: hours,
             initialMinutes: minutes,
             initialSeconds: seconds,
-            isActive: false
+            isActive: false,
+            durationInSeconds: 0,
+            date: Date()
         )
         timerManager.addTimer(timer)
     }
@@ -69,5 +71,12 @@ class TimerViewModel: ObservableObject {
         savedTimers.forEach { timer in
             timerManager.addTimer(timer)
         }
+    }
+    
+    func formatDuration(_ seconds: Int) -> String {
+        let hours = seconds / 3600
+        let minutes = (seconds % 3600) / 60
+        let remainingSeconds = seconds % 60
+        return String(format: "%02d:%02d:%02d", hours, minutes, remainingSeconds)
     }
 }

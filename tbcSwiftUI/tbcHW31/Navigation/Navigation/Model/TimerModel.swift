@@ -18,21 +18,25 @@ struct TimerModel: Identifiable, Codable {
     var initialMinutes: Int
     var initialSeconds: Int
     var isActive: Bool
+    var durationInSeconds: Int
+    let date: Date
+    //var arr: [String : String]
     
     mutating func decrementTime() -> Bool {
-           if seconds > 0 {
-               seconds -= 1
-           } else if minutes > 0 {
-               minutes -= 1
-               seconds = 59
-           } else if hours > 0 {
-               hours -= 1
-               minutes = 59
-               seconds = 59
-           } else {
-               return false
-           }
-           return true
-       }
+        if seconds > 0 {
+            seconds -= 1
+        } else if minutes > 0 {
+            minutes -= 1
+            seconds = 59
+        } else if hours > 0 {
+            hours -= 1
+            minutes = 59
+            seconds = 59
+        } else {
+            return false
+        }
+        durationInSeconds += 1
+        return true
+    }
 }
 

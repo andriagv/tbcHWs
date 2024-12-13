@@ -26,7 +26,7 @@ struct ContentView: View {
                     VStack (spacing: 20) {
                         ForEach(viewModel.timers) { timer in
                             NavigationLink {
-                                ActivityDetailsView(timer: timer)
+                                ActivityDetailsView(timer: timer, viewModel: viewModel)
                             } label: {
                                 TimerCardView(timer: timer, viewModel: viewModel)
                             }

@@ -44,6 +44,7 @@ final class TimerManager: ObservableObject {
             timer.hours = timer.initialHours
             timer.minutes = timer.initialMinutes
             timer.seconds = timer.initialSeconds
+            //timer.durationInSeconds = 0
             timer.isActive = false
             timers[index] = timer
         }
