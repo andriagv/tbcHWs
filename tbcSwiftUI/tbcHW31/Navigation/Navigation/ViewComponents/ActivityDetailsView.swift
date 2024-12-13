@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ActivityDetailsView: View {
-    //@Binding var timer: TimerModel
     let timer: TimerModel
-    @ObservedObject var viewModel: TimerViewModel    
+    @ObservedObject var viewModel: TimerViewModel
+    @Environment(\.dismiss) private var dismiss
     var body: some View {
         VStack {
             headerView()
@@ -26,14 +26,24 @@ struct ActivityDetailsView: View {
     
     private func headerView() -> some View {
         HStack {
-            Text(timer.name)
-                .font(.largeTitle)
-                .frame(maxWidth: .infinity, alignment: .center)
-                .makeTextStyle(color: .white, size: 24, font: nil)
-            Spacer()
+            Text("")
+                .frame(maxWidth: .infinity)
+                .background(Color.cardBackgroundColor)
+                .navigationBarBackButtonHidden(true)
+                .toolbar {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button(action: {
+                            dismiss()
+                        }) {
+                            Image("navigate_before", bundle: .none)
+                        }
+                    }
+                    ToolbarItem(placement: .principal) {
+                        Text(timer.name)
+                            .makeTextStyle(color: .white, size: 24, font: nil)
+                    }
+                }
         }
-        .padding()
-        .background(Color.cardBackgroundColor)
     }
     
     private func timerSection() -> some View {
