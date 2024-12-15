@@ -29,7 +29,6 @@ struct TimerCardView: View {
                 .foregroundColor(.blue)
                 .font(.custom("Inter_28pt.ttf", size: 36))
             HStack (spacing: 15) {
-                Spacer()
                 Button(timer.isActive ? "პაუზა" : "დაწყება") {
                     if timer.isActive {
                         viewModel.stopTimer(id: timer.id)
@@ -47,9 +46,10 @@ struct TimerCardView: View {
                 }
                 .frame(maxWidth: .infinity)
                 .makeButtonStyle(tintColor: nil, backgroundColor: .resetButtonColor)
-                Spacer()
             }
             .padding(.top)
+            .padding(.leading, 15)
+            .padding(.trailing, 15)
         }
         .padding()
         .background(Color.cardBackgroundColor)
