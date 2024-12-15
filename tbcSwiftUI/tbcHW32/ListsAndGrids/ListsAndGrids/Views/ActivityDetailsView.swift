@@ -17,7 +17,8 @@ struct ActivityDetailsView: View {
             
             VStack(spacing: 20) {
                 timerSection()
-                activityHistorySection()
+                ActivityHistory(timer: timer)
+                    .background(.black)
             }
             .padding()
         }
@@ -62,56 +63,6 @@ struct ActivityDetailsView: View {
         .cornerRadius(16)
     }
     
-    private func activityHistorySection() -> some View {
-        VStack {
-            ScrollView {
-                VStack(spacing: 30) {
-                    HStack {
-                        Text("აქტივობის ისტორია")
-                            .makeTextStyle(color: .white, size: 18, font: "Inter_28pt")
-                        Spacer()
-                    }
-                    .padding(.top)
-                    Divider()
-                        .padding(.vertical, 1)
-                        .background(Color.white)
-                    
-                }
-                .padding()
-                VStack {
-                    HStack {
-                        Text("თარიღი")
-                        Spacer()
-                        Text("დრო")
-                            .padding(.trailing, 20)
-                    }
-                    .makeTextStyle(color: .white, size: 14, font: nil)
-                    
-                    LazyVStack {
-                        HStack(alignment: .center) {
-                            if timer.durationInSeconds != 0 {
-                                VStack(spacing: 10) {
-                                    Text("\(formattedDate(timer.date))")
-                                    
-                                }
-                                Spacer()
-                                VStack(spacing: 10) {
-                                    Text("\(viewModel.formatDuration(timer.durationInSeconds))")
-                                }
-                            }
-                            
-                        }
-                        .makeTextStyle(color: .white, size: 14, font: nil)
-                    }
-                    
-                }
-                .padding(.horizontal)
-            }
-        }
-        .background(Color.cardBackgroundColor)
-        .cornerRadius(16)
-    }
-    
     private func formattedDate(_ date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd MMM yyyy"
@@ -132,6 +83,21 @@ struct ActivityDetailsView: View {
         initialSeconds: 4,
         isActive: false,
         durationInSeconds: 234452,
-        date: Date()),
-                        viewModel: TimerViewModel())
+        activiteData: [
+            ActiviteData(
+                time: [
+                    Time(startTime: "12:32", sessionDuration: "01:45:00"),
+                    Time(startTime: "15:20", sessionDuration: "00:45:00")
+                ],
+                day: "13 დეკ 2024"
+            ),
+            ActiviteData(
+                time: [
+                    Time(startTime: "10:00", sessionDuration: "01:00:00"),
+                    Time(startTime: "12:30", sessionDuration: "00:30:00")
+                ],
+                day: "12 დეკ 2024"
+            )
+        ]),
+        viewModel: TimerViewModel())
 }
