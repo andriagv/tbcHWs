@@ -25,7 +25,32 @@ final class TimerManager: ObservableObject {
     func startTimer(id: UUID) {
         if let index = timers.firstIndex(where: { $0.id == id }) {
             timers[index].isActive = true
+            
+            
+            if !timers[index].activiteData.isEmpty {
+                if timers[index].activiteData[0].day != formattedDatee(Date(), "dd MMM yyyy") {
+                    timers[index].activiteData.insert(
+                        ActiviteData(
+                            time: [Time(startTime: formattedDatee(Date(), "HH:mm"), sessionDuration: "0")],
+                            day: formattedDatee(Date(), "dd MMM yyyy")
+                        ),
+                        at: 0
+                    )
+                } else {
+                    timers[index].activiteData[0].time.insert(
+                        Time(startTime: formattedDatee(Date(), "HH:mm"), sessionDuration: "00:00:00"), at: 0)
+                }
+            } else {
+                timers[index].activiteData.insert(
+                    ActiviteData(
+                        time: [Time(startTime: formattedDatee(Date(), "HH:mm"), sessionDuration: "00:00:00")],
+                        day: formattedDatee(Date(), "dd MMM yyyy")
+                    ),
+                    at: 0
+                )
+            }
             startGlobalTimer()
+            timers[index].durationInSeconds = 0
         }
     }
     
@@ -70,5 +95,11 @@ final class TimerManager: ObservableObject {
                 timers[index].isActive = false
             }
         }
+    }
+    private func formattedDatee(_ date: Date,_ format: String) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        formatter.locale = Locale(identifier: "ka_GE")
+        return formatter.string(from: date)
     }
 }
