@@ -9,6 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var viewModel = TimerViewModel()
+    @StateObject private var fastTimerviewModel = FastTimerViewModel()
+    @State private var showingSheet = false
+
     
     var body: some View {
         NavigationView {
@@ -19,6 +22,16 @@ struct ContentView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .makeTextStyle(color: .white, size: 24, font: nil)
                     Spacer()
+                    
+                    Button(action: { showingSheet.toggle() }) {
+                        Image(systemName: "plus")
+                            .foregroundStyle(.white)
+                    }
+                    .sheet(isPresented: $showingSheet) {
+                        FastTimerTemplate(fastTimerviewModel: fastTimerviewModel, viewModel: viewModel)
+                            .presentationDetents([.fraction(0.5)])
+                            .presentationDragIndicator(.visible)
+                    }
                 }
                 .padding()
                 .background(Color.cardBackgroundColor)
