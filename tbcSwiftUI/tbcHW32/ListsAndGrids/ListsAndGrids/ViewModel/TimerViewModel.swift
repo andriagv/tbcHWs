@@ -36,7 +36,7 @@ final class TimerViewModel: ObservableObject {
             initialSeconds: seconds,
             isActive: false,
             durationInSeconds: 0,
-            date: Date()
+            activiteData: []
         )
         timerManager.addTimer(timer)
     }

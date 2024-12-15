@@ -20,6 +20,13 @@ struct FastTimerTemplate: View {
     
     var body: some View {
         ScrollView {
+            HStack {
+                Text("სწრაფი რაიმერები")
+                    .makeTextStyle(color: .white, size: 20, font: "Roboto-Black")
+                Spacer()
+            }
+            .padding()
+            
             LazyVGrid(columns: adaptiveColumn, spacing: 20) {
                 ForEach(fastTimerviewModel.fastTimersArray) { timer in
                     Button { viewModel.addTimer(name: timer.name, hours: timer.hours, minutes: timer.minutes, seconds: timer.seconds)
