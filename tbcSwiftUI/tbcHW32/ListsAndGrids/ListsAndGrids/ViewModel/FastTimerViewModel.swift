@@ -21,7 +21,7 @@ final class FastTimerViewModel: ObservableObject {
             initialSeconds: 0,
             isActive: true,
             durationInSeconds: 1800,
-            date: Date()
+            activiteData: [ActiviteData(time: [Time(startTime: "12:32", sessionDuration: "12"), Time(startTime: "12:32", sessionDuration: "12")], day: "13 დეკ 2024")]
         ),
         TimerModel(
             id: UUID(),
@@ -34,7 +34,7 @@ final class FastTimerViewModel: ObservableObject {
             initialSeconds: 0,
             isActive: false,
             durationInSeconds: 3600,
-            date: Date()
+            activiteData: [ActiviteData(time: [Time(startTime: "12:32", sessionDuration: "12"), Time(startTime: "12:32", sessionDuration: "12")], day: "13 დეკ 2024")]
         ),
         TimerModel(
             id: UUID(),
@@ -47,7 +47,7 @@ final class FastTimerViewModel: ObservableObject {
             initialSeconds: 0,
             isActive: false,
             durationInSeconds: 2700,
-            date: Date()
+            activiteData: [ActiviteData(time: [Time(startTime: "12:32", sessionDuration: "12"), Time(startTime: "12:32", sessionDuration: "12")], day: "13 დეკ 2024")]
         ),
         TimerModel(
             id: UUID(),
@@ -60,8 +60,9 @@ final class FastTimerViewModel: ObservableObject {
             initialSeconds: 0,
             isActive: true,
             durationInSeconds: 7200,
-            date: Date()
+            activiteData: [ActiviteData(time: [Time(startTime: "12:32", sessionDuration: "12"), Time(startTime: "12:32", sessionDuration: "12")], day: "13 დეკ 2024")]
         ),
+        
         TimerModel(
             id: UUID(),
             name: "დასვენება",
@@ -73,7 +74,7 @@ final class FastTimerViewModel: ObservableObject {
             initialSeconds: 23,
             isActive: false,
             durationInSeconds: 900,
-            date: Date()
+            activiteData: [ActiviteData(time: [Time(startTime: "12:32", sessionDuration: "12"), Time(startTime: "12:32", sessionDuration: "12")], day: "13 დეკ 2024")]
         ),
         TimerModel(
             id: UUID(),
@@ -86,7 +87,7 @@ final class FastTimerViewModel: ObservableObject {
             initialSeconds: 0,
             isActive: true,
             durationInSeconds: 5400,
-            date: Date()
+            activiteData: [ActiviteData(time: [Time(startTime: "12:32", sessionDuration: "12"), Time(startTime: "12:32", sessionDuration: "12")], day: "13 დეკ 2024")]
         ),
         TimerModel(
             id: UUID(),
@@ -99,7 +100,7 @@ final class FastTimerViewModel: ObservableObject {
             initialSeconds: 0,
             isActive: true,
             durationInSeconds: 1200,
-            date: Date()
+            activiteData: [ActiviteData(time: [Time(startTime: "12:32", sessionDuration: "12"), Time(startTime: "12:32", sessionDuration: "12")], day: "13 დეკ 2024")]
         ),
         TimerModel(
             id: UUID(),
@@ -112,7 +113,7 @@ final class FastTimerViewModel: ObservableObject {
             initialSeconds: 0,
             isActive: false,
             durationInSeconds: 4500,
-            date: Date()
+            activiteData: [ActiviteData(time: [Time(startTime: "12:32", sessionDuration: "12"), Time(startTime: "12:32", sessionDuration: "12")], day: "13 დეკ 2024")]
         ),
         TimerModel(
             id: UUID(),
@@ -125,9 +126,8 @@ final class FastTimerViewModel: ObservableObject {
             initialSeconds: 0,
             isActive: false,
             durationInSeconds: 9000,
-            date: Date()
+            activiteData: [ActiviteData(time: [Time(startTime: "12:32", sessionDuration: "12"), Time(startTime: "12:32", sessionDuration: "12")], day: "13 დეკ 2024")]
         ),
-        // New added timers:
         TimerModel(
             id: UUID(),
             name: "დახვეწა",
@@ -139,7 +139,7 @@ final class FastTimerViewModel: ObservableObject {
             initialSeconds: 0,
             isActive: false,
             durationInSeconds: 4200,
-            date: Date()
+            activiteData: [ActiviteData(time: [Time(startTime: "12:32", sessionDuration: "12"), Time(startTime: "12:32", sessionDuration: "12")], day: "13 დეკ 2024")]
         ),
         TimerModel(
             id: UUID(),
@@ -152,7 +152,7 @@ final class FastTimerViewModel: ObservableObject {
             initialSeconds: 0,
             isActive: true,
             durationInSeconds: 2700,
-            date: Date()
+            activiteData: [ActiviteData(time: [Time(startTime: "12:32", sessionDuration: "12"), Time(startTime: "12:32", sessionDuration: "12")], day: "13 დეკ 2024")]
         ),
         TimerModel(
             id: UUID(),
@@ -165,7 +165,7 @@ final class FastTimerViewModel: ObservableObject {
             initialSeconds: 0,
             isActive: false,
             durationInSeconds: 900,
-            date: Date()
+            activiteData: [ActiviteData(time: [Time(startTime: "12:32", sessionDuration: "12"), Time(startTime: "12:32", sessionDuration: "12")], day: "13 დეკ 2024")]
         ),
         TimerModel(
             id: UUID(),
@@ -178,7 +178,7 @@ final class FastTimerViewModel: ObservableObject {
             initialSeconds: 0,
             isActive: true,
             durationInSeconds: 12600,
-            date: Date()
+            activiteData: [ActiviteData(time: [Time(startTime: "12:32", sessionDuration: "12"), Time(startTime: "12:32", sessionDuration: "12")], day: "13 დეკ 2024")]
         ),
         TimerModel(
             id: UUID(),
@@ -191,7 +191,7 @@ final class FastTimerViewModel: ObservableObject {
             initialSeconds: 0,
             isActive: false,
             durationInSeconds: 9900,
-            date: Date()
+            activiteData: [ActiviteData(time: [Time(startTime: "12:32", sessionDuration: "12"), Time(startTime: "12:32", sessionDuration: "12")], day: "13 დეკ 2024")]
         ),
         TimerModel(
             id: UUID(),
@@ -204,7 +204,7 @@ final class FastTimerViewModel: ObservableObject {
             initialSeconds: 0,
             isActive: true,
             durationInSeconds: 3000,
-            date: Date()
+            activiteData: [ActiviteData(time: [Time(startTime: "12:32", sessionDuration: "12"), Time(startTime: "12:32", sessionDuration: "12")], day: "13 დეკ 2024")]
         ),
         TimerModel(
             id: UUID(),
@@ -217,7 +217,7 @@ final class FastTimerViewModel: ObservableObject {
             initialSeconds: 0,
             isActive: true,
             durationInSeconds: 3900,
-            date: Date()
+            activiteData: [ActiviteData(time: [Time(startTime: "12:32", sessionDuration: "12"), Time(startTime: "12:32", sessionDuration: "12")], day: "13 დეკ 2024")]
         ),
         TimerModel(
             id: UUID(),
@@ -230,7 +230,7 @@ final class FastTimerViewModel: ObservableObject {
             initialSeconds: 0,
             isActive: false,
             durationInSeconds: 1800,
-            date: Date()
+            activiteData: [ActiviteData(time: [Time(startTime: "12:32", sessionDuration: "12"), Time(startTime: "12:32", sessionDuration: "12")], day: "13 დეკ 2024")]
         )
     ]
     
