@@ -22,9 +22,7 @@ struct FastTimerTemplate: View {
         ScrollView {
             LazyVGrid(columns: adaptiveColumn, spacing: 20) {
                 ForEach(fastTimerviewModel.fastTimersArray) { timer in
-                    Button {
-                        print("Adding timer: \(timer.name), Hours: \(timer.hours), Minutes: \(timer.minutes), Seconds: \(timer.seconds)")
-                           viewModel.addTimer(name: timer.name, hours: timer.hours, minutes: timer.minutes, seconds: timer.seconds)
+                    Button { viewModel.addTimer(name: timer.name, hours: timer.hours, minutes: timer.minutes, seconds: timer.seconds)
                     } label: {
                         VStack(alignment: .center, spacing: 10) {
                             Text(fastTimerviewModel.formattedTime(for: timer))
@@ -43,6 +41,7 @@ struct FastTimerTemplate: View {
             }
         }
         .padding()
+        .background(.black)
     }
 }
 
