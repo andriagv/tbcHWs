@@ -11,7 +11,6 @@ struct ContentView: View {
     @StateObject private var viewModel = TimerViewModel()
     @StateObject private var fastTimerviewModel = FastTimerViewModel()
     @State private var showingSheet = false
-
     
     var body: some View {
         NavigationView {
@@ -27,16 +26,12 @@ struct ContentView: View {
                         Image(systemName: "plus")
                             .foregroundStyle(.white)
                     }
-                    .sheet(isPresented: $showingSheet) {
-                        FastTimerTemplate(fastTimerviewModel: fastTimerviewModel, viewModel: viewModel)
-                            .presentationDetents([.fraction(0.5)])
-                            .presentationDragIndicator(.visible)
-                    }
                 }
                 .padding()
                 .background(Color.cardBackgroundColor)
+                
                 ScrollView {
-                    VStack (spacing: 20) {
+                    VStack(spacing: 20) {
                         ForEach(viewModel.timers) { timer in
                             NavigationLink {
                                 ActivityDetailsView(timer: timer, viewModel: viewModel)
@@ -50,9 +45,18 @@ struct ContentView: View {
                 AddTimerView(viewModel: viewModel)
             }
             .background(.black)
+            .blur(radius: showingSheet ? 2 : 0)
+        }
+        .sheet(isPresented: $showingSheet) {
+            ZStack {
+                FastTimerTemplate(fastTimerviewModel: fastTimerviewModel, viewModel: viewModel)
+                    .presentationDetents([.fraction(0.5)])
+                    .presentationDragIndicator(.visible)
+            }
         }
     }
 }
+
 
 
 #Preview {
