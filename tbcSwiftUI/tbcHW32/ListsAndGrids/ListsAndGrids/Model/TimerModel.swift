@@ -19,7 +19,7 @@ struct TimerModel: Identifiable, Codable {
     var initialSeconds: Int
     var isActive: Bool
     var durationInSeconds: Int
-    let date: Date
+    var activiteData: [ActiviteData]
     
     mutating func decrementTime() -> Bool {
         if seconds > 0 {
@@ -35,6 +35,7 @@ struct TimerModel: Identifiable, Codable {
             return false
         }
         durationInSeconds += 1
+        activiteData[0].time[0].sessionDuration = "\(durationInSeconds)"
         return true
     }
 }
