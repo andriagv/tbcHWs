@@ -126,6 +126,111 @@ final class FastTimerViewModel: ObservableObject {
             isActive: false,
             durationInSeconds: 9000,
             date: Date()
+        ),
+        // New added timers:
+        TimerModel(
+            id: UUID(),
+            name: "დახვეწა",
+            hours: 1,
+            minutes: 10,
+            seconds: 0,
+            initialHours: 1,
+            initialMinutes: 10,
+            initialSeconds: 0,
+            isActive: false,
+            durationInSeconds: 4200,
+            date: Date()
+        ),
+        TimerModel(
+            id: UUID(),
+            name: "პიკის საათი",
+            hours: 0,
+            minutes: 45,
+            seconds: 0,
+            initialHours: 0,
+            initialMinutes: 45,
+            initialSeconds: 0,
+            isActive: true,
+            durationInSeconds: 2700,
+            date: Date()
+        ),
+        TimerModel(
+            id: UUID(),
+            name: "მარიაჟი",
+            hours: 0,
+            minutes: 15,
+            seconds: 0,
+            initialHours: 0,
+            initialMinutes: 15,
+            initialSeconds: 0,
+            isActive: false,
+            durationInSeconds: 900,
+            date: Date()
+        ),
+        TimerModel(
+            id: UUID(),
+            name: "კარანტინი",
+            hours: 3,
+            minutes: 30,
+            seconds: 0,
+            initialHours: 3,
+            initialMinutes: 30,
+            initialSeconds: 0,
+            isActive: true,
+            durationInSeconds: 12600,
+            date: Date()
+        ),
+        TimerModel(
+            id: UUID(),
+            name: "თვალსაზრისის შეცვლა",
+            hours: 2,
+            minutes: 45,
+            seconds: 0,
+            initialHours: 2,
+            initialMinutes: 45,
+            initialSeconds: 0,
+            isActive: false,
+            durationInSeconds: 9900,
+            date: Date()
+        ),
+        TimerModel(
+            id: UUID(),
+            name: "მახსოვრობა",
+            hours: 0,
+            minutes: 50,
+            seconds: 0,
+            initialHours: 0,
+            initialMinutes: 50,
+            initialSeconds: 0,
+            isActive: true,
+            durationInSeconds: 3000,
+            date: Date()
+        ),
+        TimerModel(
+            id: UUID(),
+            name: "სტუდენტი",
+            hours: 1,
+            minutes: 5,
+            seconds: 0,
+            initialHours: 1,
+            initialMinutes: 5,
+            initialSeconds: 0,
+            isActive: true,
+            durationInSeconds: 3900,
+            date: Date()
+        ),
+        TimerModel(
+            id: UUID(),
+            name: "გემრიელობა",
+            hours: 0,
+            minutes: 30,
+            seconds: 0,
+            initialHours: 0,
+            initialMinutes: 30,
+            initialSeconds: 0,
+            isActive: false,
+            durationInSeconds: 1800,
+            date: Date()
         )
     ]
     
