@@ -17,8 +17,8 @@ struct ActivityDetailsView: View {
             
             VStack(spacing: 20) {
                 timerSection()
+                StatisticView(timer: timer)
                 ActivityHistory(timer: timer)
-                    .background(.black)
             }
             .padding()
         }
@@ -44,7 +44,6 @@ struct ActivityDetailsView: View {
                             .makeTextStyle(color: .white, size: 24, font: nil)
                     }
                 }
-                .padding()
                 .background(Color.cardBackgroundColor)
         }
     }

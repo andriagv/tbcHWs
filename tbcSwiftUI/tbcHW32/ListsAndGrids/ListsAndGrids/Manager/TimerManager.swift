@@ -69,7 +69,6 @@ final class TimerManager: ObservableObject {
             timer.hours = timer.initialHours
             timer.minutes = timer.initialMinutes
             timer.seconds = timer.initialSeconds
-            //timer.durationInSeconds = 0
             timer.isActive = false
             timers[index] = timer
         }
@@ -96,6 +95,7 @@ final class TimerManager: ObservableObject {
             }
         }
     }
+    
     private func formattedDatee(_ date: Date,_ format: String) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = format

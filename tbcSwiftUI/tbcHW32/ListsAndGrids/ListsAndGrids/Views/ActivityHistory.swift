@@ -10,7 +10,6 @@ import SwiftUI
 
 struct ActivityHistory: View {
     let timer: TimerModel
-    let viewModel = ActivityDetailsViewModel()
     let timerViewModel = TimerViewModel()
     
     
@@ -54,8 +53,8 @@ struct ActivityHistory: View {
             }
             .listStyle(PlainListStyle())
         }
-        .padding()
-        .background(Color.black.edgesIgnoringSafeArea(.all))
+        .background(Color.black)
+        .scrollContentBackground(.hidden)
     }
 }
 
