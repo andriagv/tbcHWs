@@ -11,6 +11,7 @@ struct FastTimerTemplate: View {
     
     @ObservedObject var fastTimerviewModel: FastTimerViewModel
     @ObservedObject var viewModel: TimerViewModel
+    @Binding var isPresented: Bool
     
     private let adaptiveColumn = [
         GridItem(),
@@ -30,6 +31,7 @@ struct FastTimerTemplate: View {
             LazyVGrid(columns: adaptiveColumn, spacing: 20) {
                 ForEach(fastTimerviewModel.fastTimersArray) { timer in
                     Button { viewModel.addTimer(name: timer.name, hours: timer.hours, minutes: timer.minutes, seconds: timer.seconds)
+                        isPresented = false
                     } label: {
                         VStack(alignment: .center, spacing: 10) {
                             Text(fastTimerviewModel.formattedTime(for: timer))
@@ -52,6 +54,3 @@ struct FastTimerTemplate: View {
     }
 }
 
-#Preview {
-    FastTimerTemplate(fastTimerviewModel: FastTimerViewModel(), viewModel: TimerViewModel())
-}

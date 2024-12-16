@@ -14,29 +14,35 @@ struct StatisticView: View {
     let array = ["დღევანდელი სესიები", "საშუალო ხანგრძლივობა", "ჯამური დრო"]
     
     var body: some View {
-        List {
+        VStack(spacing: 0) {
             Section(header: Text("")
                 .foregroundColor(.gray)
                 .font(.headline)) {
-                    ForEach(0..<3) { index in
+                    ForEach(0..<array.count, id: \.self) { index in
                         HStack {
                             Text(array[index])
                                 .foregroundStyle(Color.DustyGray)
-                                .makeTextStyle(color: Color.DustyGray, size: 15, font: "Inter_28pt")
+                                .makeTextStyle(color: Color.DustyGray, size: 15, font: nil)
+                                .bold()
                             Spacer()
                             Text(viewModel.makeArray(timer: timer)[index])
                                 .makeTextStyle(color: .white, size: 15, font: nil)
                                 .bold()
                         }
+                        .padding(.vertical, 10)
+                        if index < array.count - 1 {
+                            Divider()
+                                .background(.gray)
+                        }
                     }
                 }
-                .listRowBackground(Color.cardBackgroundColor)
-                .listRowSeparatorTint(Color.gray)
         }
-        .background(Color.black)
-        .scrollContentBackground(.hidden)
+        .padding()
+        .background(Color.cardBackgroundColor)
+        .cornerRadius(10)
     }
 }
+
 
 #Preview {
     StatisticView(timer: TimerModel(

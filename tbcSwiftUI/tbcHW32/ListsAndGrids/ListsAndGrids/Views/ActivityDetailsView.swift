@@ -13,30 +13,29 @@ struct ActivityDetailsView: View {
     @Environment(\.dismiss) private var dismiss
     var body: some View {
         VStack {
-            headerView()
-            
             VStack(spacing: 20) {
+                headerView()
                 timerSection()
+                    .padding(.horizontal)
                 StatisticView(timer: timer)
+                    .padding(.horizontal)
                 ActivityHistory(timer: timer)
+                Spacer()
             }
-            .padding()
         }
         .background(Color.black)
     }
     
     private func headerView() -> some View {
-        HStack {
-            Text("")
-                .frame(maxWidth: .infinity)
-                .background(Color.cardBackgroundColor)
+        VStack {
+            Color.clear
                 .navigationBarBackButtonHidden(true)
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
                         Button(action: {
                             dismiss()
                         }) {
-                            Image("navigate_before", bundle: .none)
+                            Image("arrow_back", bundle: .none)
                         }
                     }
                     ToolbarItem(placement: .principal) {
@@ -44,6 +43,7 @@ struct ActivityDetailsView: View {
                             .makeTextStyle(color: .white, size: 24, font: nil)
                     }
                 }
+                .frame(height: 1)
                 .background(Color.cardBackgroundColor)
         }
     }
@@ -51,13 +51,17 @@ struct ActivityDetailsView: View {
     private func timerSection() -> some View {
         VStack(spacing: 20) {
             Image("Illustration", bundle: .none)
+                .resizable()
+                .frame(width: 44, height: 44)
             Text("ხანგრძლივობა")
-                .makeTextStyle(color: .white, size: 18, font: nil)
+                .makeTextStyle(color: .white, size: 20, font: nil)
+                .bold()
             Text(String(format: "%02d:%02d:%02d", timer.initialHours, timer.initialMinutes, timer.initialSeconds))
                 .foregroundColor(.blue)
                 .font(.custom("Inter_28pt.ttf", size: 36))
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+        .frame(maxWidth: .infinity, alignment: .center)
+        .padding(.vertical)
         .background(Color.cardBackgroundColor)
         .cornerRadius(16)
     }

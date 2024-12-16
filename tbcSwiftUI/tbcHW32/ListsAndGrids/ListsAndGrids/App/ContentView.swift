@@ -49,9 +49,13 @@ struct ContentView: View {
         }
         .sheet(isPresented: $showingSheet) {
             ZStack {
-                FastTimerTemplate(fastTimerviewModel: fastTimerviewModel, viewModel: viewModel)
-                    .presentationDetents([.fraction(0.5)])
-                    .presentationDragIndicator(.visible)
+                FastTimerTemplate(
+                    fastTimerviewModel: fastTimerviewModel,
+                    viewModel: viewModel,
+                    isPresented: $showingSheet
+                )
+                .presentationDetents([.fraction(0.5)])
+                .presentationDragIndicator(.visible)
             }
         }
     }
