@@ -12,7 +12,6 @@ struct ActivityHistory: View {
     let timer: TimerModel
     let timerViewModel = TimerViewModel()
     
-    
     var body: some View {
         VStack {
             HStack {
@@ -27,8 +26,8 @@ struct ActivityHistory: View {
                 ForEach(timer.activiteData, id: \.day) { group in
                     Section(header: Text(group.day)
                         .foregroundColor(.gray)
+                        .makeTextStyle(color: .gray, size: 14, font: "Inter_28pt")
                         .font(.headline)) {
-                            
                             ForEach(group.time.indices, id: \.self) { index in
                                 HStack {
                                     Text(group.time[index].startTime)

@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct StatisticView: View {
-    
     let timer: TimerModel
     let viewModel = StatisticViewModel()
     let array = ["დღევანდელი სესიები", "საშუალო ხანგრძლივობა", "ჯამური დრო"]
@@ -30,14 +29,13 @@ struct StatisticView: View {
                                 .bold()
                         }
                         .padding(.vertical, 10)
-                        if index < array.count - 1 {
-                            Divider()
-                                .background(.gray)
-                        }
+                        Divider()
+                            .background(.gray)
                     }
                 }
         }
-        .padding()
+        .padding(.horizontal)
+        .padding(.bottom)
         .background(Color.cardBackgroundColor)
         .cornerRadius(10)
     }

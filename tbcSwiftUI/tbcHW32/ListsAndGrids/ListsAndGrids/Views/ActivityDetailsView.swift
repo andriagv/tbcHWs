@@ -43,7 +43,7 @@ struct ActivityDetailsView: View {
                             .makeTextStyle(color: .white, size: 24, font: nil)
                     }
                 }
-                .frame(height: 1)
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 0)
                 .background(Color.cardBackgroundColor)
         }
     }

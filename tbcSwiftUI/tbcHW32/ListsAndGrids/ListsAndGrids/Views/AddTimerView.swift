@@ -9,7 +9,6 @@ import SwiftUI
 
 struct AddTimerView: View {
     @ObservedObject var viewModel: TimerViewModel
-    
     @State private var timerName: String = ""
     @State private var hours: String = ""
     @State private var minutes: String = ""

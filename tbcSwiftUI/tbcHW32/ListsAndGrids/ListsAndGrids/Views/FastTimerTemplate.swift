@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct FastTimerTemplate: View {
-    
     @ObservedObject var fastTimerviewModel: FastTimerViewModel
     @ObservedObject var viewModel: TimerViewModel
     @Binding var isPresented: Bool
