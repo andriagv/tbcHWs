@@ -27,4 +27,5 @@ extension Color {
     static let resetButtonColor = Color(hex: "#FF3B30")
     static let stopButtonColor = Color(hex: "#FF9500")
     static let addButtonColor = Color(hex: "#007AFF")
+    static let DustyGray = Color(hex: "#999999")
 }
