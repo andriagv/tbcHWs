@@ -51,7 +51,7 @@ struct ActivityHistory: View {
                         .listRowSeparatorTint(Color.gray)
                 }
             }
-            .listStyle(PlainListStyle())
+            .listStyle(GroupedListStyle())
         }
         .background(Color.black)
         .scrollContentBackground(.hidden)
