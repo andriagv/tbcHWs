@@ -7,35 +7,29 @@
 
 import SwiftUI
 
+import SwiftUI
+
 struct SpinView: View {
-    
-    let screenWidth = UIScreen.main.bounds.width
-    @State var offset = CGSize.zero
-    @State var endPosition = CGPoint.zero
-    @State var rotationAngle: Double = 0
+    @StateObject private var viewModel = SpinViewModel()
     
     var body: some View {
         ZStack {
             Color.green
                 .edgesIgnoringSafeArea(.top)
+            
             Image(.circleFill)
-                .frame(width: screenWidth, height: screenWidth)
-                .rotationEffect(.degrees(rotationAngle))
+                
+                .rotationEffect(.degrees(viewModel.rotationAngle))
                 .offset(
                     CGSize(
-                        width: offset.width + endPosition.x ,
-                        height: offset.height + endPosition.y))
-            
+                        width: viewModel.offset.width + viewModel.endPosition.x,
+                        height: viewModel.offset.height + viewModel.endPosition.y
+                    )
+                )
                 .gesture(
                     DragGesture()
-                        .onChanged {
-                            offset = $0.translation
-                            rotationAngle = Double(offset.height) * 0.7
-                        }.onEnded({ dragValue in
-                            endPosition.x = dragValue.location.x - screenWidth / 2
-                            endPosition.y = dragValue.location.y - screenWidth / 2
-                            offset = .zero
-                        })
+                        .onChanged { viewModel.onDragChanged($0) }
+                        .onEnded { viewModel.onDragEnded($0)}
                 )
         }
         .padding(.bottom, 20)
