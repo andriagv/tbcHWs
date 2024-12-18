@@ -26,5 +26,9 @@ final class RotateViewModel: ObservableObject {
     func onScaleChanged(_ scale: CGFloat) {
         imageModel.scale = scale
     }
+    
+    func onScaleEnded(_ scale: CGFloat) {
+        imageModel.baseScale *= scale
+    }
 }
 

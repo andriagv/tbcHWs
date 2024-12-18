@@ -24,6 +24,7 @@ struct RotateView: View {
                 .gesture(
                     MagnificationGesture()
                         .onChanged { viewModel.onScaleChanged($0) }
+                        .onEnded { viewModel.onScaleEnded($0) } 
                 )
                 .simultaneousGesture(
                     RotationGesture()
