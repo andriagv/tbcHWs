@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct SpinView: View {
     @StateObject private var viewModel = SpinViewModel()
     
@@ -16,8 +14,8 @@ struct SpinView: View {
         ZStack {
             Color.green
                 .edgesIgnoringSafeArea(.top)
-            Image(.circleFill)
-                .rotationEffect(.degrees(viewModel.rotationAngle))
+            Image("Circle.fill")
+                .rotationEffect(.degrees(viewModel.model.rotationAngle))
                 .gesture(
                     DragGesture()
                         .onChanged { viewModel.onDragChanged($0) }

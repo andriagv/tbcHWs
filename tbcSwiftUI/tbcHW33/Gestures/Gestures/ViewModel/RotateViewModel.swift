@@ -9,14 +9,22 @@ import Foundation
 import SwiftUI
 
 final class RotateViewModel: ObservableObject {
-    @Published var rotationAngle: Angle = .degrees(0)
-
-    func onRotateChanged(_ angle: Angle) {
-        rotationAngle = angle
+    @Published var imageModel: ImageModel
+    
+    init(imageModel: ImageModel = ImageModel()) {
+        self.imageModel = imageModel
     }
-
+    
+    func onRotateChanged(_ angle: Angle) {
+        imageModel.rotationAngle = angle
+    }
+    
     func onRotateEnded(_ angle: Angle) {
-        rotationAngle = angle
+        imageModel.rotationAngle = angle
+    }
+    
+    func onScaleChanged(_ scale: CGFloat) {
+        imageModel.scale = scale
     }
 }
 

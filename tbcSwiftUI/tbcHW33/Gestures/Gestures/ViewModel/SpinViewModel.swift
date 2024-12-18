@@ -8,14 +8,17 @@
 import SwiftUI
 
 final class SpinViewModel: ObservableObject {
-    @Published var offset = CGSize.zero
-    @Published var rotationAngle: Double = 0
+    @Published var model: SpinModel
     let rotationMultiplier: Double = 0.5
-
-    func onDragChanged(_ drag: DragGesture.Value) {
-        offset = drag.translation
-        rotationAngle = Double(offset.height) * rotationMultiplier
+    
+    init(model: SpinModel = SpinModel()) {
+        self.model = model
     }
-
+    
+    func onDragChanged(_ drag: DragGesture.Value) {
+        model.offset = drag.translation
+        model.rotationAngle = Double(model.offset.height) * rotationMultiplier
+    }
 }
+
 

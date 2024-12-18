@@ -8,21 +8,22 @@
 import SwiftUI
 
 struct HoldView: View {
-    @State private var isFill = true
+    @StateObject private var viewModel = HoldViewModel()
     
     var body: some View {
         ZStack {
             Color.green
                 .edgesIgnoringSafeArea(.top)
-            Image(isFill ? "Circle.fill" : "Circle")
+            
+            Image(viewModel.model.isFill ? "Circle.fill" : "Circle")
                 .gesture(
                     LongPressGesture(minimumDuration: 5)
                         .onEnded { _ in
-                            isFill = false
+                            viewModel.onLongPressEnded()
                         }
                         .simultaneously(with: DragGesture(minimumDistance: 0)
                             .onEnded { _ in
-                                isFill = true
+                                viewModel.onDragEnded()
                             }
                         )
                 )
