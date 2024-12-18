@@ -16,19 +16,19 @@ final class RotateViewModel: ObservableObject {
     }
     
     func onRotateChanged(_ angle: Angle) {
-        imageModel.rotationAngle = angle
+        imageModel.rotationAngle = angle + imageModel.baseRotationAngle
     }
     
     func onRotateEnded(_ angle: Angle) {
-        imageModel.rotationAngle = angle
+        imageModel.baseRotationAngle = imageModel.rotationAngle
     }
     
     func onScaleChanged(_ scale: CGFloat) {
-        imageModel.scale = scale
+        imageModel.scale = scale * imageModel.baseScale
     }
     
     func onScaleEnded(_ scale: CGFloat) {
-        imageModel.baseScale *= scale
+        imageModel.baseScale = imageModel.scale
     }
 }
 
