@@ -16,20 +16,11 @@ struct SpinView: View {
         ZStack {
             Color.green
                 .edgesIgnoringSafeArea(.top)
-            
             Image(.circleFill)
-                
                 .rotationEffect(.degrees(viewModel.rotationAngle))
-                .offset(
-                    CGSize(
-                        width: viewModel.offset.width + viewModel.endPosition.x,
-                        height: viewModel.offset.height + viewModel.endPosition.y
-                    )
-                )
                 .gesture(
                     DragGesture()
                         .onChanged { viewModel.onDragChanged($0) }
-                        .onEnded { viewModel.onDragEnded($0)}
                 )
         }
         .padding(.bottom, 20)
