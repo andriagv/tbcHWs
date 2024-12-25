@@ -17,7 +17,7 @@ struct HomePage: View {
                 
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack(alignment: .leading, spacing: 16) {
-                        HomeHeaderView(headerStr: "Hello Nika 👋")
+                        HomeHeaderView(headerStr: "გამარჯობა 👋")
                         
                         HomeMusicRowtView(musicList: viewModel.allMusic)
                         

@@ -37,9 +37,9 @@ final class MusicViewModel: ObservableObject {
     ]
     
     @Published var AllenMusic: [Music] = [
-        Music(imageName: "MyFavoriteSwiftUIUpdatesIOS18Image", name: "Bohemian Rhapsody", artist: "Sean Allen", audioFileName: "MyFavoriteSwiftUIUpdatesIOS18"),
-        Music(imageName: "SwiftClosuresescapingImage", name: "Killer", artist: "Sean Allen", audioFileName: "SwiftClosuresescaping"),
-        Music(imageName: "XcodeTipShowBuildTimesImage", name: "The Show Must Go On", artist: "Sean Allen", audioFileName: "XcodeTipShowBuildTimes"),
+        Music(imageName: "MyFavoriteSwiftUIUpdatesIOS18Image", name: "SwiftUI Updates IOS18", artist: "Sean Allen", audioFileName: "MyFavoriteSwiftUIUpdatesIOS18"),
+        Music(imageName: "SwiftClosuresescapingImage", name: "escaping Closures", artist: "Sean Allen", audioFileName: "SwiftClosuresescaping"),
+        Music(imageName: "XcodeTipShowBuildTimesImage", name: "Xcode Tip Show Build Times", artist: "Sean Allen", audioFileName: "XcodeTipShowBuildTimes"),
         
     ]
     
