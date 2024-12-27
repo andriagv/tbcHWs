@@ -10,7 +10,7 @@ import SwiftUI
 
 struct QuestionView: View {
     @ObservedObject var viewModel: QuestionViewModel
-
+    
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 15) {
@@ -31,11 +31,13 @@ struct QuestionView: View {
                                         .fill(
                                             viewModel.selectedAnswer == answer
                                             ? (viewModel.isCorrectAnswer(answer) ? Color.green : Color.red).opacity(0.7)
-                                                : Color.clear
+                                            : Color.clear
                                         )
+                                        .animation(.easeInOut)
                                 )
                                 .frame(width: 25, height: 25)
                         }
+                        .disabled(viewModel.isAnswered || viewModel.attemptsLeft == 0)
                         Text(answer)
                     }
                     .foregroundStyle(.white)
@@ -48,6 +50,13 @@ struct QuestionView: View {
         .background(Color(uiColor: .systemBlue).gradient.opacity(0.4))
         .cornerRadius(10)
         .shadow(color: .red.opacity(0.4), radius: 10)
+        .alert(viewModel.question.hint, isPresented: $viewModel.showHintAlert) {
+            Button("დახურვა") {
+                viewModel.selectedAnswer = nil
+            }
+        } message: {
+            Text("დამატებითი მინიშნება")
+        }
     }
 }
 
@@ -55,7 +64,7 @@ struct QuestionView: View {
 #Preview {
     QuestionView(
         viewModel: QuestionViewModel(
-            question: QuestionModel(type: .anime, emoji: "sdsdfsdfsdfsdfwerderff", answers: ["1", "2", "3"], correctAnswer: "2")
+            question: QuestionModel(type: .anime, emoji: "sdsdfsdfsdfsdfwerderff", answers: ["1", "2", "3"], correctAnswer: "2", hint: "sad")
         )
     )
 }
