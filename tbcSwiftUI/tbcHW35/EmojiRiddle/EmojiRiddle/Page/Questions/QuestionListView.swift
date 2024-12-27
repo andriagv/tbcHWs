@@ -15,8 +15,8 @@ struct QuestionListView: View {
     var body: some View {
         ScrollView {
             LazyVStack(spacing: 30) {
-                ForEach(viewModel.questions, id: \.question) {viewModel in
-                    QuestionView(viewModel: viewModel)
+                ForEach(viewModel.selectQuestions, id: \.self) { question in
+                    QuestionView(viewModel: QuestionViewModel(question: question))
                 }
             }
         }
@@ -26,7 +26,7 @@ struct QuestionListView: View {
 }
 
 #Preview {
-    QuestionListView(viewModel: QuestionListViewModel(questions: [
+    QuestionListView(viewModel: QuestionListViewModel(selectQuestions: [
         QuestionModel(type: .anime, emoji: "sdsdfsdfsdfsdfwerderff", answers: ["1", "2", "3"], correctAnswer: "2", hint: "sad"),
         
                 QuestionModel(type: .anime, emoji: "3490=t0ywvhjiw", answers: ["1", "2", "3"], correctAnswer: "1", hint: "sad"),
@@ -38,4 +38,5 @@ struct QuestionListView: View {
                 QuestionModel(type: .anime, emoji: "9c0jwedfg=WAG", answers: ["1", "2", "3"], correctAnswer: "2", hint: "sad"),
         
                 QuestionModel(type: .anime, emoji: "9c0j=sdzdWAG", answers: ["1", "2", "3"], correctAnswer: "2", hint: "sad")]))
+    
 }

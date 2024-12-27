@@ -83,27 +83,22 @@ final class HomeViewControler: UIViewController {
     
     private func tapButton() {
         filmButton.addAction(UIAction(handler: { [weak self] action in
-            self?.action(type: Type.film) // განვსაზღვრეთ სრული კონტექსტი
+            self?.action(type: Type.film)
         }), for: .touchUpInside)
         
         bookButton.addAction(UIAction(handler: { [weak self] action in
-            self?.action(type: Type.book) // განვსაზღვრეთ სრული კონტექსტი
+            self?.action(type: Type.book) 
         }), for: .touchUpInside)
         
         animeButton.addAction(UIAction(handler: { [weak self] action in
-            self?.action(type: Type.anime) // განვსაზღვრეთ სრული კონტექსტი
+            self?.action(type: Type.anime)
         }), for: .touchUpInside)
     }
     
-    
-    //    private func Action(type: Type) {
-    //        let selectQuestions = viewModel.returnSelectQuestions(type: type)
-    //        let vc = UIHostingController(rootView: QuestionListView(selectQuestions: selectQuestions))
-    //        navigationController?.pushViewController(vc, animated: true)
-    //    }
     private func action(type: Type) {
         let selectQuestions = viewModel.returnSelectQuestions(type: type)
-        let questionListView = QuestionListView(viewModel: QuestionListViewModel(questions: selectQuestions))
+        let vc1 = QuestionListViewModel(selectQuestions: selectQuestions)
+        let questionListView = QuestionListView(viewModel: vc1)
         let vc = UIHostingController(rootView: questionListView)
         navigationController?.pushViewController(vc, animated: true)
     }

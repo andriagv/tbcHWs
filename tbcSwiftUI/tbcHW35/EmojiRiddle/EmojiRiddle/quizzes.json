@@ -8,7 +8,7 @@
             "Captain Phillips",
             "Robinson Crusoe"
         ],
-        "correctAnswer": "Pirates of the Caribbean"
+        "correctAnswer": "Pirates of the Caribbean",
         "hint": "ragaca"
     },
     {
@@ -20,9 +20,8 @@
             "Inception",
             "The Dark Knight"
         ],
-        "correctAnswer": "The Matrix"
+        "correctAnswer": "The Matrix",
         "hint": "ragaca"
-
     },
     {
         "type": "film",
@@ -33,9 +32,8 @@
             "Moana",
             "Cinderella"
         ],
-        "correctAnswer": "Frozen"
+        "correctAnswer": "Frozen",
         "hint": "ragaca"
-
     },
     {
         "type": "film",
@@ -46,9 +44,8 @@
             "The Jungle Book",
             "Finding Nemo"
         ],
-        "correctAnswer": "The Lion King"
+        "correctAnswer": "The Lion King",
         "hint": "ragaca"
-
     },
     {
         "type": "film",
@@ -59,9 +56,8 @@
             "Apollo 13",
             "The Martian"
         ],
-        "correctAnswer": "Interstellar"
+        "correctAnswer": "Interstellar",
         "hint": "ragaca"
-
     },
     {
         "type": "book",
@@ -72,9 +68,8 @@
             "Eragon",
             "Game of Thrones"
         ],
-        "correctAnswer": "Harry Potter"
+        "correctAnswer": "Harry Potter",
         "hint": "ragaca"
-
     },
     {
         "type": "book",
@@ -85,9 +80,8 @@
             "The Old Man and the Sea",
             "Life of Pi"
         ],
-        "correctAnswer": "Moby Dick"
+        "correctAnswer": "Moby Dick",
         "hint": "ragaca"
-
     },
     {
         "type": "book",
@@ -98,9 +92,8 @@
             "Interview with the Vampire",
             "The Vampire Chronicles"
         ],
-        "correctAnswer": "Dracula"
+        "correctAnswer": "Dracula",
         "hint": "ragaca"
-
     },
     {
         "type": "book",
@@ -111,9 +104,8 @@
             "Eragon",
             "Chronicles of Narnia"
         ],
-        "correctAnswer": "The Lord of the Rings"
+        "correctAnswer": "The Lord of the Rings",
         "hint": "ragaca"
-
     },
     {
         "type": "book",
@@ -124,9 +116,8 @@
             "20,000 Leagues Under the Sea",
             "The War of the Worlds"
         ],
-        "correctAnswer": "The Time Machine"
+        "correctAnswer": "The Time Machine",
         "hint": "ragaca"
-
     },
     {
         "type": "anime",
@@ -137,9 +128,8 @@
             "Attack on Titan",
             "Bleach"
         ],
-        "correctAnswer": "Demon Slayer"
+        "correctAnswer": "Demon Slayer",
         "hint": "ragaca"
-
     },
     {
         "type": "anime",
@@ -150,9 +140,8 @@
             "Attack on Titan",
             "Naruto"
         ],
-        "correctAnswer": "One Piece"
+        "correctAnswer": "One Piece",
         "hint": "ragaca"
-
     },
     {
         "type": "anime",
@@ -163,9 +152,8 @@
             "Akira",
             "Redline"
         ],
-        "correctAnswer": "Initial D"
+        "correctAnswer": "Initial D",
         "hint": "ragaca"
-
     },
     {
         "type": "anime",
@@ -176,9 +164,8 @@
             "A Silent Voice",
             "Spirited Away"
         ],
-        "correctAnswer": "Your Lie in April"
+        "correctAnswer": "Your Lie in April",
         "hint": "ragaca"
-
     },
     {
         "type": "anime",
@@ -189,9 +176,8 @@
             "My Neighbor Totoro",
             "Ponyo"
         ],
-        "correctAnswer": "Food Wars"
+        "correctAnswer": "Food Wars",
         "hint": "ragaca"
-
     }
 ]
 

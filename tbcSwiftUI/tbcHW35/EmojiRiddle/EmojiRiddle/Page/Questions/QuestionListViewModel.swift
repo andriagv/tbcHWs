@@ -9,9 +9,11 @@ import Foundation
 
 
 final class QuestionListViewModel: ObservableObject {
-    @Published var questions: [QuestionViewModel]
-
-    init(questions: [QuestionModel]) {
-        self.questions = questions.map { QuestionViewModel(question: $0) }
+    
+    @Published var selectQuestions: [QuestionModel]
+    
+    
+    init(selectQuestions: [QuestionModel]) {
+        self.selectQuestions = selectQuestions
     }
 }
