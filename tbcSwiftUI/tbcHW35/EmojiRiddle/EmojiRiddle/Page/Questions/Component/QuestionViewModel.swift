@@ -11,25 +11,29 @@ import SwiftUI
 final class QuestionViewModel: ObservableObject {
     @Published var question: QuestionModel
     @Published var selectedAnswer: String? = nil
-    @Published var isAnswered = false
     @Published var showHintAlert = false
     @Published var attemptsLeft = 2
-
+    @Published var score: Double = 0.0
+    
     init(question: QuestionModel) {
         self.question = question
     }
 
     func selectAnswer(_ answer: String) {
-        guard !isAnswered && attemptsLeft > 0 else { return }
-        
+        guard !question.isAnswered && attemptsLeft > 0 else { return }
+
         selectedAnswer = answer
 
         if isCorrectAnswer(answer) {
-            isAnswered = true
+            question.isAnswered = true
+            score = attemptsLeft == 2 ? 1.0 : 0.5
         } else {
             attemptsLeft -= 1
             if attemptsLeft > 0 {
-                showHintAlert = true 
+                showHintAlert = true
+            } else {
+                question.isAnswered = true
+                score = 0.0
             }
         }
     }

@@ -9,7 +9,8 @@
             "Robinson Crusoe"
         ],
         "correctAnswer": "Pirates of the Caribbean",
-        "hint": "ragaca"
+        "hint": "ragaca",
+        "isAnswered" : false
     },
     {
         "type": "film",
@@ -21,7 +22,8 @@
             "The Dark Knight"
         ],
         "correctAnswer": "The Matrix",
-        "hint": "ragaca"
+        "hint": "ragaca",
+        "isAnswered" : false
     },
     {
         "type": "film",
@@ -33,7 +35,8 @@
             "Cinderella"
         ],
         "correctAnswer": "Frozen",
-        "hint": "ragaca"
+        "hint": "ragaca",
+        "isAnswered" : false
     },
     {
         "type": "film",
@@ -45,7 +48,8 @@
             "Finding Nemo"
         ],
         "correctAnswer": "The Lion King",
-        "hint": "ragaca"
+        "hint": "ragaca",
+        "isAnswered" : false
     },
     {
         "type": "film",
@@ -57,7 +61,8 @@
             "The Martian"
         ],
         "correctAnswer": "Interstellar",
-        "hint": "ragaca"
+        "hint": "ragaca",
+        "isAnswered" : false
     },
     {
         "type": "book",
@@ -69,7 +74,8 @@
             "Game of Thrones"
         ],
         "correctAnswer": "Harry Potter",
-        "hint": "ragaca"
+        "hint": "ragaca",
+        "isAnswered" : false
     },
     {
         "type": "book",
@@ -81,7 +87,8 @@
             "Life of Pi"
         ],
         "correctAnswer": "Moby Dick",
-        "hint": "ragaca"
+        "hint": "ragaca",
+        "isAnswered" : false
     },
     {
         "type": "book",
@@ -93,7 +100,8 @@
             "The Vampire Chronicles"
         ],
         "correctAnswer": "Dracula",
-        "hint": "ragaca"
+        "hint": "ragaca",
+        "isAnswered" : false
     },
     {
         "type": "book",
@@ -105,7 +113,8 @@
             "Chronicles of Narnia"
         ],
         "correctAnswer": "The Lord of the Rings",
-        "hint": "ragaca"
+        "hint": "ragaca",
+        "isAnswered" : false
     },
     {
         "type": "book",
@@ -117,7 +126,8 @@
             "The War of the Worlds"
         ],
         "correctAnswer": "The Time Machine",
-        "hint": "ragaca"
+        "hint": "ragaca",
+        "isAnswered" : false
     },
     {
         "type": "anime",
@@ -129,7 +139,8 @@
             "Bleach"
         ],
         "correctAnswer": "Demon Slayer",
-        "hint": "ragaca"
+        "hint": "ragaca",
+        "isAnswered" : false
     },
     {
         "type": "anime",
@@ -141,7 +152,8 @@
             "Naruto"
         ],
         "correctAnswer": "One Piece",
-        "hint": "ragaca"
+        "hint": "ragaca",
+        "isAnswered" : false
     },
     {
         "type": "anime",
@@ -153,7 +165,8 @@
             "Redline"
         ],
         "correctAnswer": "Initial D",
-        "hint": "ragaca"
+        "hint": "ragaca",
+        "isAnswered" : false
     },
     {
         "type": "anime",
@@ -165,7 +178,8 @@
             "Spirited Away"
         ],
         "correctAnswer": "Your Lie in April",
-        "hint": "ragaca"
+        "hint": "ragaca",
+        "isAnswered" : false
     },
     {
         "type": "anime",
@@ -177,7 +191,8 @@
             "Ponyo"
         ],
         "correctAnswer": "Food Wars",
-        "hint": "ragaca"
+        "hint": "ragaca",
+        "isAnswered" : false
     }
 ]
 

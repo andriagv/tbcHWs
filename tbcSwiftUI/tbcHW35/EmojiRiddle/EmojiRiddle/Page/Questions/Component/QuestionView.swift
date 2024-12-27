@@ -10,7 +10,7 @@ import SwiftUI
 
 struct QuestionView: View {
     @ObservedObject var viewModel: QuestionViewModel
-    
+
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 15) {
@@ -18,7 +18,6 @@ struct QuestionView: View {
                 Text(viewModel.question.emoji)
                     .padding(.bottom)
                     .font(.largeTitle)
-                
                 ForEach(viewModel.question.answers, id: \.self) { answer in
                     HStack {
                         Button {
@@ -30,19 +29,23 @@ struct QuestionView: View {
                                     Circle()
                                         .fill(
                                             viewModel.selectedAnswer == answer
-                                            ? (viewModel.isCorrectAnswer(answer) ? Color.green : Color.red).opacity(0.7)
-                                            : Color.clear
+                                                ? (viewModel.isCorrectAnswer(answer) ? Color.green : Color.red).opacity(0.7)
+                                                : Color.clear
                                         )
-                                        .animation(.easeInOut)
+                                        .animation(.easeInOut, value: viewModel.selectedAnswer)
                                 )
                                 .frame(width: 25, height: 25)
                         }
-                        .disabled(viewModel.isAnswered || viewModel.attemptsLeft == 0)
+                        .disabled(viewModel.question.isAnswered || viewModel.attemptsLeft == 0) // ბლოკავს პასუხების ღილაკებს
+                        
                         Text(answer)
                     }
                     .foregroundStyle(.white)
                 }
                 Spacer()
+                Text("თქვენი ქულა: \(viewModel.score, specifier: "%.1f")")
+                    .font(.headline)
+                    .foregroundColor(.yellow)
             }
             Spacer()
         }
@@ -58,13 +61,4 @@ struct QuestionView: View {
             Text("დამატებითი მინიშნება")
         }
     }
-}
-
-
-#Preview {
-    QuestionView(
-        viewModel: QuestionViewModel(
-            question: QuestionModel(type: .anime, emoji: "sdsdfsdfsdfsdfwerderff", answers: ["1", "2", "3"], correctAnswer: "2", hint: "sad")
-        )
-    )
 }

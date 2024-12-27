@@ -13,6 +13,7 @@ struct QuestionModel: Codable, Hashable {
     let answers: [String]
     let correctAnswer: String
     let hint: String
+    var isAnswered: Bool = false
 }
 
 enum Type: String, Codable {
