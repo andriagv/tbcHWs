@@ -12,6 +12,7 @@ struct QuestionModel: Codable, Hashable {
     let emoji: String
     let answers: [String]
     let correctAnswer: String
+    let hint: String
 }
 
 enum Type: String, Codable {
