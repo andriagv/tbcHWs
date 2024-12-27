@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		1802CA802D1DF7DC00C62555 /* izziGradient in Frameworks */ = {isa = PBXBuildFile; productRef = 1802CA7F2D1DF7DC00C62555 /* izziGradient */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		1802CA4D2D1DEE3A00C62555 /* EmojiRiddle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmojiRiddle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1802CA802D1DF7DC00C62555 /* izziGradient in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,7 @@
 			);
 			name = EmojiRiddle;
 			packageProductDependencies = (
+				1802CA7F2D1DF7DC00C62555 /* izziGradient */,
 			);
 			productName = EmojiRiddle;
 			productReference = 1802CA4D2D1DEE3A00C62555 /* EmojiRiddle.app */;
@@ -107,6 +113,9 @@
 			);
 			mainGroup = 1802CA442D1DEE3A00C62555;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				1802CA7E2D1DF7DC00C62555 /* XCRemoteSwiftPackageReference "izziGradient" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 1802CA4E2D1DEE3A00C62555 /* Products */;
 			projectDirPath = "";
@@ -333,6 +342,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1802CA7E2D1DF7DC00C62555 /* XCRemoteSwiftPackageReference "izziGradient" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Desp0o/izziGradient.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1802CA7F2D1DF7DC00C62555 /* izziGradient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1802CA7E2D1DF7DC00C62555 /* XCRemoteSwiftPackageReference "izziGradient" */;
+			productName = izziGradient;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1802CA452D1DEE3A00C62555 /* Project object */;
 }
