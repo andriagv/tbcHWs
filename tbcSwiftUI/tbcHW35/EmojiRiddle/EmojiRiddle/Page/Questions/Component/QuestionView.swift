@@ -10,6 +10,7 @@ import SwiftUI
 
 struct QuestionView: View {
     @ObservedObject var viewModel: QuestionViewModel
+    let checkGameCompletion: () -> Void
 
     var body: some View {
         HStack {
@@ -22,6 +23,7 @@ struct QuestionView: View {
                     HStack {
                         Button {
                             viewModel.selectAnswer(answer)
+                            checkGameCompletion()
                         } label: {
                             Circle()
                                 .stroke(viewModel.selectedAnswer == answer ? Color.clear : Color.primary)
@@ -36,7 +38,7 @@ struct QuestionView: View {
                                 )
                                 .frame(width: 25, height: 25)
                         }
-                        .disabled(viewModel.question.isAnswered || viewModel.attemptsLeft == 0) // ბლოკავს პასუხების ღილაკებს
+                        .disabled(viewModel.question.isAnswered || viewModel.attemptsLeft == 0)
                         
                         Text(answer)
                     }

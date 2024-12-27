@@ -8,39 +8,35 @@
 import SwiftUI
 
 
-
 struct QuestionListView: View {
     @ObservedObject var viewModel: QuestionListViewModel
-
+    @State private var showCongratulations = false
+    
     var body: some View {
         ScrollView {
             LazyVStack(spacing: 30) {
-                ForEach(viewModel.selectQuestions, id: \.self) { question in
-                    QuestionView(viewModel: QuestionViewModel(question: question))
-                        .onTapGesture {
-                            print("davawire")
-                            //viewModel.checkGameCompletion()
+                ForEach(viewModel.selectQuestions, id: \.id) { question in
+                    QuestionView(
+                        viewModel: QuestionViewModel(question: question),
+                        checkGameCompletion: {
+                            viewModel.checkGameCompletion()
+                            if viewModel.isGameFinished {
+                                showCongratulations = true
+                            }
                         }
+                    )
                 }
             }
         }
         .padding()
         .background(Color(uiColor: .systemBlue).gradient.opacity(0.5))
-        .alert("თამაში დასრულდა", isPresented: $viewModel.isGameFinished) {
-            Button("OK") { }
-        } message: {
-            Text("საერთო ქულები: \(viewModel.totalScore, specifier: "%.1f")")
+        .fullScreenCover(isPresented: $showCongratulations) {
+            if !viewModel.choseView() {
+                SadView(totalScore: viewModel.totalScore)
+            } else {
+                CongratulationsView(totalScore: viewModel.totalScore)
+            }
         }
     }
 }
 
-
-
-#Preview {
-    QuestionListView(viewModel: QuestionListViewModel(selectQuestions: [
-        QuestionModel(type: .anime, emoji: "sdsdfsdfsdfsdfwerderff", answers: ["1", "2", "3"], correctAnswer: "2", hint: "sad"),
-        
-        
-        QuestionModel(type: .anime, emoji: "9c0j=sdzdWAG", answers: ["1", "2", "3"], correctAnswer: "2", hint: "sad")]))
-    
-}

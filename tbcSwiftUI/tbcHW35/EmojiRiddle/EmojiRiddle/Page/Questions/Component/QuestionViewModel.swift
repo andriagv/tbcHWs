@@ -27,6 +27,7 @@ final class QuestionViewModel: ObservableObject {
         if isCorrectAnswer(answer) {
             question.isAnswered = true
             score = attemptsLeft == 2 ? 1.0 : 0.5
+            question.scores += score
         } else {
             attemptsLeft -= 1
             if attemptsLeft > 0 {

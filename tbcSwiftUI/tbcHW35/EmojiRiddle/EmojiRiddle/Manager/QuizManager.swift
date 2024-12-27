@@ -20,7 +20,7 @@ class QuizManager: ObservableObject {
             }
         } else {
             mockQuestion = [
-                QuestionModel(type: .anime, emoji: "sdsdfsdfsdfsdfwerderff", answers: ["1", "2", "3"], correctAnswer: "2", hint: "ds"),
+                QuestionModel(id: UUID(), type: .anime, emoji: "sdsdfsdfsdfsdfwerderff", answers: ["1", "2", "3"], correctAnswer: "2", hint: "ds", isAnswered: false, scores: 0),
             ]
         }
     }

@@ -17,6 +17,12 @@ final class HomeViewControler: UIViewController {
     lazy var filmButton = makeButton(title: "ფილმები")
     lazy var bookButton = makeButton(title: "წიგნები")
     lazy var animeButton = makeButton(title: "ანიმეები")
+    var ruleButton: UIButton = {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.setTitle("წესები", for: .normal)
+        return btn
+    }()
     
     var label: UILabel = {
         let label = UILabel()
@@ -48,6 +54,7 @@ final class HomeViewControler: UIViewController {
         setupLabel()
         setupStackView()
         tapButton()
+        ruleBtbsetup()
     }
     
     private func setupLabel() {
@@ -55,8 +62,8 @@ final class HomeViewControler: UIViewController {
         gradientView.addSubview(label)
         
         
-        label.text = "აირჩიე კატეგორია"
-        titleLabel.text = "დააგროვე ქულათა 80% და გაიმარჯვე"
+        label.text = "აირჩიე კატეგორია:"
+        titleLabel.text = "თამაშს დაიწყებამდე გაეცანი წესებს"
         
         NSLayoutConstraint.activate([
             
@@ -65,7 +72,6 @@ final class HomeViewControler: UIViewController {
             
             label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             label.bottomAnchor.constraint(equalTo: view.centerYAnchor)
-            
         ])
     }
     
@@ -87,7 +93,7 @@ final class HomeViewControler: UIViewController {
         }), for: .touchUpInside)
         
         bookButton.addAction(UIAction(handler: { [weak self] action in
-            self?.action(type: Type.book) 
+            self?.action(type: Type.book)
         }), for: .touchUpInside)
         
         animeButton.addAction(UIAction(handler: { [weak self] action in
@@ -106,6 +112,10 @@ final class HomeViewControler: UIViewController {
     private func makeButton(title: String) -> UIButton {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.contentEdgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
+        btn.layer.borderColor = UIColor.systemBlue.cgColor.copy(alpha: 0.5)
+        btn.layer.borderWidth = 2.0
+        btn.layer.cornerRadius = 20.0
         btn.setTitle(title, for: .normal)
         return btn
     }
@@ -128,6 +138,35 @@ final class HomeViewControler: UIViewController {
             gradientView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             gradientView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+    
+    private func ruleBtbsetup() {
+        gradientView.addSubview(ruleButton)
+       
+        ruleButton.titleLabel?.font = UIFont(name: "Avenir-Heavy", size: 28)
+        
+        NSLayoutConstraint.activate([
+            ruleButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            ruleButton.topAnchor.constraint(equalTo: vstack.bottomAnchor, constant: 20)
+        ])
+        ruleBtnAction()
+    }
+    
+    private func ruleBtnAction() {
+        ruleButton.addAction(UIAction(handler: { [weak self] _ in
+            let vc = RulesViewController()
+            
+            vc.modalPresentationStyle = .pageSheet
+            if let sheet = vc.sheetPresentationController {
+                sheet.detents = [
+                    .custom { context in context.maximumDetentValue * 0.7 }
+                ]
+                sheet.prefersGrabberVisible = true
+                sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+            }
+            
+            self?.present(vc, animated: true)
+        }), for: .touchUpInside)
     }
 }
 
