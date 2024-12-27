@@ -1,0 +1,168 @@
+[
+    {
+        "type": "film",
+        "emoji": "🏴‍☠️⚔️🌊🗺️☠️",
+        "answers": [
+            "Pirates of the Caribbean",
+            "Treasure Island",
+            "Captain Phillips",
+            "Robinson Crusoe"
+        ],
+        "correctAnswer": "Pirates of the Caribbean"
+    },
+    {
+        "type": "film",
+        "emoji": "🕶️🌃🖤🔫💊",
+        "answers": [
+            "The Matrix",
+            "Blade Runner",
+            "Inception",
+            "The Dark Knight"
+        ],
+        "correctAnswer": "The Matrix"
+    },
+    {
+        "type": "film",
+        "emoji": "👸❄️⛄🌨️🎵",
+        "answers": [
+            "Tangled",
+            "Frozen",
+            "Moana",
+            "Cinderella"
+        ],
+        "correctAnswer": "Frozen"
+    },
+    {
+        "type": "film",
+        "emoji": "🦁👑🌅🐗🐒",
+        "answers": [
+            "The Lion King",
+            "Madagascar",
+            "The Jungle Book",
+            "Finding Nemo"
+        ],
+        "correctAnswer": "The Lion King"
+    },
+    {
+        "type": "film",
+        "emoji": "🚀🌌👨‍🚀🌍🌕",
+        "answers": [
+            "Interstellar",
+            "Gravity",
+            "Apollo 13",
+            "The Martian"
+        ],
+        "correctAnswer": "Interstellar"
+    },
+    {
+        "type": "book",
+        "emoji": "🏰🧙‍♂️🦉✨⚡",
+        "answers": [
+            "Harry Potter",
+            "The Lord of the Rings",
+            "Eragon",
+            "Game of Thrones"
+        ],
+        "correctAnswer": "Harry Potter"
+    },
+    {
+        "type": "book",
+        "emoji": "🐳⚓📜🌊🚣",
+        "answers": [
+            "Moby Dick",
+            "Treasure Island",
+            "The Old Man and the Sea",
+            "Life of Pi"
+        ],
+        "correctAnswer": "Moby Dick"
+    },
+    {
+        "type": "book",
+        "emoji": "🧛‍♂️🦇🌌💔📖",
+        "answers": [
+            "Dracula",
+            "Twilight",
+            "Interview with the Vampire",
+            "The Vampire Chronicles"
+        ],
+        "correctAnswer": "Dracula"
+    },
+    {
+        "type": "book",
+        "emoji": "🧝‍♂️💍🌋🌳🗡️",
+        "answers": [
+            "The Lord of the Rings",
+            "The Hobbit",
+            "Eragon",
+            "Chronicles of Narnia"
+        ],
+        "correctAnswer": "The Lord of the Rings"
+    },
+    {
+        "type": "book",
+        "emoji": "🧪🔬💡🚀🌌",
+        "answers": [
+            "Frankenstein",
+            "The Time Machine",
+            "20,000 Leagues Under the Sea",
+            "The War of the Worlds"
+        ],
+        "correctAnswer": "The Time Machine"
+    },
+    {
+        "type": "anime",
+        "emoji": "🍙⚔️👹🌸🎌",
+        "answers": [
+            "Naruto",
+            "Demon Slayer",
+            "Attack on Titan",
+            "Bleach"
+        ],
+        "correctAnswer": "Demon Slayer"
+    },
+    {
+        "type": "anime",
+        "emoji": "☠️👒🏴‍☠️🌊⚓",
+        "answers": [
+            "One Piece",
+            "Black Lagoon",
+            "Attack on Titan",
+            "Naruto"
+        ],
+        "correctAnswer": "One Piece"
+    },
+    {
+        "type": "anime",
+        "emoji": "⚡🏎️💨🔥🏁",
+        "answers": [
+            "Initial D",
+            "Speed Racer",
+            "Akira",
+            "Redline"
+        ],
+        "correctAnswer": "Initial D"
+    },
+    {
+        "type": "anime",
+        "emoji": "🎻✨👩‍👦🎹🌸",
+        "answers": [
+            "Your Lie in April",
+            "Clannad",
+            "A Silent Voice",
+            "Spirited Away"
+        ],
+        "correctAnswer": "Your Lie in April"
+    },
+    {
+        "type": "anime",
+        "emoji": "👩‍🍳🍜🍥🗾🎎",
+        "answers": [
+            "Food Wars",
+            "Naruto",
+            "My Neighbor Totoro",
+            "Ponyo"
+        ],
+        "correctAnswer": "Food Wars"
+    }
+]
+
