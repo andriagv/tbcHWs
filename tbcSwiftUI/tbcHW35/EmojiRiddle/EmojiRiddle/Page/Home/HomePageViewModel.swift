@@ -14,6 +14,3 @@ final class HomePageViewModel {
         return manager.mockQuestion.filter { $0.type == type }
     }
 }
-
-
-

@@ -17,6 +17,7 @@ final class HomeViewControler: UIViewController {
     lazy var filmButton = makeButton(title: "ფილმები")
     lazy var bookButton = makeButton(title: "წიგნები")
     lazy var animeButton = makeButton(title: "ანიმეები")
+    
     var ruleButton: UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false

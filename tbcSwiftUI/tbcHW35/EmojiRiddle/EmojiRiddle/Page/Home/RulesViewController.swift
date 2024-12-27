@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RulesViewController: UIViewController {
+final class RulesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,10 +15,8 @@ class RulesViewController: UIViewController {
     }
     
     private func setupUI() {
-        // ფონის ფერი
         view.backgroundColor = UIColor(red: 230/255, green: 245/255, blue: 255/255, alpha: 1.0)
         
-        // სათაური
         let titleLabel = UILabel()
         titleLabel.text = "📜 წესები"
         titleLabel.font = UIFont(name: "Avenir-Heavy", size: 28)
@@ -26,7 +24,6 @@ class RulesViewController: UIViewController {
         titleLabel.textColor = UIColor(red: 50/255, green: 80/255, blue: 120/255, alpha: 1.0)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        // წესები
         let rulesLabel = UILabel()
         rulesLabel.text = """
         გამარჯობა ჩემო მოთამაშე! სანამ თამაშს დაიწყებ, გაეცანი წესებს:
@@ -43,7 +40,6 @@ class RulesViewController: UIViewController {
         rulesLabel.textColor = UIColor(red: 30/255, green: 60/255, blue: 90/255, alpha: 1.0)
         rulesLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        // ლეიბლების კონტეინერი
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.white
         backgroundView.layer.cornerRadius = 15
@@ -62,7 +58,6 @@ class RulesViewController: UIViewController {
         backgroundView.addSubview(stackView)
         view.addSubview(backgroundView)
         
-        // Auto Layout
         NSLayoutConstraint.activate([
             backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),

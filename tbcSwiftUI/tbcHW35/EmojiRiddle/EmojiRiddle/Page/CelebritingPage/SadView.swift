@@ -27,21 +27,17 @@ struct SadView: View {
                     .scaleEffect(scaleEffect)
                     .opacity(opacity)
                     .animation(.easeInOut(duration: 1), value: scaleEffect)
-                
                 Text("შენი ქულაა:")
                     .font(.title)
                     .foregroundColor(.white)
-                
                 Text("\(totalScore, specifier: "%.1f") ქულა")
                     .font(.system(size: 50, weight: .bold, design: .rounded))
                     .foregroundColor(.red)
                     .shadow(radius: 10)
                     .scaleEffect(scaleEffect)
                     .opacity(opacity)
-                    .animation(.easeInOut(duration: 1).delay(0.3), value: scaleEffect)
-                
+                    .animation(.easeInOut(duration: 1).delay(0.3), value: scaleEffect) 
                 Spacer()
-                
                 Text("გთხოვთ, სცადეთ კვლავ")
                     .font(.headline)
                     .foregroundColor(.white)
