@@ -30,7 +30,7 @@ struct QuestionListView: View {
         }
         .padding()
         .background(Color(uiColor: .systemBlue).gradient.opacity(0.5))
-        .fullScreenCover(isPresented: $showCongratulations) {
+        .sheet(isPresented: $showCongratulations) {
             if !viewModel.choseView() {
                 SadView(totalScore: viewModel.totalScore)
             } else {
@@ -39,4 +39,21 @@ struct QuestionListView: View {
         }
     }
 }
+
+
+
+
+
+// .fullScreenCover(isPresented: $showCongratulations) {
+//            NavigationStack {
+//                if !viewModel.choseView() {
+//                    NavigationLink(destination: SadView(totalScore: viewModel.totalScore)) {
+//                        SadView(totalScore: viewModel.totalScore)
+//                    }
+//                } else {
+//                    NavigationLink(destination: CongratulationsView(totalScore: viewModel.totalScore)) {
+//                        CongratulationsView(totalScore: viewModel.totalScore)                    }
+//                }
+//            }
+//        }
 
