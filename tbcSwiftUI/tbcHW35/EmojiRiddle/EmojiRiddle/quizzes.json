@@ -1,0 +1,182 @@
+[
+    {
+        "id": "c2e3157b-4c8a-4a7d-80c1-ff0845ec8a2f",
+        "type": "film",
+        "emoji": "🏴\u200d☠️⚔️🌊🗺️☠️",
+        "answers": [
+            "Pirates of the Caribbean",
+            "Treasure Island",
+            "Captain Phillips",
+            "Robinson Crusoe"
+        ],
+        "correctAnswer": "Pirates of the Caribbean",
+        "hint": "Adventure on the high seas",
+        "isAnswered": false,
+        "scores": 0
+    },
+    {
+        "id": "21e4a9a0-73c5-4da4-9a6f-24c9e5a6d7f9",
+        "type": "film",
+        "emoji": "🕶️🌃🖤🔫💊",
+        "answers": [
+            "The Matrix",
+            "Blade Runner",
+            "Inception",
+            "The Dark Knight"
+        ],
+        "correctAnswer": "The Matrix",
+        "hint": "Red pill or blue pill?",
+        "isAnswered": false,
+        "scores": 0
+    },
+    {
+        "id": "1de2e347-f96c-4b1e-b13e-70db6d45b89b",
+        "type": "film",
+        "emoji": "👸❄️⛄🌨️🎵",
+        "answers": [
+            "Tangled",
+            "Frozen",
+            "Moana",
+            "Cinderella"
+        ],
+        "correctAnswer": "Frozen",
+        "hint": "Let it go!",
+        "isAnswered": false,
+        "scores": 0
+    },
+    {
+        "id": "8fba6e26-502b-4d18-aad1-e04f8c80e0a2",
+        "type": "film",
+        "emoji": "🦁👑🌅🐗🐒",
+        "answers": [
+            "The Lion King",
+            "Madagascar",
+            "The Jungle Book",
+            "Finding Nemo"
+        ],
+        "correctAnswer": "The Lion King",
+        "hint": "Circle of life",
+        "isAnswered": false,
+        "scores": 0
+    },
+    {
+        "id": "8b95d839-508b-4a80-baa3-453f45d9059e",
+        "type": "film",
+        "emoji": "🚀🌌👨‍🚀🌍🌕",
+        "answers": [
+            "Interstellar",
+            "Gravity",
+            "Apollo 13",
+            "The Martian"
+        ],
+        "correctAnswer": "Interstellar",
+        "hint": "Love transcends dimensions",
+        "isAnswered": false,
+        "scores": 0
+    },
+    {
+        "id": "78cddf56-5f56-4e73-900f-1b0c6ccbd923",
+        "type": "film",
+        "emoji": "🦖🌴🚁🦕🌋",
+        "answers": [
+            "Jurassic Park",
+            "King Kong",
+            "Godzilla",
+            "The Land Before Time"
+        ],
+        "correctAnswer": "Jurassic Park",
+        "hint": "Dinosaurs come to life",
+        "isAnswered": false,
+        "scores": 0
+    },
+    {
+        "id": "92d7260f-6c3d-46e2-8c36-4a7b29b67482",
+        "type": "film",
+        "emoji": "🤠🐍🌵🚂💰",
+        "answers": [
+            "Indiana Jones",
+            "The Good, the Bad, and the Ugly",
+            "Django Unchained",
+            "True Grit"
+        ],
+        "correctAnswer": "The Good, the Bad, and the Ugly",
+        "hint": "Classic western showdown",
+        "isAnswered": false,
+        "scores": 0
+    },
+    {
+        "id": "e6d93b4e-92d8-4dd9-84d3-84b7891327fa",
+        "type": "book",
+        "emoji": "📖🏰⚔️🐉👑",
+        "answers": [
+            "Game of Thrones",
+            "The Hobbit",
+            "The Lord of the Rings",
+            "Eragon"
+        ],
+        "correctAnswer": "Game of Thrones",
+        "hint": "Winter is coming",
+        "isAnswered": false,
+        "scores": 0
+    },
+    {
+        "id": "1392cf77-3889-4fa0-b10a-60d2c3a8d221",
+        "type": "book",
+        "emoji": "🧙‍♂️💍🔥🌋👣",
+        "answers": [
+            "The Hobbit",
+            "The Lord of the Rings",
+            "Harry Potter",
+            "Percy Jackson"
+        ],
+        "correctAnswer": "The Lord of the Rings",
+        "hint": "One ring to rule them all",
+        "isAnswered": false,
+        "scores": 0
+    },
+    {
+        "id": "4d74e1c7-4924-4d5d-a065-eeb11e7cce12",
+        "type": "book",
+        "emoji": "👦⚡🧙‍♀️🦉🏰",
+        "answers": [
+            "Percy Jackson",
+            "Harry Potter",
+            "Eragon",
+            "Narnia"
+        ],
+        "correctAnswer": "Harry Potter",
+        "hint": "The boy who lived",
+        "isAnswered": false,
+        "scores": 0
+    },
+    {
+        "id": "00cf6b1a-ff21-456f-8bd1-1d3d9d3f5b30",
+        "type": "anime",
+        "emoji": "🍣🍙⛩️🎌🥋",
+        "answers": [
+            "Naruto",
+            "One Piece",
+            "Demon Slayer",
+            "Jujutsu Kaisen"
+        ],
+        "correctAnswer": "Naruto",
+        "hint": "Believe it!",
+        "isAnswered": false,
+        "scores": 0
+    },
+    {
+        "id": "53c2ab09-4818-4b79-8c3e-34c8a879e5f7",
+        "type": "anime",
+        "emoji": "⚔️🎩🚢🦜🏴‍☠️",
+        "answers": [
+            "One Piece",
+            "Black Clover",
+            "Bleach",
+            "Attack on Titan"
+        ],
+        "correctAnswer": "One Piece",
+        "hint": "King of the pirates",
+        "isAnswered": false,
+        "scores": 0
+    }
+]

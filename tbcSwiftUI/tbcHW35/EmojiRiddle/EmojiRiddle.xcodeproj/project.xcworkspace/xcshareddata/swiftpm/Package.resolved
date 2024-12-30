@@ -1,0 +1,15 @@
+{
+  "originHash" : "b39003fb5660d05da7fb827c4be0dbe598e5eeb36acded0871a5c5de8d46513e",
+  "pins" : [
+    {
+      "identity" : "izzigradient",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Desp0o/izziGradient.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "831561caca4d86a331c8a37498471a53044c7864"
+      }
+    }
+  ],
+  "version" : 3
+}
