@@ -17,7 +17,7 @@ It mirrors the core functionality of a physical calculator while introducing a s
 ---
 
 ## 📸 Screenshots
-
+![Gray and Black Modern Handphone Mockup Instagram Story](https://github.com/user-attachments/assets/476aa48d-8460-492c-abbd-35e3cb808c76)
 
 ---
 
