@@ -68,6 +68,7 @@ This project demonstrates:
 
 ## 📸 Screenshots
 
+![Navy Blue User Testimonial with Phone Mock up Modern Instagram Post](https://github.com/user-attachments/assets/6cca7159-70e2-464c-bb21-0cec29eed613)
 
 ---
 
