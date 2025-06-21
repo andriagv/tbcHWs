@@ -1,4 +1,4 @@
-# ❓ Quiz App – Answer Questions & Gain Points
+# ❓ Quiz App
 
 A lightweight and engaging **Quiz App** built with **UIKit**, where users can answer trivia questions, earn points, and seamlessly continue their progress across sessions.  
 This project showcases **data persistence**, **local storage**, and **secure authentication** using native iOS frameworks.
@@ -53,6 +53,7 @@ It demonstrates how to:
 ---
 
 ## 📸 Screenshots
+![Navy Blue User Testimonial with Phone Mock up Modern Instagram Post (1)](https://github.com/user-attachments/assets/610d4adc-4cbf-4298-888a-c1497f4ab02e)
 
 ---
 
