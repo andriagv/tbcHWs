@@ -16,10 +16,10 @@ Designed with clarity, performance, and modern iOS development practices in mind
 ---
 
 ## 📱 Screens
-
 - 📰 **News Feed** — Infinite scroll with clean UI.
 - 📖 **News Detail** — Full view of selected articles.
-- 🚫 **Empty/Error States** — Friendly UX for edge cases and no-internet scenarios.
+
+![Navy Blue User Testimonial with Phone Mock up Modern Instagram Post](https://github.com/user-attachments/assets/74243eca-5b18-44bf-8ef3-0e829ba32bea)
 
 ---
 
