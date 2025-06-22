@@ -32,7 +32,14 @@
 ---
 
 ## 📸 Screenshots
-
+<div>
+   <img src="https://github.com/user-attachments/assets/14a3ed78-c505-485a-b8be-5180d70ffed3" width="300"/>
+   <img src="https://github.com/user-attachments/assets/5d09fb28-0bd5-43a9-a013-b7a6547649b1" width="300"/>
+   <img src="https://github.com/user-attachments/assets/ed989806-7bba-47ab-9ab0-07443b83583f" width="300"/>
+   <img src="https://github.com/user-attachments/assets/2943ed7b-40a3-42c3-9cc8-23613535643a" width="300"/>
+   <img src="https://github.com/user-attachments/assets/4d134f0c-2741-4283-ac65-89c7f7a4a21b" width="300"/>
+   <img src="https://github.com/user-attachments/assets/3e3bc5da-d2f5-4b50-9fb7-a9e7e82cfd91" width="300"/>  
+</div>
 
 ---
 
