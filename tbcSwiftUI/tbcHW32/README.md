@@ -71,5 +71,12 @@ This app demonstrates:
 
 ## 📸 Screenshots
 
+<img src="https://github.com/user-attachments/assets/3664de3e-8164-4b34-b346-313a86b23208" width="500"/>
+<img src="https://github.com/user-attachments/assets/2256240d-eb36-4d2d-9257-c3434ab6d1ac" width="500"/>
+
+---
+<img src="https://github.com/user-attachments/assets/4b183bbf-4992-4210-9095-ea1732927822" width="500"/>
+<img src="https://github.com/user-attachments/assets/0bf41e9f-9988-48d3-a7a0-435a9434d50e" width="500"/>
+
 ---
 
