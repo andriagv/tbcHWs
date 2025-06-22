@@ -25,7 +25,6 @@
 
 - 🧾 **Swift**
 - ✨ **SwiftUI**
-- 🤖 **Together AI API** – for emoji-based content generation
 - 💾 **UserDefaults** – to store score and progress
 - 🎯 **MVVM Architecture**
 
